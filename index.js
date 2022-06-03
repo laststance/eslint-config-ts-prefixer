@@ -1,0 +1,87 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
+  extends: ['plugin:jsx-a11y/recommended'],
+  globals: {
+    JSX: 'readonly',
+  },
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    'jsx-a11y',
+    'import',
+    'sort-keys-fix',
+    'react-hooks',
+    '@typescript-eslint',
+    'prettier',
+  ],
+  root: true,
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/prefer-as-const': 'warn',
+    'import/default': 'error',
+    'import/dynamic-import-chunkname': 'error',
+    'import/export': 'error',
+    'import/named': 'error',
+    'import/no-anonymous-default-export': 'off',
+    'import/no-duplicates': 'error',
+    'import/no-named-as-default': 'error',
+    'import/no-named-as-default-member': 'off',
+    'import/no-unresolved': 'error',
+    'import/order': [
+      'warn',
+      {
+        alphabetize: {
+          caseInsensitive: true,
+          order: 'asc',
+        },
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+        ],
+        'newlines-between': 'always',
+      },
+    ],
+    'no-alert': 'error',
+    'no-console': 'error',
+    'no-dupe-keys': 'error',
+    'no-unused-private-class-members': 'error',
+    'prettier/prettier': [
+      'warn',
+      {},
+      {
+        properties: {
+          usePrettierrc: true,
+        },
+      },
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'sort-keys-fix/sort-keys-fix': 'warn',
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        project: ['tsconfig.json'],
+      },
+    },
+    react: {
+      version: 'detect',
+    },
+  },
+}

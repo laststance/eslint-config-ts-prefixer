@@ -1,0 +1,50 @@
+{
+  "name": "eslint-config-typescript-react-pro-beautiful",
+  "version": "0.0.0",
+  "description": "ESLint rules that specialized specialized for React + TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful"
+  },
+  "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful/issues"
+  },
+  "homepage": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "prettier": "^2.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.2"
+  },
+  "peerDependencies": {
+    "typescript": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "eslintConfig": {
+    "extends": "./index.js"
+  },
+  "eslintIgnore": [
+    "node_modules"
+  ]
+}
