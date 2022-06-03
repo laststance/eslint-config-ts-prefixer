@@ -1,5 +1,5 @@
 <div align="center">
-<h1>eslint-beautiful-config-react-typescript-pro</h1>
+<h1>eslint-config-react-typescript-pro-beautiful</h1>
 
 <p>ESLint rules for all of my React + TypesScript projects. Feel free to use these conventions :-)</p>
 </div>
