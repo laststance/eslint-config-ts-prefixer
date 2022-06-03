@@ -23,7 +23,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
     'import/default': 'error',
-    'import/dynamic-import-chunkname': 'error',
     'import/export': 'error',
     'import/named': 'error',
     'import/no-anonymous-default-export': 'off',
