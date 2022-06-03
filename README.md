@@ -23,7 +23,7 @@ Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
 
 ```json
 {
-  "extends": "eslint-beautiful-config-react-typescript-pro"
+  "extends": "react-typescript-pro-beautiful"
 }
 ```
 
