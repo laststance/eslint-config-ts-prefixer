@@ -13,7 +13,6 @@ should be installed as one of your project's `devDependencies`:
 
 ```
 npm install --save-dev eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier
-
 ```
 or using yarn
 
