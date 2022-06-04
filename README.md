@@ -1,7 +1,7 @@
 <div align="center">
 <h1>eslint-config-react-typescript-pro-beautiful</h1>
 
-<p>ESLint rules for all of my React + TypesScript projects. Feel free to use these conventions :-)</p>
+<p>ESLint rules for all of my React + TypesScript projects. Without <a href="https://stackoverflow.com/questions/58866796/understanding-the-react-hooks-exhaustive-deps-lint-rule">exhaustive-deps</a> rule :-)</p>
 </div>
 
 ---
