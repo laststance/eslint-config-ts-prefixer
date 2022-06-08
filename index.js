@@ -20,6 +20,7 @@ module.exports = {
   ],
   root: true,
   rules: {
+    '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
     'import/default': 'error',
