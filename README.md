@@ -6,6 +6,13 @@
 
 ---
 
+### This config is:
+
+- ✅ No meaningless rules.
+- ✅ Only extend `eslint-plugin-jsx-a11y:recommend` for UX, there is no hidden rules applying.
+- ✅ Include all dependency package.(except `eslint-prettier-plugin`)
+
+
 ## Installation
 
 This module is distributed via npm which is bundled with node and
