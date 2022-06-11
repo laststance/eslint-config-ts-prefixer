@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
-    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\"",
-    "release": "release"
+    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,6 @@
     "prettier": "^2.6.2"
   },
   "devDependencies": {
-    "release": "^6.3.1",
     "typescript": "^4.7.3"
   },
   "peerDependencies": {
