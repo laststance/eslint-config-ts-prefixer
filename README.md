@@ -180,9 +180,9 @@ or using yarn
 yarn add -D typescript
 ```
 
-## Usage
+## Setup
 
-Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
+1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
 
 ```json
 {
@@ -190,7 +190,7 @@ Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
 }
 ```
 
-And need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
+2. And need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
 ```json
