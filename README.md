@@ -14,7 +14,9 @@
 - ✅ Include all dependency package.(except `eslint-prettier-plugin`)
 - 👋 Good by `// eslint-disable-next-line react-hooks/exhaustive-deps`
 
-![deps.gif](./deps.gif)
+<div align="center">
+  <img src="./deps.gif" width="500" height="400" />
+</div>
 
 
 ### `Index.js` : All plugins/config/rules this package includes.
