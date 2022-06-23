@@ -16,7 +16,7 @@
 
 
 
-<div align="left">
+<div align="center">
     <img src="./deps.gif" width="400" height="300" />
 </div>
 
