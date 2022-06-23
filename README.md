@@ -115,7 +115,7 @@ module.exports = {
 }
 ```
 
-and `extends: ['plugin:jsx-a11y/recommended']` rule sets.
+### And all extended rules by `extends: ['plugin:jsx-a11y/recommended']`.
 
 <!-- AUTO-GENERATED-CONTENT:START (TABLE) -->
 | Rule | Recommended | 
@@ -158,38 +158,33 @@ and `extends: ['plugin:jsx-a11y/recommended']` rule sets.
 | [tabindex-no-positive](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/tabindex-no-positive.md) | error |
 <!-- AUTO-GENERATED-CONTENT:END -->
 
+---
 
 ## Installation
 
 This module is distributed via npm which is bundled with node and
 should be installed as one of your project's `devDependencies`:
 
-```
-npm install --save-dev eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier
+```bash
+npm install --save-dev eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier typescript
 ```
 or using yarn
 
-```
-yarn add -D eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier
-```
-
-And install Typescript if you have not installed Typescript.  
-Because This package has a `peerDependencies` for TypeScirpt.[^1]  
-
-```
-npm install --save-dev typescript
+```bash
+yarn add -D eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier typescript
 ```
 
-or using yarn
+---
 
-```
-yarn add -D typescript
-```
+> `Typescript` install is not required if you have aleady installed a Typescript.[^1]
+> Because This package has a `peerDependencies` for TypeScirpt.
+
 
 ## Required Setup
 
-1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
+1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
 
+・`.eslint.json`
 ```json
 {
   "extends": "typescript-react-pro-beautiful"
@@ -199,6 +194,7 @@ yarn add -D typescript
 2. And need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
+・`.prettierrc`
 ```json
 {
   "singleQuote": true,
@@ -212,3 +208,4 @@ MIT
 
 
 [^1]: The same thing The same thing can be said for React. General install guide skiped because author assumed almost peaople who trying getting start the library are already installed React and developing React application.)
+
