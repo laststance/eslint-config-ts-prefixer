@@ -14,13 +14,17 @@
 - ✅ Include all dependency package.(except `eslint-prettier-plugin`)
 - 👋 Good by `// eslint-disable-next-line react-hooks/exhaustive-deps`
 
-<div align="center">
-  <img src="./deps.gif" width="500" height="400" />
+
+
+<div align="left">
+    <img src="./deps.gif" width="400" height="300" />
 </div>
 
+----
 
-### `Index.js` : All plugins/config/rules this package includes.
+## Explicit all rule set 🔔
 
+- `Index.js`
 ```js
 module.exports = {
   env: {
@@ -182,7 +186,7 @@ or using yarn
 yarn add -D typescript
 ```
 
-## Setup
+## Required Setup
 
 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`:
 
