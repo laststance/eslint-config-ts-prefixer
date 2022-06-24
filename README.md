@@ -1,5 +1,5 @@
 <div align="center">
-<h1>eslint-config-typescript-react-pro-beautiful 🌈</h1>
+<h1>eslint-config-typescript-react-pro 🌈</h1>
 
 <p>ESLint rules for all of my React + TypesScript projects. Without <a href="https://stackoverflow.com/questions/58866796/understanding-the-react-hooks-exhaustive-deps-lint-rule">exhaustive-deps</a> rule :-)</p>
 </div>
@@ -25,7 +25,7 @@
 ## Explicit all rule set 🔔
 
 - `Index.js`
-```js
+```javascript
 module.exports = {
   env: {
     browser: true,
@@ -166,12 +166,12 @@ This module is distributed via npm which is bundled with node and
 should be installed as one of your project's `devDependencies`:
 
 ```bash
-npm install --save-dev eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier typescript
+npm install --save-dev eslint-config-typescript-react-pro eslint-plugin-prettier typescript
 ```
 or using yarn
 
 ```bash
-yarn add -D eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier typescript
+yarn add -D eslint-config-typescript-react-pro eslint-plugin-prettier typescript
 ```
 
 ---
@@ -187,7 +187,7 @@ yarn add -D eslint-config-typescript-react-pro-beautiful eslint-plugin-prettier 
 ・`.eslint.json`
 ```json
 {
-  "extends": "typescript-react-pro-beautiful"
+  "extends": "typescript-react-pro"
 }
 ```
 

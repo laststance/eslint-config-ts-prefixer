@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-typescript-react-pro-beautiful",
+  "name": "eslint-config-typescript-react-pro",
   "version": "1.2.1",
   "description": "ESLint rules that specialized specialized for React + TypeScript",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful"
+    "url": "https://github.com/laststance/eslint-config-react-typescript-pro"
   },
   "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful/issues"
+    "url": "https://github.com/laststance/eslint-config-react-typescript-pro/issues"
   },
-  "homepage": "https://github.com/laststance/eslint-config-react-typescript-pro-beautiful",
+  "homepage": "https://github.com/laststance/eslint-config-react-typescript-pro",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
