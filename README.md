@@ -166,12 +166,12 @@ This module is distributed via npm which is bundled with node and
 should be installed as one of your project's `devDependencies`:
 
 ```bash
-npm install --save-dev eslint-config-typescript-react-pro eslint-plugin-prettier typescript
+npm install --save-dev eslint-config-typescript-react-pro typescript
 ```
 or using yarn
 
 ```bash
-yarn add -D eslint-config-typescript-react-pro eslint-plugin-prettier typescript
+yarn add -D eslint-config-typescript-react-pro typescript
 ```
 
 ---
@@ -184,7 +184,7 @@ yarn add -D eslint-config-typescript-react-pro eslint-plugin-prettier typescript
 
 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
 
-・`.eslintrc.json`
+- ```.eslintrc.json```
 ```json
 {
   "extends": "typescript-react-pro"
@@ -194,7 +194,7 @@ yarn add -D eslint-config-typescript-react-pro eslint-plugin-prettier typescript
 2. And need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
-・`.prettierrc`
+- ```.prettierrc```
 ```json
 {
   "singleQuote": true,
