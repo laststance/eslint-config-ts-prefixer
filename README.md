@@ -24,7 +24,7 @@
 
 ## Explicit all rule set 🔔
 
-- `Index.js`
+- `index.js`
 ```javascript
 module.exports = {
   env: {
