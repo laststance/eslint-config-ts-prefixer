@@ -184,7 +184,7 @@ yarn add -D eslint-config-typescript-react-pro eslint-plugin-prettier typescript
 
 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
 
-・`.eslint.json`
+・`.eslintrc.json`
 ```json
 {
   "extends": "typescript-react-pro"
