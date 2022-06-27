@@ -114,9 +114,14 @@ module.exports = {
   },
 }
 ```
+<br>
 
-### And all extended rules by `extends: ['plugin:jsx-a11y/recommended']`.
+<details>
 
+<summary><b>And all extended rules by extends: ['plugin:jsx-a11y/recommended']</b></summary>
+
+<br>    
+    
 <!-- AUTO-GENERATED-CONTENT:START (TABLE) -->
 | Rule | Recommended | 
 | :--- | :--- | 
@@ -158,6 +163,8 @@ module.exports = {
 | [tabindex-no-positive](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/tabindex-no-positive.md) | error |
 <!-- AUTO-GENERATED-CONTENT:END -->
 
+</details> 
+    
 ---
 
 ## Installation
