@@ -53,6 +53,7 @@ module.exports = {
     'no-alert': 'error',
     'no-console': 'error',
     'no-dupe-keys': 'error',
+    'no-empty-pattern': 'error',
     'no-unused-private-class-members': 'error',
     'prettier/prettier': [
       'warn',
