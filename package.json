@@ -18,20 +18,20 @@
   },
   "homepage": "https://github.com/laststance/eslint-config-react-typescript-pro",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
-    "eslint": "^8.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
     "typescript": "^4.0.0"
