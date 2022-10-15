@@ -76,6 +76,7 @@ module.exports = {
     'no-console': 'error',
     'no-dupe-keys': 'error',
     'no-unused-private-class-members': 'error',
+    'prefer-const': 'error',
     'prettier/prettier': [
       'warn',
       {},
