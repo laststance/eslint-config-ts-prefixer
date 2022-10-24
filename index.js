@@ -56,7 +56,7 @@ module.exports = {
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
     'no-unused-private-class-members': 'error',
-    'prefer-const': 'error',
+    'prefer-const': 'warn',
     'prettier/prettier': [
       'warn',
       {},
