@@ -23,7 +23,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
-    eqeqeq: ['error', 'always'],
+    'eqeqeq': ['error', 'always'],
     'import/default': 'error',
     'import/export': 'error',
     'import/named': 'error',
