@@ -168,12 +168,12 @@ This module is distributed via npm which is bundled with node and
 should be installed as one of your project's `devDependencies`:
 
 ```bash
-npm install --save-dev eslint-config-typescript-react-pro typescript
+npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-typescript-react-pro typescript eslint-config-prettier eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-react-hooks eslint-plugin-sort-keys-fix eslint-plugin-jsx-a11y prettier
 ```
 or using yarn
 
 ```bash
-yarn add -D eslint-config-typescript-react-pro typescript
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-typescript-react-pro typescript eslint-config-prettier eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-react-hooks eslint-plugin-sort-keys-fix eslint-plugin-jsx-a11y prettier
 ```
 
 ---
