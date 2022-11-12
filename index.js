@@ -1,15 +1,18 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
     jest: true,
     node: true,
+    es2021: true,
   },
   extends: ['plugin:jsx-a11y/recommended'],
   globals: {
     JSX: 'readonly',
   },
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest'
+  },
   plugins: [
     'jsx-a11y',
     'import',
