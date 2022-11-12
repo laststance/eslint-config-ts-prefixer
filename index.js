@@ -1,9 +1,9 @@
 module.exports = {
   env: {
     browser: true,
+    es2021: true,
     jest: true,
     node: true,
-    es2021: true,
   },
   extends: ['plugin:jsx-a11y/recommended'],
   globals: {
@@ -11,7 +11,7 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
   },
   plugins: [
     'jsx-a11y',
@@ -26,7 +26,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
-    'eqeqeq': ['error', 'always'],
+    eqeqeq: ['error', 'always'],
     'import/default': 'error',
     'import/export': 'error',
     'import/named': 'error',
