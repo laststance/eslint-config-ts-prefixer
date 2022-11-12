@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-ts-fixer",
+  "name": "eslint-config-ts-prefixer",
   "version": "0.0.1",
   "description": "ESLint rules that specialized TypeScript",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laststance/eslint-config-ts-fixer"
+    "url": "https://github.com/laststance/eslint-config-ts-prefixer"
   },
   "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laststance/eslint-config-ts-fixer/issues"
+    "url": "https://github.com/laststance/eslint-config-ts-prefixer/issues"
   },
-  "homepage": "https://github.com/laststance/eslint-config-ts-fixer",
+  "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
   "dependencies": {},
   "devDependencies": {
     "typescript": "^4.8.4",
