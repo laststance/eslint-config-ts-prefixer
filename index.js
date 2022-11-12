@@ -5,22 +5,11 @@ module.exports = {
     jest: true,
     node: true,
   },
-  extends: ['plugin:jsx-a11y/recommended'],
-  globals: {
-    JSX: 'readonly',
-  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
   },
-  plugins: [
-    'jsx-a11y',
-    'import',
-    'sort-keys-fix',
-    'react-hooks',
-    '@typescript-eslint',
-    'prettier',
-  ],
+  plugins: ['import', 'sort-keys-fix', '@typescript-eslint', 'prettier'],
   root: true,
   rules: {
     '@typescript-eslint/consistent-type-imports': 'warn',
@@ -69,7 +58,6 @@ module.exports = {
         },
       },
     ],
-    'react-hooks/rules-of-hooks': 'error',
     'sort-keys-fix/sort-keys-fix': 'warn',
   },
   settings: {
@@ -78,16 +66,13 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
       },
       typescript: {
         alwaysTryTypes: true,
         // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         project: ['tsconfig.json'],
       },
-    },
-    react: {
-      version: 'detect',
     },
   },
 }
