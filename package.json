@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-typescript-react-pro",
-  "version": "1.9.1",
-  "description": "ESLint rules that specialized specialized for React + TypeScript",
+  "name": "eslint-config-ts-fixer",
+  "version": "0.0.1",
+  "description": "ESLint rules that specialized TypeScript",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laststance/eslint-config-react-typescript-pro"
+    "url": "https://github.com/laststance/eslint-config-ts-fixer"
   },
   "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laststance/eslint-config-react-typescript-pro/issues"
+    "url": "https://github.com/laststance/eslint-config-ts-fixer/issues"
   },
-  "homepage": "https://github.com/laststance/eslint-config-react-typescript-pro",
+  "homepage": "https://github.com/laststance/eslint-config-ts-fixer",
   "dependencies": {},
   "devDependencies": {
     "typescript": "^4.8.4",
