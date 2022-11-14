@@ -3,8 +3,6 @@ node_modules
 CONTRIBUTING.md
 .github
 .idea
-.prettierignore
-.prettierrc
 yarn.lock
 yarn-error.log
 deps.gif
