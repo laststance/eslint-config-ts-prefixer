@@ -1,5 +1,5 @@
-module.export = {
-  extends: 'ts-prefixer',
+module.exports = {
+  extends: ['ts-prefixer'],
   globals: {},
   plugins: [],
   rules: {},

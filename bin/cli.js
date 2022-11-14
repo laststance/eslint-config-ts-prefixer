@@ -43,8 +43,8 @@ program
       await createPrettierConfig()
       return
     }
-    if (options.eslint === true)  await createESLintConfig()
-    if (options.prettier === true)  await createPrettierConfig()
+    if (options.eslint === true) await createESLintConfig()
+    if (options.prettier === true) await createPrettierConfig()
   })
 
 // run
