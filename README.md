@@ -7,13 +7,11 @@
 ---
 
 ### This config is:
-
+- ✅ Specialized fixable formatting rules.
 - ✅ No meaningless rules.
-- ✅ All containing rules are explicit.
+- ✅ All containing rules are [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js).
 
 ----
-
-## Explicit all rule set 🔔
 
     
 ---
@@ -29,7 +27,15 @@ or using yarn
 yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-config-prettier eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
-1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
+And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command.
+
+```bash
+npx eslint-config-ts-prefixer config
+```
+
+Or create, adding "ts-prefixer" in "extends" field manually.  
+
+##### 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
 
 - ```.eslintrc.json```
 ```json
@@ -38,7 +44,7 @@ yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 }
 ```
 
-2. And need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
+##### 2. Need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
 - ```.prettierrc```
