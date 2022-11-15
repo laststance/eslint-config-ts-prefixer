@@ -5,5 +5,4 @@ CONTRIBUTING.md
 .idea
 yarn.lock
 yarn-error.log
-deps.gif
-node_modules
+assets
