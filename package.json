@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
   "dependencies": {
-    "commander": "^9.4.1",
+    "commander": "^9.5.0",
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
