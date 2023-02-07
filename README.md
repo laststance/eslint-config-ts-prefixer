@@ -38,7 +38,7 @@ npx eslint-config-ts-prefixer config
 
 Or create, adding "ts-prefixer" in "extends" field manually.  
 
-##### 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
+### 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
 
 - ```.eslintrc.json```
 ```json
@@ -47,7 +47,7 @@ Or create, adding "ts-prefixer" in "extends" field manually.
 }
 ```
 
-##### 2. Need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
+### 2. Need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
 - ```.prettierrc```
