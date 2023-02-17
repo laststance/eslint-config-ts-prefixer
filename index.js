@@ -13,7 +13,7 @@ module.exports = {
   root: true,
   rules: {
     '@typescript-eslint/consistent-type-imports': 'warn',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': ['error', { args: 'after-used' }],
     '@typescript-eslint/prefer-as-const': 'warn',
     eqeqeq: ['error', 'always'],
     'import/default': 'error',
