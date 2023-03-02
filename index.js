@@ -45,6 +45,8 @@ module.exports = {
     ],
     'no-alert': 'error',
     'no-console': 'error',
+    'no-constant-binary-expression': 'error',
+    'no-constant-condition': 'error',
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
     'no-unused-private-class-members': 'error',
