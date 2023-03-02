@@ -13,7 +13,10 @@ module.exports = {
   root: true,
   rules: {
     '@typescript-eslint/consistent-type-imports': 'warn',
-    '@typescript-eslint/no-unused-vars': ['error', { args: 'after-used' }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { args: 'after-used', ignoreRestSiblings: true },
+    ],
     '@typescript-eslint/prefer-as-const': 'warn',
     eqeqeq: ['error', 'always'],
     'import/default': 'error',
@@ -49,6 +52,7 @@ module.exports = {
     'no-constant-condition': 'error',
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
+    'no-extra-boolean-cast': 'error',
     'no-unused-private-class-members': 'error',
     'prefer-const': 'warn',
     'prettier/prettier': [
