@@ -30,12 +30,36 @@ or using yarn
 yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-config-prettier eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
+or using pnpm
+
+```bash
+pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-config-prettier eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+```
+
+---------------------------------------------------------------------------------
+## Create config files
+
 And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command.
 
 ```bash
 npx eslint-config-ts-prefixer config
 ```
 
+Now it's ready for use.  
+Add script your package.json like this
+
+```json
+{
+  "scripts": {
+    "lint:fix": "lint:fix": "eslint src --ext .ts,.tsx,.js,jsx --fix"
+  }
+ ~
+```
+
+Finally run that `npm run lint:fix`
+
+
+--------------------------------------------------------------------------------
 Or create, adding "ts-prefixer" in "extends" field manually.  
 
 ### 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
