@@ -65,6 +65,7 @@ module.exports = {
         },
       },
     ],
+    radix: 'error',
     'sort-keys-fix/sort-keys-fix': 'warn',
   },
   settings: {
