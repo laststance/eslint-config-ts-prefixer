@@ -7,7 +7,8 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersiofn: 'latest',
+    sourceType: 'module',
   },
   plugins: ['import', 'sort-keys-fix', '@typescript-eslint', 'prettier'],
   root: true,
