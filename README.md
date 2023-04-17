@@ -53,7 +53,7 @@ Add script your package.json like this
   "scripts": {
     "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix
   }
- ~
+}
 ```
 
 Finally run that `npm run lint:fix`
