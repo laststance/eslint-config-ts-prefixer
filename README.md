@@ -51,7 +51,7 @@ Add script your package.json like this
 ```json
 {
   "scripts": {
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
   }
 }
 ```
