@@ -26,10 +26,8 @@ module.exports = {
     'import/default': 'error',
     'import/export': 'error',
     'import/named': 'error',
-    'import/no-anonymous-default-export': 'off',
     'import/no-duplicates': 'error',
     'import/no-named-as-default': 'error',
-    'import/no-named-as-default-member': 'off',
     'import/no-unresolved': 'error',
     'import/order': [
       'warn',
