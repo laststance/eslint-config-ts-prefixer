@@ -5,6 +5,7 @@ module.exports = {
     jest: true,
     node: true,
   },
+  extends: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
