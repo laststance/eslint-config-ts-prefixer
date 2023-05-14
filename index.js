@@ -18,6 +18,7 @@ module.exports = {
   root: true,
   rules: {
     '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
       { args: 'after-used', ignoreRestSiblings: true },
