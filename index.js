@@ -24,7 +24,6 @@ module.exports = {
       'error',
       { args: 'after-used', ignoreRestSiblings: true },
     ],
-    '@typescript-eslint/no-use-before-define': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
     eqeqeq: ['error', 'always'],
     'import/default': 'error',
