@@ -54,7 +54,7 @@ module.exports = {
     ],
     'no-alert': 'error',
     'no-console': 'error',
-    'no-const-assign': 'error',
+    'no-redeclare': 'error,',
     'no-constant-binary-expression': 'error',
     'no-constant-condition': 'error',
     'no-dupe-keys': 'error',
