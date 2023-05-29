@@ -29,13 +29,13 @@ npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslin
 or using yarn
 
 ```bash
-yarn add -D npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
 ```
 
 or using pnpm
 
 ```bash
-pnpm add -D npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
 ```
 
 ---------------------------------------------------------------------------------
