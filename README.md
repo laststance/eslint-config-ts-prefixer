@@ -20,7 +20,7 @@
 ----
 
 ## Installation via node_module(general way)
-If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#Bareborn Install).
+If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#bareborn-install).
 
 ### 1. install necessary packages.
 
