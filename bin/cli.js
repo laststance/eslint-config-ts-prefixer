@@ -30,6 +30,7 @@ const destination = {
 }
 
 program.name('eslint-config-ts-prefixer')
+// npx eslint-config-ts-prefixer config
 program
   .command('config')
   .description(
@@ -46,6 +47,8 @@ program
     if (options.eslint === true) await createESLintConfig()
     if (options.prettier === true) await createPrettierConfig()
   })
+
+// npx eslint-config-ts-prefixer barebone
 
 // run
 program.parse()

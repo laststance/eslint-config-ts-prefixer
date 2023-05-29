@@ -19,7 +19,9 @@
 
 ----
 
-## Installation
+## Installation via npm()
+Barebone Install
+### 1. install necessary packages.
 
 ```bash
 npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
@@ -37,7 +39,7 @@ pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 ```
 
 ---------------------------------------------------------------------------------
-## Create config files
+###  Create config files
 
 And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command.
 
