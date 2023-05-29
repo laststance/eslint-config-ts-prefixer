@@ -108,7 +108,26 @@ pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser ty
 
 ### 2. run `npx eslint-config-ts-prefixer barebone`
 
-run `npx eslint-config-ts-prefixer barebone` and then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
+run  
+
+```bash
+npx eslint-config-ts-prefixer barebone
+```
+
+And then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
+
+Now it's ready for use.  
+Add script your package.json like this
+
+```json
+{
+  "scripts": {
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
+  }
+}
+```
+
+Finally run that `npm run lint:fix`
 
 
 ## LICENSE
