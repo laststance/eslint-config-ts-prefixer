@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-ts-prefixer",
   "version": "0.13.1",
-  "description": "ESLint rules that specialized TypeScript",
+  "description": "Zero extends ESLint config for TS. integrated Prettier.",
   "main": "index.js",
   "bin": "./bin/cli.js",
   "scripts": {
