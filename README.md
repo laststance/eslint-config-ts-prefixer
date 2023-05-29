@@ -19,8 +19,9 @@
 
 ----
 
-## Installation via npm()
-Barebone Install
+## Installation via node_module(general way)
+If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#Bareborn Install).
+
 ### 1. install necessary packages.
 
 ```bash
@@ -83,6 +84,32 @@ If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rul
   "semi": false
 }
 ```
+
+## Bareborn Install
+Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintconfig.js` file directly in your code base.  
+You can manage the rules yourself.
+
+### 1. install necessary packages.
+
+```bash
+npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+```
+or using yarn
+
+```bash
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+```
+
+or using pnpm
+
+```bash
+pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+```
+
+### 2. run `npx eslint-config-ts-prefixer barebone`
+
+run `npx eslint-config-ts-prefixer barebone` and then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
+
 
 ## LICENSE
 

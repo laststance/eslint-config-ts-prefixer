@@ -6,6 +6,7 @@ const process = require('node:process')
 const { Command } = require('commander')
 const inquirer = require('inquirer')
 const program = new Command()
+program.name('eslint-config-ts-prefixer')
 
 const rootDir = path.join(__dirname, '..')
 const configDir = path.join(rootDir, 'template', 'config')
@@ -29,7 +30,6 @@ const destination = {
   prettierrc: path.join(currentDir, file.prettierrc),
 }
 
-program.name('eslint-config-ts-prefixer')
 // npx eslint-config-ts-prefixer config
 program
   .command('config')
@@ -49,9 +49,20 @@ program
   })
 
 // npx eslint-config-ts-prefixer barebone
+program
+  .command('barebone')
+  .description('barebone install')
+  .action(async () => {
+    fs.copyFileSync(
+      path.join(rootDir, 'index.js'),
+      path.join(currentDir, '.eslintrc.js')
+    )
+    await copyConfig('eslintignore')
+    await createPrettierConfig()
+  })
 
 // run
-program.parse()
+program.parse(process.argv)
 
 // functions
 async function createESLintConfig() {
