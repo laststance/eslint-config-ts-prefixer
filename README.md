@@ -25,18 +25,18 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Bareb
 ### 1. install necessary packages.
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 or using yarn
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
 or using pnpm
 
 ```bash
-pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
 ---------------------------------------------------------------------------------
@@ -92,18 +92,18 @@ You can manage the rules yourself.
 ### 1. install necessary packages.
 
 ```bash
-npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 or using yarn
 
 ```bash
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
 or using pnpm
 
 ```bash
-pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier @babel/eslint-plugin eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-react eslint-plugin-standard eslint-plugin-unicorn eslint-plugin-vue
+pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
 ### 2. run `npx eslint-config-ts-prefixer barebone`
