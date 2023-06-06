@@ -7,9 +7,9 @@
 ---
 
 ### This config is:
+- ✅ Zero extend [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
 - ✅ Specialized fixable formatting rules.
-- ✅ No meaningless rules.
-- ✅ All containing rules are [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js).
+- ✅ Meamingful rules code behavior.
 
 ----
 
