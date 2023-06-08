@@ -13,10 +13,14 @@
 
 ----
 
-<div align="center">![carbon](https://github.com/laststance/eslint-config-ts-prefixer/assets/5501268/ecd9b954-adf3-48ab-a406-5506070aafd1)
-
+<div align="center">
 <!--     <img src="./assets/demo.gif" alt="demo"/> -->
 </div>
+
+----
+
+![carbon](https://github.com/laststance/eslint-config-ts-prefixer/assets/5501268/ecd9b954-adf3-48ab-a406-5506070aafd1)
+
 
 ----
 
