@@ -22,7 +22,7 @@
 
 ----
 
-## Installation via node_module(general way)
+# Installation via node_module(general way)
 If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#bareborn-install).
 
 ### 1. install necessary packages.
@@ -88,7 +88,7 @@ If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rul
 }
 ```
 
-## Bareborn Install
+# Bareborn Install
 Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintconfig.js` file directly in your code base.  
 You can manage the rules yourself.
 
