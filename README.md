@@ -62,9 +62,14 @@ Then you can run via `npm run lint:fix` ESLint & Prettier.
 And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
 you can get great developer experience with the shortcut.
 
+
 <div align="center">
-  img src="./assets/extension.png" alt="config"/>
-</div>
+  <img src="./assets/extension.png" alt="config"/>
+</dipv>
+
+<br>
+<br>
+<br>
 
 <div align="center">
     <img src="./assets/demo.gif" alt="demo"/>
