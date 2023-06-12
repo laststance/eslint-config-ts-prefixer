@@ -13,10 +13,6 @@
 
 ----
 
-<div align="center">
-<!--     <img src="./assets/demo.gif" alt="demo"/> -->
-</div>
-
 ![carbon](https://github.com/laststance/eslint-config-ts-prefixer/assets/5501268/ecd9b954-adf3-48ab-a406-5506070aafd1)
 
 
@@ -25,7 +21,7 @@
 # Installation via node_module(general way)
 If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#bareborn-install).
 
-### 1. install necessary packages.
+## 1. install necessary packages.
 
 ```bash
 npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
@@ -42,10 +38,10 @@ or using pnpm
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
----------------------------------------------------------------------------------
-###  Create config files
 
-And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command.
+## 2. Setup config files
+
+And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command on your project root directory.
 
 ```bash
 npx eslint-config-ts-prefixer config
@@ -57,27 +53,35 @@ Add script your package.json like this
 ```json
 {
   "scripts": {
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
+    "lint:fix": "eslint src --ext .ts,.tsx,.js,jsx --fix"
   }
 }
 ```
 
-Finally run that `npm run lint:fix`
+Then you can run via `npm run lint:fix` ESLint & Prettier.  
+And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
+you can get great developer experience with the shortcut.
 
+<div align="center">
+  img src="./assets/extension.png" alt="config"/>
+</div>
 
---------------------------------------------------------------------------------
-Or create, adding "ts-prefixer" in "extends" field manually.  
+<div align="center">
+    <img src="./assets/demo.gif" alt="demo"/>
+</div>
 
-### 1. Add the extends to your `.eslintrc.js` or `.eslintrc.json` or `.eslintrc`.
+--------------
 
-- ```.eslintrc.json```
-```json
+Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.  
+
+- ```.eslintrc.js```
+```js
 {
-  "extends": "ts-prefixer"
+  extends: ["ts-prefixer"]
 }
 ```
 
-### 2. Need `.prettierrc` file because this package refers your `.prettierrc` and use directly.  
+And you need `.prettierrc` file because this package refers your `.prettierrc`.    
 If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
 
 - ```.prettierrc```
@@ -87,6 +91,8 @@ If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rul
   "semi": false
 }
 ```
+
+--------------
 
 # Bareborn Install
 Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintconfig.js` file directly in your code base.  
