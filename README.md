@@ -65,7 +65,7 @@ you can get great developer experience with the shortcut.
 
 <div align="center">
   <img src="./assets/extension.png" alt="config"/>
-</dipv>
+</div>
 
 <br>
 <br>
