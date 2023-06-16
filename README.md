@@ -63,16 +63,16 @@ And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.co
 you can get great developer experience with the shortcut.
 
 
-<div align="center">
+<div align="left">
   <img src="./assets/extension.png" alt="config"/>
 </div>
 
 <br>
 <br>
-<br>
 
-<div align="center">
-    <img src="./assets/demo.gif" alt="demo"/>
+<div align="leftr">
+  <p>Perform on Webstorm</p>
+    <img src="./assets/autofix.gif" alt="autofix" />
 </div>
 
 --------------
