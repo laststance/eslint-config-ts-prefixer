@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [eslint-config-ts-prefixer 🌈](#eslint-config-ts-prefixer-)
+    - [This config is:](#this-config-is)
+- [Installation](#installation)
+  - [1. install necessary packages.](#1-install-necessary-packages)
+  - [2. Setup config files](#2-setup-config-files)
+- [Bareborn Install](#bareborn-install)
+    - [1. install necessary packages.](#1-install-necessary-packages-1)
+    - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
+  - [LICENSE](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <div align="center">
 <h1>eslint-config-ts-prefixer 🌈</h1>
 
