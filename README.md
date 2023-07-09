@@ -54,17 +54,43 @@ or using pnpm
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
+--------------
 
-## 2. Setup config files
+## 2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.
 
-And then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore` with following command on your project root directory.
+### With `npx eslint-config-ts-prefixer config`
+Run this command on a project root directory then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore`
 
 ```bash
 npx eslint-config-ts-prefixer config
 ```
 
-Now it's ready for use.  
-Add script your package.json like this
+### Manual Setup
+If you have already use to ESLint/Prettier, 
+Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.  
+
+- ```.eslintrc.js```
+```js
+{
+  extends: ["ts-prefixer"]
+}
+```
+
+And you need `.prettierrc` file because `ts-prefixer` get Prettier config from `.prettierrc`.    
+If you configure Prettier other way, `touch .prettierrc` and move your config within JSON format.
+
+- ```.prettierrc```
+```json
+{
+  "singleQuote": true,
+  "semi": false
+}
+```
+
+## OK, you are ready to use!
+ 
+I generally run from npm script like this.  
+If you'll copy & paste this, ckeck target directly and target file extension are fitting your project.
 
 ```json
 {
@@ -76,7 +102,8 @@ Add script your package.json like this
 
 Then you can run via `npm run lint:fix` ESLint & Prettier.  
 And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
-you can get great developer experience with the shortcut.
+you can get great developer experience with the shortcut.  
+And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
 
 
 <div align="left">
@@ -90,28 +117,6 @@ you can get great developer experience with the shortcut.
   <p>Perform on Webstorm</p>
     <img src="./assets/autofix.gif" alt="autofix" />
 </div>
-
---------------
-
-Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.  
-
-- ```.eslintrc.js```
-```js
-{
-  extends: ["ts-prefixer"]
-}
-```
-
-And you need `.prettierrc` file because this package refers your `.prettierrc`.    
-If you don't have `.prettierrc`, please `touch .prettierrc` and set prettier rules depends on your preferece like this.
-
-- ```.prettierrc```
-```json
-{
-  "singleQuote": true,
-  "semi": false
-}
-```
 
 --------------
 
