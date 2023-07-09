@@ -14,7 +14,7 @@ module.exports = {
     ecmaVersiofn: 'latest',
     sourceType: 'module',
   },
-  plugins: ['import', 'sort-keys-fix', '@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'import', 'sort-keys-fix', 'prettier'],
   root: true,
   rules: {
     '@typescript-eslint/consistent-type-imports': 'warn',
