@@ -121,7 +121,7 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
 --------------
 
 # Bareborn Install
-Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintconfig.js` file directly in your code base.  
+Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
 You can manage the rules yourself.
 
 ### 1. install necessary packages.
