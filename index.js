@@ -20,9 +20,14 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
+    // Allow foo(unuseArg, useValue) & bar(_, useValue) & { foo, ...coords } = data; https://typescript-eslint.io/rules/no-unused-vars/
     '@typescript-eslint/no-unused-vars': [
       'error',
-      { args: 'after-used', ignoreRestSiblings: true },
+      {
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
     ],
     '@typescript-eslint/prefer-as-const': 'warn',
     eqeqeq: ['error', 'always'],
