@@ -39,16 +39,18 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Bareb
 
 ## 1. install necessary packages.
 
+- **npm**
+
 ```bash
 npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
-or using yarn
+- **yarn**
 
 ```bash
 yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
-or using pnpm
+- **pnpm**
 
 ```bash
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
@@ -58,7 +60,7 @@ pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 
 ## 2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.
 
-### With `npx eslint-config-ts-prefixer config`
+### `npx eslint-config-ts-prefixer config`
 Run this command on a project root directory then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore`
 
 ```bash
@@ -126,16 +128,18 @@ You can manage the rules yourself.
 
 ### 1. install necessary packages.
 
+- **npm**
+
 ```bash
 npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
-or using yarn
+- **yarn**
 
 ```bash
 yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
-or using pnpm
+- **pnpm**
 
 ```bash
 pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
@@ -143,7 +147,7 @@ pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser ty
 
 ### 2. run `npx eslint-config-ts-prefixer barebone`
 
-run  
+- **run**
 
 ```bash
 npx eslint-config-ts-prefixer barebone
@@ -152,7 +156,7 @@ npx eslint-config-ts-prefixer barebone
 And then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
 
 Now it's ready for use.  
-Add script your package.json like this
+**Add script your package.json** like this
 
 ```json
 {
@@ -167,5 +171,22 @@ Finally run that `npm run lint:fix`
 
 ## LICENSE
 
-MIT
+[MIT](https://opensource.org/license/mit/)
 
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://ryota-murakami.github.io/"><img src="https://avatars1.githubusercontent.com/u/5501268?s=400&u=7bf6b1580b95930980af2588ef0057f3e9ec1ff8&v=4?s=100" width="100px;" alt=""/><br /><sub><b>ryota-murakami</b></sub></a><br /><a href="https://github.com/laststance/create-react-app-vite/commits?author=ryota-murakami" title="Code">💻</a> <a href="https://github.com/laststance/create-react-app-vite/commits?author=ryota-murakami" title="Documentation">📖</a> <a href="https://github.com/laststance/create-react-app-vite/commits?author=ryota-murakami" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
