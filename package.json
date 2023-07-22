@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-ts-prefixer",
-  "version": "0.20.0",
+  "version": "v0.20.0",
   "description": "Zero extends ESLint config for TS. integrated Prettier.",
   "main": "index.js",
   "bin": "./bin/cli.js",
