@@ -6,11 +6,15 @@
     - [This config is:](#this-config-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
-  - [2. Setup config files](#2-setup-config-files)
+  - [2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config-or-setup-config-files-manualy)
+    - [`npx eslint-config-ts-prefixer config`](#npx-eslint-config-ts-prefixer-config)
+    - [Manual Setup](#manual-setup)
+  - [OK, you are ready to use!](#ok-you-are-ready-to-use)
 - [Bareborn Install](#bareborn-install)
     - [1. install necessary packages.](#1-install-necessary-packages-1)
     - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
   - [LICENSE](#license)
+  - [Contributors ✨](#contributors-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
