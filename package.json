@@ -6,9 +6,7 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "lint": "eslint index.js",
-    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\"",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
   },
   "repository": {
     "type": "git",
