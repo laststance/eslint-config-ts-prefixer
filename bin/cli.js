@@ -14,7 +14,7 @@ const currentDir = process.cwd()
 
 const file = {
   eslintignore: '.eslintignore',
-  eslintrc: '.eslintrc.js',
+  eslintrc: '.eslintrc.cjs',
   prettierrc: '.prettierrc',
 }
 
@@ -55,7 +55,7 @@ program
   .action(async () => {
     fs.copyFileSync(
       path.join(rootDir, 'index.js'),
-      path.join(currentDir, '.eslintrc.js')
+      path.join(currentDir, '.eslintrc.cjs')
     )
     await copyConfig('eslintignore')
     await createPrettierConfig()
