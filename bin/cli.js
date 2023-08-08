@@ -15,18 +15,21 @@ const currentDir = process.cwd()
 const file = {
   eslintignore: '.eslintignore',
   eslintrc: '.eslintrc.cjs',
+  prettierignore: '.prettierignore',
   prettierrc: '.prettierrc',
 }
 
 const templateConfig = {
   eslintignore: path.join(configDir, file.eslintignore),
   eslintrc: path.join(configDir, file.eslintrc),
+  prettierignore: path.join(configDir, file.prettierignore),
   prettierrc: path.join(configDir, file.prettierrc),
 }
 
 const destination = {
   eslintignore: path.join(currentDir, file.eslintignore),
   eslintrc: path.join(currentDir, file.eslintrc),
+  prettierignore: path.join(configDir, file.prettierignore),
   prettierrc: path.join(currentDir, file.prettierrc),
 }
 
@@ -72,6 +75,7 @@ async function createESLintConfig() {
 
 async function createPrettierConfig() {
   await copyConfig('prettierrc')
+  await copyConfig('prettierignore')
 }
 
 async function copyConfig(filename) {
