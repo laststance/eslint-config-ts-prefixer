@@ -89,7 +89,7 @@ async function copyConfig(filename) {
           value: 'abort',
         },
       ],
-      message: `Your ${filename} already exists.`,
+      message: `Your .${filename} already exists.`,
       name: 'overwrite',
       type: 'expand',
     })
