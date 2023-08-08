@@ -34,7 +34,7 @@ const destination = {
 program
   .command('config')
   .description(
-    `create ${file.prettierrc}/${file.eslintrc}/${file.eslintignore} files your current directory.`
+    `create ${file.prettierrc}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
   )
   .option('--prettier', `create ${file.prettierrc} only`)
   .option('--eslint', `create ${file.eslintrc}/${file.eslintignore} only`)
@@ -55,7 +55,7 @@ program
   .action(async () => {
     fs.copyFileSync(
       path.join(rootDir, 'index.js'),
-      path.join(currentDir, '.eslintrc.cjs')
+      path.join(currentDir, '.eslintrc.cjs'),
     )
     await copyConfig('eslintignore')
     await createPrettierConfig()
