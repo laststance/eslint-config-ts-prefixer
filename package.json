@@ -2,10 +2,10 @@
   "name": "eslint-config-ts-prefixer",
   "version": "0.22.0",
   "description": "Zero extends ESLint config for TS. integrated Prettier.",
-  "main": "index.js",
+  "main": "index.cjs",
   "bin": "./bin/cli.js",
   "scripts": {
-    "lint": "eslint index.js",
+    "lint": "eslint index.cjs",
     "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
   },
   "repository": {
@@ -37,7 +37,7 @@
     "typescript": "^5.1.5"
   },
   "eslintConfig": {
-    "extends": "./index.js"
+    "extends": "./index.cjs"
   },
   "eslintIgnore": [
     "node_modules"

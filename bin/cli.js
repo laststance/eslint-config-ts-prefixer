@@ -57,7 +57,7 @@ program
   .description('barebone install')
   .action(async () => {
     fs.copyFileSync(
-      path.join(rootDir, 'index.js'),
+      path.join(rootDir, 'index.cjs'),
       path.join(currentDir, '.eslintrc.cjs'),
     )
     await copyConfig('eslintignore')

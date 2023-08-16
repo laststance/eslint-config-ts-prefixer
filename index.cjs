@@ -11,15 +11,25 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersiofn: 'latest',
+    ecmaVersion: 'latest',
+    project: ['tsconfig.json'],
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import', 'sort-keys-fix', 'prettier'],
   root: true,
   rules: {
+    '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-misused-new': 'error',
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksConditionals: false,
+      },
+    ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
+
     // Allow foo(unuseArg, useValue) & bar(_, useValue) & { foo, ...coords } = data; https://typescript-eslint.io/rules/no-unused-vars/
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -29,7 +39,9 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+
     '@typescript-eslint/prefer-as-const': 'warn',
+    '@typescript-eslint/promise-function-async': 'error',
     eqeqeq: ['error', 'always'],
     'import/default': 'error',
     'import/export': 'error',
@@ -59,6 +71,8 @@ module.exports = {
       },
     ],
     'no-alert': 'error',
+    'no-async-promise-executor': 'error',
+    'no-await-in-loop': 'error',
     'no-console': 'error',
     'no-constant-binary-expression': 'error',
     'no-constant-condition': 'error',
@@ -66,9 +80,12 @@ module.exports = {
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
     'no-extra-boolean-cast': 'error',
+    'no-promise-executor-return': 'error',
     'no-redeclare': 'error',
+    'no-return-await': 'error',
     'no-unused-private-class-members': 'error',
     'prefer-const': 'warn',
+    'prefer-promise-reject-errors': 'error',
     'prettier/prettier': [
       'warn',
       {},
@@ -79,6 +96,7 @@ module.exports = {
       },
     ],
     radix: 'error',
+    'require-atomic-updates': 'error',
     'sort-keys-fix/sort-keys-fix': 'warn',
   },
   settings: {
