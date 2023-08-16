@@ -3,4 +3,5 @@
   "extends": [
     "config:base"
   ]
+  "schedule": ["before 4am"]
 }
