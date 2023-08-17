@@ -25,6 +25,7 @@ module.exports = {
       'error',
       {
         checksConditionals: false,
+        checksVoidReturn: false,
       },
     ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
@@ -80,7 +81,6 @@ module.exports = {
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
     'no-extra-boolean-cast': 'error',
-    'no-promise-executor-return': 'error',
     'no-redeclare': 'error',
     'no-return-await': 'error',
     'no-unused-private-class-members': 'error',
