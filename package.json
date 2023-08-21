@@ -5,7 +5,8 @@
   "main": "index.cjs",
   "bin": "./bin/cli.js",
   "scripts": {
-    "lint": "eslint index.cjs",
+    "lint": "eslint index.cjs bin",
+    "lint:fix": "eslint --fix index.cjs bin",
     "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
   },
   "repository": {
