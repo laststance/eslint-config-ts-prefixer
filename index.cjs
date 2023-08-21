@@ -30,12 +30,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
-    '@typescript-eslint/no-unnecessary-condition': [
-      'error',
-      {
-        allowConstantLoopConditions: true,
-      },
-    ],
     '@typescript-eslint/no-unused-expressions': 'error',
 
     // Allow foo(unuseArg, useValue) & bar(_, useValue) & { foo, ...coords } = data; https://typescript-eslint.io/rules/no-unused-vars/
