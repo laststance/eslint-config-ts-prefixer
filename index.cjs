@@ -1,7 +1,8 @@
+/** @type {import("@types/eslint").Linter.Config} */
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2022: true,
     jest: true,
     node: true,
   },
@@ -29,6 +30,12 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+    '@typescript-eslint/no-unnecessary-condition': [
+      'error',
+      {
+        allowConstantLoopConditions: true,
+      },
+    ],
     '@typescript-eslint/no-unused-expressions': 'error',
 
     // Allow foo(unuseArg, useValue) & bar(_, useValue) & { foo, ...coords } = data; https://typescript-eslint.io/rules/no-unused-vars/
@@ -105,7 +112,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.mjs', '.js', 'cjs', '.jsx', '.ts', '.tsx'],
       },
       typescript: {
         alwaysTryTypes: true,
