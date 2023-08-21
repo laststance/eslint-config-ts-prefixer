@@ -1,9 +1,10 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [eslint-config-ts-prefixer 🌈](#eslint-config-ts-prefixer-)
-    - [This config is:](#this-config-is)
+  - [This config is:](#this-config-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
   - [2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config-or-setup-config-files-manualy)
@@ -11,8 +12,8 @@
     - [Manual Setup](#manual-setup)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
 - [Bareborn Install](#bareborn-install)
-    - [1. install necessary packages.](#1-install-necessary-packages-1)
-    - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
+  - [1. install necessary packages.](#1-install-necessary-packages-1)
+  - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
   - [LICENSE](#license)
   - [Contributors ✨](#contributors-)
 
@@ -27,18 +28,19 @@
 ---
 
 ### This config is:
+
 - 📦 Zero extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
 - 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior.
 
-----
+---
 
 ![carbon](https://github.com/laststance/eslint-config-ts-prefixer/assets/5501268/ecd9b954-adf3-48ab-a406-5506070aafd1)
 
-
-----
+---
 
 # Installation
+
 If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#bareborn-install).
 
 ## 1. install necessary packages.
@@ -48,6 +50,7 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Bareb
 ```bash
 npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
+
 - **yarn**
 
 ```bash
@@ -60,32 +63,36 @@ yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
---------------
+---
 
 ## 2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.
 
 ### `npx eslint-config-ts-prefixer config`
-Run this command on a project root directory then create config files `.eslintrc.js`  `.prettierrc` `.eslintignore`
+
+Run this command on a project root directory then create config files `.eslintrc.js` `.prettierrc` `.eslintignore`
 
 ```bash
 npx eslint-config-ts-prefixer config
 ```
 
 ### Manual Setup
-If you have already use to ESLint/Prettier, 
-Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.  
 
-- ```.eslintrc.js```
+If you have already use to ESLint/Prettier,
+Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.
+
+- `.eslintrc.js`
+
 ```js
 {
   extends: ["ts-prefixer"]
 }
 ```
 
-And you need `.prettierrc` file because `ts-prefixer` get Prettier config from `.prettierrc`.    
+And you need `.prettierrc` file because `ts-prefixer` get Prettier config from `.prettierrc`.  
 If you configure Prettier other way, `touch .prettierrc` and move your config within JSON format.
 
-- ```.prettierrc```
+- `.prettierrc`
+
 ```json
 {
   "singleQuote": true,
@@ -94,7 +101,7 @@ If you configure Prettier other way, `touch .prettierrc` and move your config wi
 ```
 
 ## OK, you are ready to use!
- 
+
 I generally run from npm script like this.  
 If you'll copy & paste this, ckeck target directly and target file extension are fitting your project.
 
@@ -111,7 +118,6 @@ And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.co
 you can get great developer experience with the shortcut.  
 And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
 
-
 <div align="left">
   <img src="./assets/extension.png" alt="config"/>
 </div>
@@ -124,9 +130,10 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
     <img src="./assets/autofix.gif" alt="autofix" />
 </div>
 
---------------
+---
 
 # Bareborn Install
+
 Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
 You can manage the rules yourself.
 
@@ -137,6 +144,7 @@ You can manage the rules yourself.
 ```bash
 npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
+
 - **yarn**
 
 ```bash
@@ -171,7 +179,6 @@ Now it's ready for use.
 ```
 
 Finally run that `npm run lint:fix`
-
 
 ## LICENSE
 
