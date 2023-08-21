@@ -1,4 +1,4 @@
-/** @type {import("@types/eslint").Linter.Config} */
+/** @type {import('@types/eslint').Linter.Config} */
 module.exports = {
   env: {
     browser: true,
@@ -12,11 +12,13 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    // @TODO IDK what's the best setting, I have concern that sourceType: 'module' cause error.
     ecmaVersion: 'latest',
     project: ['tsconfig.json'],
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import', 'sort-keys-fix', 'prettier'],
+  reportUnusedDisableDirectives: true,
   root: true,
   rules: {
     '@typescript-eslint/await-thenable': 'error',
