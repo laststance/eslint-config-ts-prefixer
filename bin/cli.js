@@ -29,7 +29,7 @@ const templateConfig = {
 const destination = {
   eslintignore: path.join(currentDir, file.eslintignore),
   eslintrc: path.join(currentDir, file.eslintrc),
-  prettierignore: path.join(configDir, file.prettierignore),
+  prettierignore: path.join(currentDir, file.prettierignore),
   prettierrc: path.join(currentDir, file.prettierrc),
 }
 
