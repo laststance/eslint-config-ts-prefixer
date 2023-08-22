@@ -43,5 +43,8 @@
   },
   "eslintIgnore": [
     "node_modules"
-  ]
+  ],
+  "volta": {
+    "node": "18.17.1"
+  }
 }
