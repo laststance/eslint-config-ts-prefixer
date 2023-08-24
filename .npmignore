@@ -6,3 +6,4 @@ CONTRIBUTING.md
 yarn.lock
 yarn-error.log
 assets
+tmp
