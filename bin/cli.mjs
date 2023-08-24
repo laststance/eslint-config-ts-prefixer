@@ -14,9 +14,9 @@ const __dirname = dirname(__filename)
 const program = new Command()
 program.name('eslint-config-ts-prefixer')
 
-const rootDir = join(__dirname, '..')
-const configDir = join(rootDir, 'template', 'config')
-const currentDir = cwd()
+const packageRootDir = join(__dirname, '..')
+const configDir = join(packageRootDir, 'template', 'config')
+const userCurrentDir = cwd()
 
 // auto geration files
 const file = {
@@ -36,39 +36,32 @@ const templateConfig = {
 
 // package user's file generation path
 const destination = {
-  eslintignore: join(currentDir, file.eslintignore),
-  eslintrc: join(currentDir, file.eslintrc),
-  prettierignore: join(currentDir, file.prettierignore),
-  prettierrc: join(currentDir, file.prettierrc),
+  eslintignore: join(userCurrentDir, file.eslintignore),
+  eslintrc: join(userCurrentDir, file.eslintrc),
+  prettierignore: join(userCurrentDir, file.prettierignore),
+  prettierrc: join(userCurrentDir, file.prettierrc),
 }
 
 // npx eslint-config-ts-prefixer config
 program
   .command('config')
   .description(
-    `create ${file.prettierrc}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
+    `create ${file.prettierrc}/${file.prettierignore}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
   )
-  .option('--prettier', `create ${file.prettierrc} only`)
-  .option('--eslint', `create ${file.eslintrc}/${file.eslintignore} only`)
-  .action(async (options) => {
-    if (Object.keys(options).length === 0) {
-      await createESLintConfig()
-      await createPrettierConfig()
-      return
-    }
-    if (options.eslint === true) await createESLintConfig()
-    if (options.prettier === true) await createPrettierConfig()
-  })
   .action(() => {
+    createESLintConfig()
+    createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
   })
-
 // npx eslint-config-ts-prefixer barebone
 program
   .command('barebone')
   .description('barebone install')
   .action(async () => {
-    copyFileSync(join(rootDir, 'index.cjs'), join(currentDir, '.eslintrc.cjs'))
+    copyFileSync(
+      join(packageRootDir, 'index.cjs'),
+      join(userCurrentDir, '.eslintrc.cjs'),
+    )
     await copyConfig('eslintignore')
     await createPrettierConfig()
   })
@@ -121,7 +114,7 @@ async function copyConfig(filename) {
 
 function InsertRootdirFilesPath2TSconfig() {
   // get rootDir's `tsconfig.json` contents
-  const tsconfigPath = join(rootDir, 'tsconfig.json')
+  const tsconfigPath = join(packageRootDir, 'tsconfig.json')
   const tsconfigContents = existsSync(tsconfigPath)
     ? readFileSync(tsconfigPath, 'utf8')
     : null
