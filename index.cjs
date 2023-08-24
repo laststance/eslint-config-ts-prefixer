@@ -9,13 +9,7 @@ module.exports = {
   extends: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    // @TODO IDK what's the best setting, I have concern that sourceType: 'module' cause error.
-    ecmaVersion: 'latest',
     project: ['tsconfig.json'],
-    sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import', 'sort-keys-fix', 'prettier'],
   reportUnusedDisableDirectives: true,
