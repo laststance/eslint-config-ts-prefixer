@@ -16,5 +16,13 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022"
-  }
+  },
+  "include": [
+    "templete/config/.eslintrc.cjs",
+    "bin",
+    "./**.js",
+    "./**.ts",
+    "./**.cjs",
+    "./**.mjs"
+  ]
 }
