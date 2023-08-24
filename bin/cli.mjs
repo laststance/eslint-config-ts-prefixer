@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 import { copyFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { cwd, argv } from 'node:process'
@@ -17,6 +18,7 @@ const rootDir = join(__dirname, '..')
 const configDir = join(rootDir, 'template', 'config')
 const currentDir = cwd()
 
+// auto geration files
 const file = {
   eslintignore: '.eslintignore',
   eslintrc: '.eslintrc.cjs',
@@ -24,6 +26,7 @@ const file = {
   prettierrc: '.prettierrc',
 }
 
+// eslint-config-txsprefixer/template/config
 const templateConfig = {
   eslintignore: join(configDir, file.eslintignore),
   eslintrc: join(configDir, file.eslintrc),
@@ -31,6 +34,7 @@ const templateConfig = {
   prettierrc: join(configDir, file.prettierrc),
 }
 
+// package user's file generation path
 const destination = {
   eslintignore: join(currentDir, file.eslintignore),
   eslintrc: join(currentDir, file.eslintrc),
@@ -55,6 +59,9 @@ program
     if (options.eslint === true) await createESLintConfig()
     if (options.prettier === true) await createPrettierConfig()
   })
+  .action(() => {
+    InsertRootdirFilesPath2TSconfig()
+  })
 
 // npx eslint-config-ts-prefixer barebone
 program
@@ -66,10 +73,14 @@ program
     await createPrettierConfig()
   })
 
-// run
+/**
+ * Run
+ */
 program.parse(argv)
 
-// functions
+/**
+ * Functions
+ */
 async function createESLintConfig() {
   await copyConfig('eslintrc')
   await copyConfig('eslintignore')
@@ -105,5 +116,31 @@ async function copyConfig(filename) {
     }
   } else {
     copyFileSync(templateConfig[filename], destination[filename])
+  }
+}
+
+function InsertRootdirFilesPath2TSconfig() {
+  // get rootDir's `tsconfig.json` contents
+  const tsconfigPath = join(rootDir, 'tsconfig.json')
+  const tsconfigContents = existsSync(tsconfigPath)
+    ? fs.readFileSync(tsconfigPath, 'utf8')
+    : null
+  if (tsconfigContents) {
+    const tsconfig = JSON.parse(tsconfigContents)
+    // add "include" project root's configs avoid '@typescript-eslint/await-thenable's parse error https://elmah.io/tools/stack-trace-formatter/212c0a4849bc4054826e4055f5d167a7/
+    const configFiles = ['./**.js', './**.ts', './**.cjs', './**.mjs']
+    if (tsconfig.include) {
+      configFiles.forEach((globFilePath) => {
+        if (false === tsconfig.include.includes(globFilePath)) {
+          tsconfig.include.push(globFilePath)
+        }
+      })
+    } else {
+      // `tsconfig.json` dosn't have "include" fileld
+      tsconfig.include = configFiles
+    }
+    fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
+  } else {
+    console.log('tsconfig.json not found in root directory')
   }
 }
