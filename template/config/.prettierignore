@@ -1,6 +1,13 @@
-.vscode
+.DS_Store
 node_modules
-build
+coverage
+
 dist
-.github
+build
+
+.gitignore
+.git
+.vscode
 .idea
+
+pnpm-lock.yaml
