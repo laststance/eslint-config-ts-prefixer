@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-import { copyFileSync, existsSync } from 'node:fs'
+import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { cwd, argv } from 'node:process'
 import { fileURLToPath } from 'node:url'
@@ -123,7 +123,7 @@ function InsertRootdirFilesPath2TSconfig() {
   // get rootDir's `tsconfig.json` contents
   const tsconfigPath = join(rootDir, 'tsconfig.json')
   const tsconfigContents = existsSync(tsconfigPath)
-    ? fs.readFileSync(tsconfigPath, 'utf8')
+    ? readFileSync(tsconfigPath, 'utf8')
     : null
   if (tsconfigContents) {
     const tsconfig = JSON.parse(tsconfigContents)
@@ -139,7 +139,7 @@ function InsertRootdirFilesPath2TSconfig() {
       // `tsconfig.json` dosn't have "include" fileld
       tsconfig.include = configFiles
     }
-    fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
+    writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
   } else {
     console.log('tsconfig.json not found in root directory')
   }
