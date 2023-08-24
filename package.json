@@ -1,13 +1,15 @@
 {
   "name": "eslint-config-ts-prefixer",
   "version": "0.25.1",
-  "description": "Zero extends ESLint config for TS. integrated Prettier.",
-  "main": "index.cjs",
-  "bin": "./bin/cli.js",
+  "description": "Zero extends fixable ESLint config for TS. integrated Prettier.",
+  "type": "module",
+  "bin": "./bin/cli.mjs",
+  "exports": "./index.cjs",
   "scripts": {
-    "lint": "eslint index.cjs bin",
-    "lint:fix": "eslint --fix index.cjs bin",
-    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\""
+    "lint": "eslint index.cjs bin/cli.mjs",
+    "lint:fix": "eslint --fix index.cjs bin/cli.mjs",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
   "dependencies": {
+    "@inquirer/prompts": "^3.0.3",
     "commander": "^11.0.0",
     "inquirer": "^9.2.10"
   },

@@ -1,16 +1,21 @@
 #!/usr/bin/env node
-const fs = require('node:fs')
-const path = require('node:path')
-const process = require('node:process')
+import { copyFileSync, existsSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { cwd, argv } from 'node:process'
+import { fileURLToPath } from 'node:url'
 
-const { Command } = require('commander')
-const inquirer = require('inquirer')
+import { input } from '@inquirer/prompts'
+import { Command } from 'commander'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const program = new Command()
 program.name('eslint-config-ts-prefixer')
 
-const rootDir = path.join(__dirname, '..')
-const configDir = path.join(rootDir, 'template', 'config')
-const currentDir = process.cwd()
+const rootDir = join(__dirname, '..')
+const configDir = join(rootDir, 'template', 'config')
+const currentDir = cwd()
 
 const file = {
   eslintignore: '.eslintignore',
@@ -20,17 +25,17 @@ const file = {
 }
 
 const templateConfig = {
-  eslintignore: path.join(configDir, file.eslintignore),
-  eslintrc: path.join(configDir, file.eslintrc),
-  prettierignore: path.join(configDir, file.prettierignore),
-  prettierrc: path.join(configDir, file.prettierrc),
+  eslintignore: join(configDir, file.eslintignore),
+  eslintrc: join(configDir, file.eslintrc),
+  prettierignore: join(configDir, file.prettierignore),
+  prettierrc: join(configDir, file.prettierrc),
 }
 
 const destination = {
-  eslintignore: path.join(currentDir, file.eslintignore),
-  eslintrc: path.join(currentDir, file.eslintrc),
-  prettierignore: path.join(currentDir, file.prettierignore),
-  prettierrc: path.join(currentDir, file.prettierrc),
+  eslintignore: join(currentDir, file.eslintignore),
+  eslintrc: join(currentDir, file.eslintrc),
+  prettierignore: join(currentDir, file.prettierignore),
+  prettierrc: join(currentDir, file.prettierrc),
 }
 
 // npx eslint-config-ts-prefixer config
@@ -56,16 +61,13 @@ program
   .command('barebone')
   .description('barebone install')
   .action(async () => {
-    fs.copyFileSync(
-      path.join(rootDir, 'index.cjs'),
-      path.join(currentDir, '.eslintrc.cjs'),
-    )
+    copyFileSync(join(rootDir, 'index.cjs'), join(currentDir, '.eslintrc.cjs'))
     await copyConfig('eslintignore')
     await createPrettierConfig()
   })
 
 // run
-program.parse(process.argv)
+program.parse(argv)
 
 // functions
 async function createESLintConfig() {
@@ -79,8 +81,8 @@ async function createPrettierConfig() {
 }
 
 async function copyConfig(filename) {
-  if (fs.existsSync(destination[filename])) {
-    const answer = await inquirer.prompt({
+  if (existsSync(destination[filename])) {
+    const answer = await input({
       choices: [
         {
           key: 'y',
@@ -99,9 +101,9 @@ async function copyConfig(filename) {
     })
 
     if (answer.overwrite === 'overwrite') {
-      fs.copyFileSync(templateConfig[filename], destination[filename])
+      copyFileSync(templateConfig[filename], destination[filename])
     }
   } else {
-    fs.copyFileSync(templateConfig[filename], destination[filename])
+    copyFileSync(templateConfig[filename], destination[filename])
   }
 }
