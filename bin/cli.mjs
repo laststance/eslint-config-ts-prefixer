@@ -48,9 +48,9 @@ program
   .description(
     `create ${file.prettierrc}/${file.prettierignore}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
   )
-  .action(() => {
-    createESLintConfig()
-    createPrettierConfig()
+  .action(async () => {
+    await createESLintConfig()
+    await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
   })
 // npx eslint-config-ts-prefixer barebone
