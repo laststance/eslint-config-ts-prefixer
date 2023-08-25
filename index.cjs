@@ -69,7 +69,6 @@ module.exports = {
       },
     ],
     'no-alert': 'error',
-    'no-async-promise-executor': 'error',
     'no-await-in-loop': 'error',
     'no-console': 'error',
     'no-constant-binary-expression': 'error',
