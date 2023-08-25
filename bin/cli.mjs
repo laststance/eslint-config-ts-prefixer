@@ -121,16 +121,16 @@ function InsertRootdirFilesPath2TSconfig() {
   if (tsconfigContents) {
     const tsconfig = JSON.parse(tsconfigContents)
     // add "include" project root's configs avoid '@typescript-eslint/await-thenable's parse error https://elmah.io/tools/stack-trace-formatter/212c0a4849bc4054826e4055f5d167a7/
-    const configFiles = ['./**.js', './**.ts', './**.cjs', './**.mjs']
-    if (tsconfig.include) {
-      configFiles.forEach((globFilePath) => {
-        if (false === tsconfig.include.includes(globFilePath)) {
-          tsconfig.include.push(globFilePath)
+    const injectPathList = ['./**.js', './**.ts', './**.cjs', './**.mjs']
+    if (Array.isArray(tsconfig.include)) {
+      injectPathList.forEach((injectPath) => {
+        if (false === tsconfig.include.includes(injectPath)) {
+          tsconfig.include.push(injectPath)
         }
       })
     } else {
       // `tsconfig.json` dosn't have "include" fileld
-      tsconfig.include = configFiles
+      tsconfig.include = injectPathList
     }
     writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
   } else {
