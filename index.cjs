@@ -69,7 +69,6 @@ module.exports = {
       },
     ],
     'no-alert': 'error',
-    'no-await-in-loop': 'error',
     'no-console': 'error',
     'no-constant-binary-expression': 'error',
     'no-constant-condition': 'error',
@@ -81,7 +80,7 @@ module.exports = {
     'no-return-await': 'error',
     'no-unused-private-class-members': 'error',
     'prefer-const': 'warn',
-    'prefer-promise-reject-errors': 'error',
+    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
     'prettier/prettier': [
       'warn',
       {},
