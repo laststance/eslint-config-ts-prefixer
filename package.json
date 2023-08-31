@@ -7,7 +7,7 @@
   "exports": "./index.cjs",
   "scripts": {
     "lint": "eslint index.cjs bin/cli.mjs",
-    "lint:fix": "eslint --fix index.cjs bin/cli.mjs",
+    "lint:fix": "eslint index.cjs bin/cli.mjs --fix",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown ."
   },
