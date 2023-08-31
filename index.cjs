@@ -45,7 +45,6 @@ module.exports = {
     'import/named': 'error',
     'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
-    'import/no-named-as-default': 'error',
     'import/no-unresolved': 'error',
     'import/no-useless-path-segments': 'warn',
     'import/order': [
@@ -67,8 +66,6 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'no-alert': 'error',
-    'no-console': 'error',
     'no-constant-binary-expression': 'error',
     'no-constant-condition': 'error',
     'no-dupe-args': 'error',
