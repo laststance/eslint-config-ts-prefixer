@@ -4,3 +4,6 @@ build
 dist
 .github
 .idea
+.next
+storybook-static
+**/mockServiceWorker.js

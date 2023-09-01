@@ -4,10 +4,15 @@ coverage
 
 dist
 build
+.next
 
 .gitignore
 .git
 .vscode
 .idea
 
+package-lock.json
 pnpm-lock.yaml
+yarn.lock
+
+storybook-static
