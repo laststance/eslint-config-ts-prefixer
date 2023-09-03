@@ -93,7 +93,14 @@ module.exports = {
   settings: {
     'import/parsers': {
       // @TODO I have already set up @typescript-eslint/parser at the top level, so from the description, this .ext array seems to be blank. https://github.com/import-js/eslint-plugin-import#importparsers
-      '@typescript-eslint/parser': ['.mjs', '.js', 'cjs', '.jsx', '.ts', '.tsx'], 
+      '@typescript-eslint/parser': [
+        '.mjs',
+        '.js',
+        'cjs',
+        '.jsx',
+        '.ts',
+        '.tsx',
+      ],
     },
     'import/resolver': {
       node: {

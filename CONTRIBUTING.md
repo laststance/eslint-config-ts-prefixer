@@ -1,5 +1,3 @@
-
-
 # Contributing to eslint-config-ts-prefixer
 
 👍🎉 First off, thanks for taking the time to contribute! 🎉👍
