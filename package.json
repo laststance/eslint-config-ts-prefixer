@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-ts-prefixer",
   "version": "1.4.1",
-  "description": "Zero extends fixable ESLint config for TS. integrated Prettier.",
+  "description": "Make Your Linter as Close to Prettier as Possible.",
   "type": "module",
   "bin": "./bin/cli.mjs",
   "exports": "./index.cjs",
