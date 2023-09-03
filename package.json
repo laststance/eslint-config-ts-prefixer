@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/laststance/eslint-config-ts-prefixer/issues"
   },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
   "dependencies": {
     "@inquirer/prompts": "^3.0.3",
@@ -37,6 +40,8 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"
   },
