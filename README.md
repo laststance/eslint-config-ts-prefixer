@@ -22,6 +22,8 @@
 <div align="center">
 <h1>eslint-config-ts-prefixer 🌈</h1>
 
+![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
+
 <p>ESLint rule set that integrated <a href="https://prettier.io/">prettier</a> as one of ESLint rule and specialized <a href="https://eslint.org/docs/latest/user-guide/command-line-interface#--fix">fixable</a> rule set :-)</p>
 </div>
 
