@@ -121,7 +121,13 @@ function InsertRootdirFilesPath2TSconfig() {
   if (tsconfigContents) {
     const tsconfig = JSON.parse(tsconfigContents)
     // add "include" project root's configs avoid '@typescript-eslint/await-thenable's parse error https://elmah.io/tools/stack-trace-formatter/212c0a4849bc4054826e4055f5d167a7/
-    tsconfig.include = ['./**.js', './**.ts', './**.cjs', './**.mjs',  ...tsconfig.include]
+    tsconfig.include = [
+      './**.js',
+      './**.ts',
+      './**.cjs',
+      './**.mjs',
+      ...tsconfig.include,
+    ]
     writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
   } else {
     console.log('tsconfig.json not found in root directory')
