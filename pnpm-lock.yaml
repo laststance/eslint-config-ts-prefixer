@@ -12,8 +12,8 @@ dependencies:
     specifier: ^11.0.0
     version: 11.0.0
   inquirer:
-    specifier: ^9.2.10
-    version: 9.2.10
+    specifier: ^9.2.11
+    version: 9.2.11
 
 devDependencies:
   '@typescript-eslint/eslint-plugin':
@@ -1647,8 +1647,8 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer@9.2.10:
-    resolution: {integrity: sha512-tVVNFIXU8qNHoULiazz612GFl+yqNfjMTbLuViNJE/d860Qxrd3NMrse8dm40VUQLOQeULvaQF8lpAhvysjeyA==}
+  /inquirer@9.2.11:
+    resolution: {integrity: sha512-B2LafrnnhbRzCWfAdOXisUzL89Kg8cVJlYmhqoi3flSiV/TveO+nsXwgKr9h9PIo+J1hz7nBSk6gegRIMBBf7g==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@ljharb/through': 2.3.9
