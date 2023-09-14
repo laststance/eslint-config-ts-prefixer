@@ -139,7 +139,8 @@ function InsertRootdirFilesPath2TSconfig() {
 
 function InseartLintFixCommand2PkgJson() {
   const pkgJsonPath = join(userCurrentDir, 'package.json')
-  const pkgJson = JSON.parse(pkgJsonPath)
+  const pkgJsonFile = readFileSync(pkgJsonPath, 'utf-8')
+  const pkgJson = JSON.parse(pkgJsonFile)
   pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
   pkgJson.scripts['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
   writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
