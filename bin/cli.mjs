@@ -114,7 +114,7 @@ async function copyConfig(filename) {
 
 function InsertRootdirFilesPath2TSconfig() {
   // get rootDir's `tsconfig.json` contents
-  const tsconfigPath = join(packageRootDir, 'tsconfig.json')
+  const tsconfigPath = join(userCurrentDir, 'tsconfig.json')
   const tsconfigContents = existsSync(tsconfigPath)
     ? readFileSync(tsconfigPath, 'utf8')
     : null
