@@ -52,6 +52,7 @@ program
     await createESLintConfig()
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
+    InseartLintFixCommand2PkgJson()
   })
 // npx eslint-config-ts-prefixer barebone
 program
@@ -64,6 +65,8 @@ program
     )
     await copyConfig('eslintignore')
     await createPrettierConfig()
+    InsertRootdirFilesPath2TSconfig()
+    InseartLintFixCommand2PkgJson()
   })
 
 /**
@@ -132,4 +135,12 @@ function InsertRootdirFilesPath2TSconfig() {
   } else {
     console.log('tsconfig.json not found in root directory')
   }
+}
+
+function InseartLintFixCommand2PkgJson() {
+  const pkgJsonPath = join(userCurrentDir, 'package.json')
+  const pkgJson = JSON.parse(pkgJsonPath)
+  pkgJson.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
+  pkgJson['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
+  writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
 }
