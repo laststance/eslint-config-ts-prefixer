@@ -65,6 +65,12 @@ yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
+- **bun**
+
+```
+bun add -dev slint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+```
+
 ---
 
 ## 2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.
