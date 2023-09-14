@@ -22,6 +22,8 @@
 <div align="center">
 <h1>eslint-config-ts-prefixer 🌈</h1>
 
+![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
+
 <p>ESLint rule set that integrated <a href="https://prettier.io/">prettier</a> as one of ESLint rule and specialized <a href="https://eslint.org/docs/latest/user-guide/command-line-interface#--fix">fixable</a> rule set :-)</p>
 </div>
 
@@ -61,6 +63,12 @@ yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @t
 
 ```bash
 pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+```
+
+- **bun**
+
+```
+bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
 ```
 
 ---
