@@ -109,7 +109,7 @@ If you configure Prettier other way, `touch .prettierrc` and move your config wi
 ## OK, you are ready to use!
 
 You've got this commands in `package.json` by `npx eslint-config-ts-prefixer config`.  
-just run `npm run lint:fix` to apply this package's configurations.🎉
+just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 ```json
 {
@@ -179,18 +179,19 @@ npx eslint-config-ts-prefixer barebone
 
 And then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
 
-Now it's ready for use.  
-**Add script your package.json** like this
+## OK, you are ready to use!
+
+You've got this commands in `package.json` by `npx eslint-config-ts-prefixer barebone`.  
+just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 ```json
 {
   "scripts": {
+    "lint": "eslint . --ext .ts,.tsx,.js,jsx",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
   }
 }
 ```
-
-Finally run that `npm run lint:fix`
 
 ## LICENSE
 
