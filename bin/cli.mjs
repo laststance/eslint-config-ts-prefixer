@@ -90,20 +90,20 @@ async function createPrettierConfig() {
 async function copyConfig(filename) {
   if (existsSync(destination[filename])) {
     const answer = await input({
+      name: 'overwrite',
       choices: [
         {
-          key: 'y',
           name: 'Overwrite',
+          key: 'y',
           value: 'overwrite',
         },
         {
-          key: 'n',
           name: 'Abort',
+          key: 'n',
           value: 'abort',
         },
       ],
       message: `Your .${filename} already exists.`,
-      name: 'overwrite',
       type: 'expand',
     })
 

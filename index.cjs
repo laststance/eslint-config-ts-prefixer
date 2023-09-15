@@ -10,7 +10,12 @@ module.exports = {
   parserOptions: {
     project: ['tsconfig.json'],
   },
-  plugins: ['@typescript-eslint', 'import', 'sort-keys-fix', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'import',
+    'sort-keys-custom-order',
+    'prettier',
+  ],
   reportUnusedDisableDirectives: true,
   root: true,
   rules: {
@@ -88,7 +93,15 @@ module.exports = {
     ],
     radix: 'error',
     'require-atomic-updates': 'error',
-    'sort-keys-fix/sort-keys-fix': 'warn',
+    'sort-keys-custom-order/object-keys': [
+      'warn',
+      { orderedKeys: ['id', 'name', 'title'] },
+    ],
+    // For TS types sorting
+    'sort-keys-custom-order/type-keys': [
+      'warn',
+      { orderedKeys: ['id', 'name', 'title'] },
+    ],
   },
   settings: {
     'import/parsers': {

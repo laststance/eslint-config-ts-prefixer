@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [eslint-config-ts-prefixer 🌈](#eslint-config-ts-prefixer-)
   - [This config is:](#this-config-is)
 - [Installation](#installation)
@@ -50,25 +48,25 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Bareb
 - **npm**
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 - **pnpm**
 
 ```bash
-pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 - **bun**
 
-```
-bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+```bash
+bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 ---
@@ -110,19 +108,19 @@ If you configure Prettier other way, `touch .prettierrc` and move your config wi
 
 ## OK, you are ready to use!
 
-I generally run from npm script like this.  
-If you'll copy & paste this, ckeck target directly and target file extension are fitting your project.
+You've got this commands in `package.json` by `npx eslint-config-ts-prefixer config`.  
+just run `npm run lint:fix` to apply this package's configurations.🎉
 
 ```json
 {
   "scripts": {
-    "lint:fix": "eslint src --ext .ts,.tsx,.js,jsx --fix"
+    "lint": "eslint . --ext .ts,.tsx,.js,jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
   }
 }
 ```
 
-Then you can run via `npm run lint:fix` ESLint & Prettier.  
-And if you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
+If you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
 you can get great developer experience with the shortcut.  
 And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
 
@@ -150,19 +148,25 @@ You can manage the rules yourself.
 - **npm**
 
 ```bash
-npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 - **pnpm**
 
 ```bash
-pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-fix prettier
+pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
+```
+
+- **bun**
+
+```bash
+bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
 ### 2. run `npx eslint-config-ts-prefixer barebone`
