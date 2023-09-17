@@ -19,7 +19,7 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   root: true,
   rules: {
-    '@typescript-eslint/await-thenable': 'error',
+    '@typescript-eslint/await-thenable': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/no-misused-promises': [
