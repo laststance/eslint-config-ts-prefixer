@@ -92,7 +92,7 @@ module.exports = {
       },
     ],
     radix: 'error',
-    'require-atomic-updates': 'error',
+    'require-atomic-updates': ['error', { allowProperties: true }],
     'sort-keys-custom-order/object-keys': [
       'warn',
       { orderedKeys: ['id', 'name', 'title'] },
