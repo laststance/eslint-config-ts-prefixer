@@ -5,13 +5,13 @@
   - [This config is:](#this-config-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
-  - [2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config-or-setup-config-files-manualy)
+  - [2. Setup config files with `npx eslint-config-ts-prefixer config`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config)
     - [`npx eslint-config-ts-prefixer config`](#npx-eslint-config-ts-prefixer-config)
-    - [Manual Setup](#manual-setup)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
 - [Bareborn Install](#bareborn-install)
   - [1. install necessary packages.](#1-install-necessary-packages-1)
   - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
+  - [OK, you are ready to use!](#ok-you-are-ready-to-use-1)
   - [LICENSE](#license)
   - [Contributors ✨](#contributors-)
 
@@ -71,44 +71,21 @@ bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @ty
 
 ---
 
-## 2. Setup config files with `npx eslint-config-ts-prefixer config` or Setup config files manualy.
+## 2. Setup config files with `npx eslint-config-ts-prefixer config`.
 
 ### `npx eslint-config-ts-prefixer config`
 
-Run this command on a project root directory then create config files `.eslintrc.js` `.prettierrc` `.eslintignore`
+Run this command on a project root directory  
+then create config files `.eslintrc.cjs` `.prettierrc` `.eslintignore`,  
+inseart `lint`,`lint:fix` commands to `paclage.json`,  
+include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
 
 ```bash
 npx eslint-config-ts-prefixer config
 ```
 
-### Manual Setup
-
-If you have already use to ESLint/Prettier,
-Or you can use existing your `.eslintrc.js`, adding "ts-prefixer" in "extends" field manually.
-
-- `.eslintrc.js`
-
-```js
-{
-  extends: ["ts-prefixer"]
-}
-```
-
-And you need `.prettierrc` file because `ts-prefixer` get Prettier config from `.prettierrc`.  
-If you configure Prettier other way, `touch .prettierrc` and move your config within JSON format.
-
-- `.prettierrc`
-
-```json
-{
-  "singleQuote": true,
-  "semi": false
-}
-```
-
 ## OK, you are ready to use!
 
-You've got this commands in `package.json` by `npx eslint-config-ts-prefixer config`.  
 just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 ```json
@@ -140,7 +117,7 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
 
 # Bareborn Install
 
-Bareborn Install is creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
+Bareborn Install is create the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
 You can manage the rules yourself.
 
 ### 1. install necessary packages.
@@ -177,11 +154,12 @@ bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @ty
 npx eslint-config-ts-prefixer barebone
 ```
 
-And then generated `.eslintrc.js`, `.eslintignore`, `.prettierrc`.
+And then generated `.eslintrc.cjs`(copy of [index.js](./index.cjs)), `.eslintignore`, `.prettierrc`.  
+inseart `lint`,`lint:fix` commands to `paclage.json`,  
+include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
 
 ## OK, you are ready to use!
 
-You've got this commands in `package.json` by `npx eslint-config-ts-prefixer barebone`.  
 just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 ```json
