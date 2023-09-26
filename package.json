@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-ts-prefixer",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Make Your Linter as Close to Prettier as Possible.",
   "type": "module",
   "bin": "./bin/cli.mjs",
