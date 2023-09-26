@@ -79,6 +79,8 @@ module.exports = {
     'no-extra-boolean-cast': 'error',
     'no-redeclare': 'error',
     'no-return-await': 'error',
+    'no-undef': 'error',
+    'no-unsafe-negation': 'warn',
     'no-unused-private-class-members': 'error',
     'prefer-const': 'warn',
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
@@ -102,6 +104,7 @@ module.exports = {
       'warn',
       { orderedKeys: ['id', 'name', 'title'] },
     ],
+    'valid-typeof': 'warn',
   },
   settings: {
     'import/parsers': {
