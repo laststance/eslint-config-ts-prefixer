@@ -6,6 +6,21 @@ module.exports = {
     node: true,
   },
   extends: [],
+  overrides: [
+    {
+      files: [
+        './**.js',
+        './**.cjs',
+        './**.mjs',
+        '**/*.js',
+        '**/*.cjs',
+        '**/*.mjs',
+      ],
+      rules: {
+        'no-undef': 'error',
+      },
+    },
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['tsconfig.json'],
@@ -79,7 +94,6 @@ module.exports = {
     'no-extra-boolean-cast': 'error',
     'no-redeclare': 'error',
     'no-return-await': 'error',
-    'no-undef': 'error',
     'no-unsafe-negation': 'warn',
     'no-unused-private-class-members': 'error',
     'prefer-const': 'warn',
