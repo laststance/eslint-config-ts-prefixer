@@ -31,6 +31,7 @@
 
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
 - 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
+- 🏠 Use user existing `.prettierrc` directly.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
 ---
