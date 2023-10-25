@@ -6,6 +6,7 @@ module.exports = {
     node: true,
   },
   extends: [],
+  // This overrides apply 'no-undef' rule only js files because in TypeScript Language Server catch and show error against undefined variable name.
   overrides: [
     {
       files: [
@@ -17,7 +18,7 @@ module.exports = {
         '**/*.mjs',
       ],
       rules: {
-        'no-undef': 'error',
+        'no-undef': ['error', { typeof: false }],
       },
     },
   ],
@@ -108,6 +109,7 @@ module.exports = {
         },
       },
     ],
+    // Prevent unexpected parseInt() output that does not return the number calculated in decimal when given a value such as parseInt(071).
     radix: 'error',
     'require-atomic-updates': ['error', { allowProperties: true }],
     'sort-keys-custom-order/object-keys': [
