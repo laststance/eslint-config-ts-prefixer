@@ -1,7 +1,9 @@
 {
   "name": "eslint-config-ts-prefixer",
+  "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
+  "license": "MIT",
   "version": "1.9.3",
-  "description": "Make Your Linter as Close to Prettier as Possible.",
+  "description": "Ruleset of meaningful Lint rules on runtime and beautiful formatters. (prettier & eslint-plugin-import & eslint-plugin-sort-keys-custom-order)",
   "type": "module",
   "bin": "./bin/cli.mjs",
   "exports": "./index.cjs",
@@ -16,8 +18,6 @@
     "type": "git",
     "url": "https://github.com/laststance/eslint-config-ts-prefixer"
   },
-  "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/laststance/eslint-config-ts-prefixer/issues"
   },

@@ -22,7 +22,7 @@
 
 ![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
 
-<p>ESLint rule set that integrated <a href="https://prettier.io/">prettier</a> as one of ESLint rule and specialized <a href="https://eslint.org/docs/latest/user-guide/command-line-interface#--fix">fixable</a> rule set :-)</p>
+<p>Ruleset of meaningful Lint rules on runtime and beautiful formatters. (<a href="https://prettier.io/">prettier</a> & <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a> & <a href="https://github.com/hugoattal/eslint-plugin-sort-keys-custom-order">eslint-plugin-sort-keys-custom-order</a>)
 </div>
 
 ---
