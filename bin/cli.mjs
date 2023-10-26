@@ -117,9 +117,9 @@ async function copyConfig(filename) {
 
 function InsertRootdirFilesPath2TSconfig() {
   // get rootDir's `tsconfig.json` contents
-  const tsconfigPath = join(userCurrentDir, 'tsconfig.json')
-  const tsconfigContents = existsSync(tsconfigPath)
-    ? readFileSync(tsconfigPath, 'utf8')
+  const userTsconfigPath = join(userCurrentDir, 'tsconfig.json')
+  const tsconfigContents = existsSync(userTsconfigPath)
+    ? readFileSync(userTsconfigPath, 'utf8')
     : null
   if (tsconfigContents) {
     const tsconfig = JSON.parse(tsconfigContents)
@@ -131,9 +131,14 @@ function InsertRootdirFilesPath2TSconfig() {
       './**.mjs',
       ...tsconfig.include,
     ]
-    writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2))
+    writeFileSync(userTsconfigPath, JSON.stringify(tsconfig, null, 2))
   } else {
-    console.log('tsconfig.json not found in root directory')
+    // Create tsconfig.json if not exists
+    const packageTsconfig = JSON.parse(
+      readFileSync(join(packageRootDir, 'tsconfig.json'), 'utf8'),
+    )
+    packageTsconfig.include = ['./**.js', './**.ts', './**.cjs', './**.mjs']
+    writeFileSync(userTsconfigPath, JSON.stringify(packageTsconfig, null, 2))
   }
 }
 
