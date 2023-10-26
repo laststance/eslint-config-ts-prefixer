@@ -26,14 +26,8 @@ module.exports = {
   parserOptions: {
     project: ['tsconfig.json'],
   },
-  plugins: [
-    '@typescript-eslint',
-    'import',
-    'sort-keys-custom-order',
-    'prettier',
-  ],
+  plugins: ['@typescript-eslint', 'import', 'prettier'],
   reportUnusedDisableDirectives: true,
-  root: true,
   rules: {
     '@typescript-eslint/await-thenable': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
@@ -111,15 +105,6 @@ module.exports = {
     // Prevent unexpected parseInt() output that does not return the number calculated in decimal when given a value such as parseInt(071).
     radix: 'error',
     'require-atomic-updates': ['error', { allowProperties: true }],
-    'sort-keys-custom-order/object-keys': [
-      'warn',
-      { orderedKeys: ['id', 'name', 'title'] },
-    ],
-    // For TS types sorting
-    'sort-keys-custom-order/type-keys': [
-      'warn',
-      { orderedKeys: ['id', 'name', 'title'] },
-    ],
     'valid-typeof': 'warn',
   },
   settings: {
