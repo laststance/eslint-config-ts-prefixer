@@ -1,4 +1,7 @@
 {
+  "git": {
+    "push": false
+  },
   "github": {
     "autoGenerate": true,
     "release": true,
