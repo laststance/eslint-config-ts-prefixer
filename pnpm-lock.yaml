@@ -36,7 +36,7 @@ dependencies:
     specifier: ^9.2.11
     version: 9.2.11
   typescript:
-    specifier: ^5.1.6
+    specifier: ^5.2.2
     version: 5.2.2
 
 devDependencies:
