@@ -1,8 +1,14 @@
 {
+  "git": {
+    "changelog": null,
+    "tag": true,
+    "push": true,
+    "commit": false
+  },
   "github": {
-    "autoGenerate": true,
     "release": true,
-    "releaseName": "v${version}"
+    "releaseName": "v${version}",
+    "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
   },
   "npm": {
     "publishArgs": ["--provenance"]
