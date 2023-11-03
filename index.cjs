@@ -1,7 +1,8 @@
+/** @type {import('@types/eslint')} */
 module.exports = {
   env: {
     browser: true,
-    es2022: true,
+    es2023: true,
     jest: true,
     node: true,
   },
