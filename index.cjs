@@ -16,6 +16,7 @@ module.exports = {
         '**/*.js',
         '**/*.cjs',
         '**/*.mjs',
+        '**/*.jsx',
       ],
       rules: {
         'no-undef': ['error', { typeof: false }],
