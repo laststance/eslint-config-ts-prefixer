@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/prepare
+      - run: pnpm lint
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
