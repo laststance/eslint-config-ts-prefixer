@@ -18,7 +18,7 @@ dependencies:
 devDependencies:
   '@types/eslint':
     specifier: ^8.44.6
-    version: 8.56.0
+    version: 8.56.1
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.9.1
     version: 6.17.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -39,7 +39,7 @@ devDependencies:
     version: 2.29.1(@typescript-eslint/parser@6.16.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
   eslint-plugin-prettier:
     specifier: ^5.0.1
-    version: 5.1.2(@types/eslint@8.56.0)(eslint@8.56.0)(prettier@3.1.1)
+    version: 5.1.2(@types/eslint@8.56.1)(eslint@8.56.0)(prettier@3.1.1)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -458,8 +458,8 @@ packages:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: true
 
-  /@types/eslint@8.56.0:
-    resolution: {integrity: sha512-FlsN0p4FhuYRjIxpbdXovvHQhtlG05O1GG/RNWvdAxTboR438IOTwmrY/vLA+Xfgg06BTkP045M3vpFwTMv1dg==}
+  /@types/eslint@8.56.1:
+    resolution: {integrity: sha512-18PLWRzhy9glDQp3+wOgfLYRWlhgX0azxgJ63rdpoUHyrC9z0f5CkFburjQx4uD7ZCruw85ZtMt6K+L+R8fLJQ==}
     dependencies:
       '@types/estree': 1.0.4
       '@types/json-schema': 7.0.12
@@ -1573,7 +1573,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-prettier@5.1.2(@types/eslint@8.56.0)(eslint@8.56.0)(prettier@3.1.1):
+  /eslint-plugin-prettier@5.1.2(@types/eslint@8.56.1)(eslint@8.56.0)(prettier@3.1.1):
     resolution: {integrity: sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1587,7 +1587,7 @@ packages:
       eslint-config-prettier:
         optional: true
     dependencies:
-      '@types/eslint': 8.56.0
+      '@types/eslint': 8.56.1
       eslint: 8.56.0
       prettier: 3.1.1
       prettier-linter-helpers: 1.0.0
