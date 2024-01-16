@@ -57,6 +57,7 @@ module.exports = {
     '@typescript-eslint/prefer-as-const': 'warn',
     '@typescript-eslint/promise-function-async': 'warn',
     eqeqeq: ['error', 'always'],
+    'no-unneeded-ternary': 'warn',
     'import/default': 'error',
     'import/export': 'error',
     'import/named': 'error',
