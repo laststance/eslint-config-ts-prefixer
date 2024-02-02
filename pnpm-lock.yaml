@@ -42,7 +42,7 @@ devDependencies:
     version: 5.1.3(@types/eslint@8.56.2)(eslint@8.56.0)(prettier@3.2.4)
   husky:
     specifier: ^9.0.1
-    version: 9.0.7
+    version: 9.0.10
   lint-staged:
     specifier: ^15.0.1
     version: 15.2.1
@@ -2156,8 +2156,8 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.0.7:
-    resolution: {integrity: sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg==}
+  /husky@9.0.10:
+    resolution: {integrity: sha512-TQGNknoiy6bURzIO77pPRu+XHi6zI7T93rX+QnJsoYFf3xdjKOur+IlfqzJGMHIK/wXrLg+GsvMs8Op7vI2jVA==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
