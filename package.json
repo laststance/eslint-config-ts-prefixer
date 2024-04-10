@@ -12,7 +12,7 @@
     "lint:fix": "eslint index.cjs bin/cli.mjs --fix",
     "prettier": "prettier --ignore-unknown --write .",
     "release": "release-it",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
