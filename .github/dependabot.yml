@@ -5,3 +5,6 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    ignore:
+      - dependency-name: 'chalk'
+      - dependency-name: 'eslint'
