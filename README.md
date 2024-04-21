@@ -50,25 +50,25 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Bareb
 - **npm**
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+npm install --save-dev eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+yarn add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **pnpm**
 
 ```bash
-pnpm add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+pnpm add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **bun**
 
 ```bash
-bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+bun add -d eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 ---
