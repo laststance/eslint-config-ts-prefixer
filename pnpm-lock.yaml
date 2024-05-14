@@ -13,7 +13,7 @@ dependencies:
     version: 12.0.0
   inquirer:
     specifier: ^9.2.11
-    version: 9.2.20
+    version: 9.2.21
 
 devDependencies:
   '@types/eslint':
@@ -2283,8 +2283,8 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
-  /inquirer@9.2.20:
-    resolution: {integrity: sha512-SFwJJPS+Ms75NV+wzFBHjirG4z3tzvis31h+9NyH1tqjIu2c7vCavlXILZ73q/nPYy8/aw4W+DNzLH5MjfYXiA==}
+  /inquirer@9.2.21:
+    resolution: {integrity: sha512-c/dwDruM1FtzeISV+xMHm+JZTmhpmgWPEZI2bU3+Fwu5MhbAX0zMHHxj5warNfttE5NUID3aijrFUpDc2yBvcA==}
     engines: {node: '>=18'}
     dependencies:
       '@inquirer/figures': 1.0.1
