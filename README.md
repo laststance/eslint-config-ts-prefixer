@@ -173,6 +173,14 @@ just run `npm run lint:fix` to apply this package's configurations! 🎉
 }
 ```
 
+## Explore Our Lint Rules Website
+
+We are excited to announce the launch of our new website, which provides a comprehensive list of all lint rules from the original documentation. This resource is designed to help you easily navigate and understand the various lint rules available for your projects.
+
+Visit the website: [ESLint Config TS Prefixer Lint Rules](https://example.com/lint-rules)
+
+The website features a user-friendly interface, allowing you to explore different categories of lint rules, search for specific rules, and learn more about each rule's purpose and usage. Whether you are a beginner or an experienced developer, this website will serve as a valuable tool for ensuring code quality and consistency in your projects.
+
 ## LICENSE
 
 [MIT](https://opensource.org/license/mit/)
