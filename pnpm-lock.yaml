@@ -15,8 +15,8 @@ importers:
         specifier: ^12.0.0
         version: 12.1.0
       inquirer:
-        specifier: ^9.2.11
-        version: 9.3.2
+        specifier: ^10.0.1
+        version: 10.0.1
     devDependencies:
       '@types/eslint':
         specifier: ^8.44.6
@@ -1226,6 +1226,10 @@ packages:
   ini@2.0.0:
     resolution: {integrity: sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==}
     engines: {node: '>=10'}
+
+  inquirer@10.0.1:
+    resolution: {integrity: sha512-XgthhRIn0Ci9JdGJpUo2EtpPfaczbooZbGTN+FTzSCyUb7YHJcPPnuSXfeG5903bJMy3OyEoVTQMnvO4Ly5tFg==}
+    engines: {node: '>=18'}
 
   inquirer@7.3.3:
     resolution: {integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==}
@@ -3764,6 +3768,16 @@ snapshots:
   ini@1.3.8: {}
 
   ini@2.0.0: {}
+
+  inquirer@10.0.1:
+    dependencies:
+      '@inquirer/prompts': 5.1.2
+      '@inquirer/type': 1.4.0
+      '@types/mute-stream': 0.0.4
+      ansi-escapes: 4.3.2
+      mute-stream: 1.0.0
+      run-async: 3.0.0
+      rxjs: 7.8.1
 
   inquirer@7.3.3:
     dependencies:
