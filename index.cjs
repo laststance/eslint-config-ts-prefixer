@@ -7,7 +7,7 @@ module.exports = {
     node: true,
   },
   extends: [],
-  // This overrides apply 'no-undef' rule only js files because in TypeScript Language Server catch and show error against undefined variable name.
+  // This overrides apply 'no-undef','no-redeclare', rule only js files because in TypeScript Language Server catch and show error against undefined variable name.
   overrides: [
     {
       files: [
@@ -21,6 +21,7 @@ module.exports = {
       ],
       rules: {
         'no-undef': ['error', { typeof: false }],
+        'no-redeclare': 'error',
       },
     },
   ],
@@ -90,7 +91,6 @@ module.exports = {
     'no-dupe-keys': 'error',
     'no-empty-pattern': 'error',
     'no-extra-boolean-cast': 'error',
-    'no-redeclare': 'error',
     'no-return-await': 'error',
     'no-unsafe-negation': 'warn',
     'no-unused-private-class-members': 'error',
