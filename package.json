@@ -64,6 +64,6 @@
     "node_modules"
   ],
   "volta": {
-    "node": "18.18.2"
+    "node": "20.16.0"
   }
 }
