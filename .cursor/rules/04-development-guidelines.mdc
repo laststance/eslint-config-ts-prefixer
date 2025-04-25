@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Guidelines
+
+## Package Development
+When working on this package, follow these guidelines:
+
+1. **Testing Changes**:
+   - Run `npm run lint` to check your code
+   - Run `npm run lint:fix` to automatically fix issues
+
+2. **Release Process**:
+   - Use `npm run release` to handle versioning and publishing
+   - The package uses [release-it](mdc:package.json) for releases
+
+3. **Project Config**:
+   - This project follows its own ESLint config (see [eslintConfig in package.json](mdc:package.json))
+   - Uses [Node.js v20](mdc:package.json) (see Volta config)
+
+## Language
+- The language for comments and naming should follow the `.cursorrules` if present or default to English
+- Follow Japanese naming when specified in the Lang value of .cursorrules
+
+## Code Style
+- This package enforces strict import ordering and formatting
+- Check the rules in [index.cjs](mdc:index.cjs) to understand the enforced patterns
