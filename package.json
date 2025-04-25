@@ -13,7 +13,8 @@
     "prettier": "prettier --ignore-unknown --write .",
     "release": "release-it",
     "prepare": "husky",
-    "deploy": "gh-pages -d website"
+    "deploy": "gh-pages -d website",
+    "test": "node test/cli.test.js"
   },
   "repository": {
     "type": "git",
