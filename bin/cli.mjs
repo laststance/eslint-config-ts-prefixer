@@ -54,11 +54,11 @@ program
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
   })
-// npx eslint-config-ts-prefixer standalone
+// npx eslint-config-ts-prefixer full-copy
 program
-  .command('standalone')
+  .command('full-copy')
   .description(
-    'standalone install: copies full configuration to your project for customization',
+    'full copy install: copies full configuration to your project for customization',
   )
   .action(async () => {
     copyFileSync(
