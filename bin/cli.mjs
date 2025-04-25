@@ -54,10 +54,12 @@ program
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
   })
-// npx eslint-config-ts-prefixer barebone
+// npx eslint-config-ts-prefixer standalone
 program
-  .command('barebone')
-  .description('barebone install')
+  .command('standalone')
+  .description(
+    'standalone install: copies full configuration to your project for customization',
+  )
   .action(async () => {
     copyFileSync(
       join(packageRootDir, 'index.cjs'),

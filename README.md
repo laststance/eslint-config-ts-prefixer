@@ -8,9 +8,9 @@
   - [2. Setup config files with `npx eslint-config-ts-prefixer config`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config)
     - [`npx eslint-config-ts-prefixer config`](#npx-eslint-config-ts-prefixer-config)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
-- [Bareborn Install](#bareborn-install)
+- [Standalone Install](#standalone-install)
   - [1. install necessary packages.](#1-install-necessary-packages-1)
-  - [2. run `npx eslint-config-ts-prefixer barebone`](#2-run-npx-eslint-config-ts-prefixer-barebone)
+  - [2. run `npx eslint-config-ts-prefixer standalone`](#2-run-npx-eslint-config-ts-prefixer-standalone)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use-1)
   - [LICENSE](#license)
   - [Contributors ✨](#contributors-)
@@ -43,7 +43,7 @@
 
 # Installation
 
-If you want to manage `.eslintrc.js` file on your codebase, please choose [Barebone Install](#bareborn-install).
+If you want to manage `.eslintrc.js` file on your codebase, please choose [Standalone Install](#standalone-install).
 
 ## 1. install necessary packages.
 
@@ -117,9 +117,9 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
 
 ---
 
-# Bareborn Install
+# Standalone Install
 
-Bareborn Install is create the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
+Standalone Install creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
 You can manage the rules yourself.
 
 ### 1. install necessary packages.
@@ -148,12 +148,12 @@ pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser ty
 bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
-### 2. run `npx eslint-config-ts-prefixer barebone`
+### 2. run `npx eslint-config-ts-prefixer standalone`
 
 - **run**
 
 ```bash
-npx eslint-config-ts-prefixer barebone
+npx eslint-config-ts-prefixer standalone
 ```
 
 And then generated `.eslintrc.cjs`(copy of [index.js](./index.cjs)), `.eslintignore`, `.prettierrc`.  
