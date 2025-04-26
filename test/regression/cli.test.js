@@ -104,7 +104,7 @@ describe('CLI Regression Tests', () => {
       })
 
       expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
-      expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
+      expect(existsSync(join(testDir, '.eslintignore'))).toBe(false)
       expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)
     })
@@ -190,7 +190,7 @@ describe('CLI Regression Tests', () => {
       })
 
       expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
-      expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
+      expect(existsSync(join(testDir, '.eslintignore'))).toBe(false)
       expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)
     })
