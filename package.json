@@ -14,7 +14,7 @@
     "release": "release-it",
     "prepare": "husky",
     "deploy": "gh-pages -d website",
-    "test": "vitest run"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
