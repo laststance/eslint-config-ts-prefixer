@@ -23,6 +23,7 @@ const userCurrentDir = cwd()
 const file = {
   eslintignore: '.eslintignore',
   eslintrc: '.eslintrc.cjs',
+  eslintconfig: 'eslint.config.js',
   prettierignore: '.prettierignore',
   prettierrc: '.prettierrc',
 }
@@ -31,6 +32,7 @@ const file = {
 const templateConfig = {
   eslintignore: join(configDir, file.eslintignore),
   eslintrc: join(configDir, file.eslintrc),
+  eslintconfig: join(configDir, file.eslintconfig),
   prettierignore: join(configDir, file.prettierignore),
   prettierrc: join(configDir, file.prettierrc),
 }
@@ -39,6 +41,7 @@ const templateConfig = {
 const destination = {
   eslintignore: join(userCurrentDir, file.eslintignore),
   eslintrc: join(userCurrentDir, file.eslintrc),
+  eslintconfig: join(userCurrentDir, file.eslintconfig),
   prettierignore: join(userCurrentDir, file.prettierignore),
   prettierrc: join(userCurrentDir, file.prettierrc),
 }
@@ -47,10 +50,36 @@ const destination = {
 program
   .command('setup')
   .description(
-    `create ${file.prettierrc}/${file.prettierignore}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
+    `create ESLint and Prettier configuration files in your current directory (supports both ESLint v8 and v9).`,
   )
   .action(async () => {
-    await createESLintConfig()
+    const useESLintV9 = await promptESLintVersion()
+    await createESLintConfig(useESLintV9)
+    await createPrettierConfig()
+    InsertRootdirFilesPath2TSconfig()
+    InseartLintFixCommand2PkgJson()
+  })
+
+// npx eslint-config-ts-prefixer standalone
+program
+  .command('standalone')
+  .description(
+    'standalone install: copies full configuration to your project for customization',
+  )
+  .action(async () => {
+    const useESLintV9 = await promptESLintVersion()
+    if (useESLintV9) {
+      copyFileSync(
+        join(packageRootDir, 'index.mjs'),
+        join(userCurrentDir, 'eslint.config.js'),
+      )
+    } else {
+      copyFileSync(
+        join(packageRootDir, 'index.cjs'),
+        join(userCurrentDir, '.eslintrc.cjs'),
+      )
+    }
+    await copyConfig('eslintignore')
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
@@ -62,10 +91,18 @@ program
     'full copy install: copies full configuration to your project for customization',
   )
   .action(async () => {
-    copyFileSync(
-      join(packageRootDir, 'index.cjs'),
-      join(userCurrentDir, '.eslintrc.cjs'),
-    )
+    const useESLintV9 = await promptESLintVersion()
+    if (useESLintV9) {
+      copyFileSync(
+        join(packageRootDir, 'index.mjs'),
+        join(userCurrentDir, 'eslint.config.js'),
+      )
+    } else {
+      copyFileSync(
+        join(packageRootDir, 'index.cjs'),
+        join(userCurrentDir, '.eslintrc.cjs'),
+      )
+    }
     await copyConfig('eslintignore')
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
@@ -80,8 +117,34 @@ program.parse(argv)
 /**
  * Functions
  */
-async function createESLintConfig() {
-  await copyConfig('eslintrc')
+async function promptESLintVersion() {
+  const answer = await input({
+    name: 'eslintVersion',
+    choices: [
+      {
+        name: 'ESLint v9 (flat config)',
+        key: '9',
+        value: true,
+      },
+      {
+        name: 'ESLint v8 (legacy config)',
+        key: '8',
+        value: false,
+      },
+    ],
+    message: 'Which ESLint version do you want to use?',
+    type: 'expand',
+  })
+
+  return answer.eslintVersion
+}
+
+async function createESLintConfig(useESLintV9 = false) {
+  if (useESLintV9) {
+    await copyConfig('eslintconfig')
+  } else {
+    await copyConfig('eslintrc')
+  }
   await copyConfig('eslintignore')
 }
 
@@ -151,6 +214,12 @@ function InseartLintFixCommand2PkgJson() {
   const pkgJsonPath = join(userCurrentDir, 'package.json')
   const pkgJsonFile = readFileSync(pkgJsonPath, 'utf-8')
   const pkgJson = JSON.parse(pkgJsonFile)
+
+  // Ensure scripts object exists
+  if (!pkgJson.scripts) {
+    pkgJson.scripts = {}
+  }
+
   pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
   pkgJson.scripts['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
   writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
