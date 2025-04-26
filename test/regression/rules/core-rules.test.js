@@ -86,7 +86,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-constant-binary-expression.js')} --format json --rule 'no-constant-binary-expression: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-constant-binary-expression.js')} --format json --rule 'no-constant-binary-expression: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -114,7 +114,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-constant-condition.js')} --format json --rule 'no-constant-condition: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-constant-condition.js')} --format json --rule 'no-constant-condition: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -142,7 +142,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-dupe-args.js')} --format json --rule 'no-dupe-args: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-dupe-args.js')} --format json --rule 'no-dupe-args: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -170,7 +170,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-dupe-keys.js')} --format json --rule 'no-dupe-keys: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-dupe-keys.js')} --format json --rule 'no-dupe-keys: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -198,7 +198,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-empty-pattern.js')} --format json --rule 'no-empty-pattern: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-empty-pattern.js')} --format json --rule 'no-empty-pattern: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -226,7 +226,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-extra-boolean-cast.js')} --format json --rule 'no-extra-boolean-cast: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-extra-boolean-cast.js')} --format json --rule 'no-extra-boolean-cast: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -254,7 +254,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-return-await.js')} --format json --rule 'no-return-await: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-return-await.js')} --format json --rule 'no-return-await: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -282,7 +282,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-unsafe-negation.js')} --format json --rule 'no-unsafe-negation: warn'`,
+          `npx eslint ${join(fixturesDir, 'core/no-unsafe-negation.js')} --format json --rule 'no-unsafe-negation: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
