@@ -7,14 +7,15 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const fixturesDir = join(__dirname, '../fixtures')
+const configPath = join(__dirname, 'eslint-test-config.js')
 
-describe.skip('TypeScript ESLint Rules', () => {
+describe('TypeScript ESLint Rules', () => {
   describe('@typescript-eslint/await-thenable', () => {
     it('should detect await on non-thenable values', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --rule '@typescript-eslint/await-thenable: warn' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -33,7 +34,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       )
 
       expect(awaitThenableIssues.length).toBeGreaterThan(0)
-      expect(awaitThenableIssues[0].severity).toBe(1) // warning
+      expect(awaitThenableIssues[0].severity).toBe(2) // error
     })
   })
 
@@ -42,7 +43,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/consistent-type-imports.ts')} --format json --rule '@typescript-eslint/consistent-type-imports: warn' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/consistent-type-imports.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -61,7 +62,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       )
 
       expect(typeImportIssues.length).toBeGreaterThan(0)
-      expect(typeImportIssues[0].severity).toBe(1) // warning
+      expect(typeImportIssues[0].severity).toBe(2) // error
     })
   })
 
@@ -70,7 +71,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-misused-new.ts')} --format json --rule '@typescript-eslint/no-misused-new: error' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-misused-new.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -98,7 +99,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-misused-promises.ts')} --format json --rule '@typescript-eslint/no-misused-promises: error' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-misused-promises.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -126,7 +127,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-non-null-asserted-nullish-coalescing.ts')} --format json --rule '@typescript-eslint/no-non-null-asserted-nullish-coalescing: error' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-non-null-asserted-nullish-coalescing.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -156,7 +157,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-unused-expressions.ts')} --format json --rule '@typescript-eslint/no-unused-expressions: error' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-unused-expressions.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -184,7 +185,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-unused-vars.ts')} --format json --rule '@typescript-eslint/no-unused-vars: ["error", {"args": "after-used", "argsIgnorePattern": "^_", "ignoreRestSiblings": true}]' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-unused-vars.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -212,7 +213,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/prefer-as-const.ts')} --format json --rule '@typescript-eslint/prefer-as-const: warn' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/prefer-as-const.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
@@ -240,7 +241,7 @@ describe.skip('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/promise-function-async.ts')} --format json --rule '@typescript-eslint/promise-function-async: warn' --config ${join(__dirname, 'eslint-test-config.js')}`,
+          `npx eslint ${join(fixturesDir, 'typescript/promise-function-async.ts')} --format json --config ${configPath}`,
           {
             encoding: 'utf-8',
           },
