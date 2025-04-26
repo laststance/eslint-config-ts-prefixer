@@ -7,7 +7,7 @@ export default defineConfig({
   languageOptions: {
     parser: tsParser,
     parserOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: 2023,
       sourceType: 'module',
       project: './test/tsconfig.json',
     },
@@ -15,5 +15,7 @@ export default defineConfig({
   plugins: {
     '@typescript-eslint': typescriptEslint,
   },
-  rules: {},
+  rules: {
+    ...typescriptEslint.configs.recommended.rules,
+  },
 })

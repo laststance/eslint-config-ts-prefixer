@@ -1,10 +1,13 @@
 import { defineConfig } from 'eslint/config'
+import js from '@eslint/js'
 
 export default defineConfig({
   ignores: ['**/node_modules/**'],
   languageOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: 2023,
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    ...js.configs.recommended.rules,
+  },
 })
