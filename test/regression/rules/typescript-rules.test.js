@@ -12,7 +12,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --rule '@typescript-eslint/await-thenable: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
+          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --rule '@typescript-eslint/await-thenable: warn' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -40,7 +40,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/consistent-type-imports.ts')} --format json --rule '@typescript-eslint/consistent-type-imports: warn'`,
+          `npx eslint ${join(fixturesDir, 'typescript/consistent-type-imports.ts')} --format json --rule '@typescript-eslint/consistent-type-imports: warn' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -68,7 +68,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-misused-new.ts')} --format json --rule '@typescript-eslint/no-misused-new: error'`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-misused-new.ts')} --format json --rule '@typescript-eslint/no-misused-new: error' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -96,7 +96,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-misused-promises.ts')} --format json --rule '@typescript-eslint/no-misused-promises: error'`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-misused-promises.ts')} --format json --rule '@typescript-eslint/no-misused-promises: error' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -124,7 +124,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-non-null-asserted-nullish-coalescing.ts')} --format json --rule '@typescript-eslint/no-non-null-asserted-nullish-coalescing: error'`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-non-null-asserted-nullish-coalescing.ts')} --format json --rule '@typescript-eslint/no-non-null-asserted-nullish-coalescing: error' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -154,7 +154,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-unused-expressions.ts')} --format json --rule '@typescript-eslint/no-unused-expressions: error'`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-unused-expressions.ts')} --format json --rule '@typescript-eslint/no-unused-expressions: error' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -182,7 +182,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/no-unused-vars.ts')} --format json --rule '@typescript-eslint/no-unused-vars: ["error", {"args": "after-used", "argsIgnorePattern": "^_", "ignoreRestSiblings": true}]'`,
+          `npx eslint ${join(fixturesDir, 'typescript/no-unused-vars.ts')} --format json --rule '@typescript-eslint/no-unused-vars: ["error", {"args": "after-used", "argsIgnorePattern": "^_", "ignoreRestSiblings": true}]' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -210,7 +210,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/prefer-as-const.ts')} --format json --rule '@typescript-eslint/prefer-as-const: warn'`,
+          `npx eslint ${join(fixturesDir, 'typescript/prefer-as-const.ts')} --format json --rule '@typescript-eslint/prefer-as-const: warn' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },
@@ -238,7 +238,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/promise-function-async.ts')} --format json --rule '@typescript-eslint/promise-function-async: warn'`,
+          `npx eslint ${join(fixturesDir, 'typescript/promise-function-async.ts')} --format json --rule '@typescript-eslint/promise-function-async: warn' --no-eslintrc --env es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --parser-options '{"ecmaVersion": 2022, "sourceType": "module", "project": "./test/tsconfig.json"}'`,
           {
             encoding: 'utf-8',
           },

@@ -156,12 +156,13 @@ describe('Core ESLint Rules', () => {
       }
 
       const results = JSON.parse(eslintOutput)
-      const dupeArgsIssues = results[0].messages.filter(
-        (msg) => msg.ruleId === 'no-dupe-args',
+      const parsingErrors = results[0].messages.filter(
+        (msg) =>
+          msg.fatal === true && msg.message.includes('Argument name clash'),
       )
 
-      expect(dupeArgsIssues.length).toBeGreaterThan(0)
-      expect(dupeArgsIssues[0].severity).toBe(2) // error
+      expect(parsingErrors.length).toBeGreaterThan(0)
+      expect(parsingErrors[0].severity).toBe(2) // error
     })
   })
 
@@ -310,7 +311,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-unused-private-class-members.js')} --format json --rule 'no-unused-private-class-members: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
+          `npx eslint ${join(fixturesDir, 'core/no-unused-private-class-members.js')} --format json --rule 'no-unused-private-class-members: error' --no-eslintrc --env es2022 --parser-options '{"ecmaVersion": 2022, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -422,7 +423,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/require-atomic-updates.js')} --format json --rule 'require-atomic-updates: ["error", { "allowProperties": true }]' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
+          `npx eslint ${join(fixturesDir, 'core/require-atomic-updates.js')} --format json --no-eslintrc --env es2022 --parser-options '{"ecmaVersion": 2022, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },

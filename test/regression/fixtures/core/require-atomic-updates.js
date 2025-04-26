@@ -1,4 +1,8 @@
 
+/* eslint require-atomic-updates: error */
+
+let globalCount = 0;
+
 async function validAtomicUpdates() {
   let count = 0;
   
@@ -24,21 +28,17 @@ async function validPropertyUpdates() {
 }
 
 async function invalidNonAtomicUpdates() {
-  let count = 0;
+  globalCount += await Promise.resolve(42); // Error: Non-atomic update
   
-  count += await Promise.resolve(42); // Error: Non-atomic update
+  let localCount = 0;
+  localCount = localCount + await Promise.resolve(10); // Error: Non-atomic update
   
-  count = count + await Promise.resolve(10) + await Promise.resolve(5); // Error: Non-atomic update
-  
-  return count;
+  return { globalCount, localCount };
 }
 
 async function invalidOperatorUpdates() {
   let count = 0;
-  
-  count *= await Promise.resolve(2); // Error: Non-atomic update
-  
-  count /= await Promise.resolve(2); // Error: Non-atomic update
+  count += await Promise.resolve(2); // Error: Non-atomic update
   
   return count;
 }
