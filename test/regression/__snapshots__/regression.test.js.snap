@@ -17,7 +17,6 @@ exports[`ESLint Regression Tests > should detect prettier formatting issues 1`] 
 exports[`ESLint Regression Tests > should produce consistent linting results for sample with errors 1`] = `
 {
   "errorCount": 1,
-  "filePath": "/home/ubuntu/repos/eslint-config-ts-prefixer/test/regression/fixtures/sample-with-errors.ts",
   "ruleIds": [
     null,
   ],

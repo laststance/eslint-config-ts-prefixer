@@ -29,7 +29,6 @@ describe('ESLint Regression Tests', () => {
     const ruleIds = results[0].messages.map((msg) => msg.ruleId).sort()
 
     const summary = {
-      filePath: results[0].filePath,
       errorCount: results[0].errorCount,
       warningCount: results[0].warningCount,
       ruleIds: ruleIds,
