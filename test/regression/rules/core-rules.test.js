@@ -310,7 +310,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-unused-private-class-members.js')} --format json --rule 'no-unused-private-class-members: error'`,
+          `npx eslint ${join(fixturesDir, 'core/no-unused-private-class-members.js')} --format json --rule 'no-unused-private-class-members: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -338,7 +338,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/prefer-const.js')} --format json --rule 'prefer-const: warn'`,
+          `npx eslint ${join(fixturesDir, 'core/prefer-const.js')} --format json --rule 'prefer-const: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -366,7 +366,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/prefer-promise-reject-errors.js')} --format json --rule 'prefer-promise-reject-errors: ["error", { "allowEmptyReject": true }]'`,
+          `npx eslint ${join(fixturesDir, 'core/prefer-promise-reject-errors.js')} --format json --rule 'prefer-promise-reject-errors: ["error", { "allowEmptyReject": true }]' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -394,7 +394,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/radix.js')} --format json --rule 'radix: error'`,
+          `npx eslint ${join(fixturesDir, 'core/radix.js')} --format json --rule 'radix: error' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -422,7 +422,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/require-atomic-updates.js')} --format json --rule 'require-atomic-updates: ["error", { "allowProperties": true }]'`,
+          `npx eslint ${join(fixturesDir, 'core/require-atomic-updates.js')} --format json --rule 'require-atomic-updates: ["error", { "allowProperties": true }]' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -450,7 +450,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/valid-typeof.js')} --format json --rule 'valid-typeof: warn'`,
+          `npx eslint ${join(fixturesDir, 'core/valid-typeof.js')} --format json --rule 'valid-typeof: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
