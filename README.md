@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [eslint-config-ts-prefixer 🌈](#eslint-config-ts-prefixer-)
-  - [This config is:](#this-config-is)
+  - [This setup is:](#this-setup-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
   - [2. Setup config files with `npx eslint-config-ts-prefixer setup`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-setup)
@@ -28,7 +28,7 @@
 
 ---
 
-### This config is:
+### This setup is:
 
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
 - 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
