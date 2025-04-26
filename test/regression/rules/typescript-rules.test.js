@@ -12,7 +12,7 @@ describe('TypeScript ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --rule '@typescript-eslint/await-thenable: warn'`,
+          `npx eslint ${join(fixturesDir, 'typescript/await-thenable.ts')} --format json --rule '@typescript-eslint/await-thenable: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },

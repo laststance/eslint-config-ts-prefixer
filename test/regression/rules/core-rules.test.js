@@ -2,9 +2,27 @@ import { describe, it, expect } from 'vitest'
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join as pathJoin } from 'node:path'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const fixturesDir = join(__dirname, '../fixtures')
+
+const tempEslintConfigPath = pathJoin(tmpdir(), '.eslintrc-temp.json')
+writeFileSync(
+  tempEslintConfigPath,
+  JSON.stringify({
+    env: {
+      es2020: true,
+      node: true,
+    },
+    parserOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
+    },
+  }),
+)
 
 describe('Core ESLint Rules', () => {
   describe('eqeqeq', () => {
@@ -12,7 +30,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/eqeqeq.js')} --format json --rule 'eqeqeq: ["error", "always"]'`,
+          `npx eslint ${join(fixturesDir, 'core/eqeqeq.js')} --format json --rule 'eqeqeq: ["error", "always"]' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
@@ -40,7 +58,7 @@ describe('Core ESLint Rules', () => {
       let eslintOutput
       try {
         eslintOutput = execSync(
-          `npx eslint ${join(fixturesDir, 'core/no-unneeded-ternary.js')} --format json --rule 'no-unneeded-ternary: warn'`,
+          `npx eslint ${join(fixturesDir, 'core/no-unneeded-ternary.js')} --format json --rule 'no-unneeded-ternary: warn' --no-eslintrc --env es2020 --parser-options '{"ecmaVersion": 2020, "sourceType": "module"}'`,
           {
             encoding: 'utf-8',
           },
