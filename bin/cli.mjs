@@ -68,18 +68,7 @@ program
   )
   .action(async () => {
     const useESLintV9 = await promptESLintVersion()
-    if (useESLintV9) {
-      copyFileSync(
-        join(packageRootDir, 'index.mjs'),
-        join(userCurrentDir, 'eslint.config.js'),
-      )
-    } else {
-      copyFileSync(
-        join(packageRootDir, 'index.cjs'),
-        join(userCurrentDir, '.eslintrc.cjs'),
-      )
-    }
-    await copyConfig('eslintignore')
+    await createESLintConfig(useESLintV9)
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
@@ -92,18 +81,7 @@ program
   )
   .action(async () => {
     const useESLintV9 = await promptESLintVersion()
-    if (useESLintV9) {
-      copyFileSync(
-        join(packageRootDir, 'index.mjs'),
-        join(userCurrentDir, 'eslint.config.js'),
-      )
-    } else {
-      copyFileSync(
-        join(packageRootDir, 'index.cjs'),
-        join(userCurrentDir, '.eslintrc.cjs'),
-      )
-    }
-    await copyConfig('eslintignore')
+    await createESLintConfig(useESLintV9)
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
