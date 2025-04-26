@@ -50,25 +50,25 @@ If you want to manage `.eslintrc.js` file on your codebase, please choose [Full 
 - **npm**
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+npm install --save-dev eslint-config-ts-prefixer eslint@9.25.1 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+yarn add -D eslint-config-ts-prefixer eslint@9.25.1 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **pnpm**
 
 ```bash
-pnpm add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+pnpm add -D eslint-config-ts-prefixer eslint@9.25.1 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 - **bun**
 
 ```bash
-bun add -d eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+bun add -d eslint-config-ts-prefixer eslint@9.25.1 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
 ---
@@ -95,8 +95,13 @@ just run `npm run lint:fix` to apply this package's configurations! 🎉
 ```json
 {
   "scripts": {
+    // ESLint v8 (legacy config)
     "lint": "eslint . --ext .ts,.tsx,.js,jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix",
+
+    // ESLint v9 (flat config)
+    "lint:v9": "eslint . -c eslint.config.mjs",
+    "lint:fix:v9": "eslint . -c eslint.config.mjs --fix"
   }
 }
 ```
@@ -171,17 +176,48 @@ just run `npm run lint:fix` to apply this package's configurations! 🎉
 ```json
 {
   "scripts": {
+    // ESLint v8 (legacy config)
     "lint": "eslint . --ext .ts,.tsx,.js,jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix",
+
+    // ESLint v9 (flat config)
+    "lint:v9": "eslint . -c eslint.config.mjs",
+    "lint:fix:v9": "eslint . -c eslint.config.mjs --fix"
   }
 }
 ```
+
+## ESLint v9 Support
+
+eslint-config-ts-prefixer now fully supports ESLint v9 with its new flat configuration format. Here are the key differences between ESLint v8 and v9:
+
+### Configuration Format
+
+- **ESLint v8**: Uses `.eslintrc.cjs` with the legacy configuration format
+- **ESLint v9**: Uses `eslint.config.mjs` with the new flat configuration format
+
+### Command Line Usage
+
+- **ESLint v8**: `eslint . --ext .ts,.tsx,.js,jsx`
+- **ESLint v9**: `eslint . -c eslint.config.mjs`
+
+### Plugin Integration
+
+All plugins used by eslint-config-ts-prefixer are fully compatible with ESLint v9:
+
+- @typescript-eslint/eslint-plugin
+- eslint-plugin-import
+- eslint-plugin-prettier
+
+### Migration Path
+
+Our CLI tool provides a smooth migration path by allowing you to choose between ESLint v8 and v9 during installation. This gives you the flexibility to adopt ESLint v9 at your own pace.
 
 ## Explore Our Lint Rules Website
 
 We are excited to announce the launch of our new website, which provides a comprehensive list of all lint rules from the original documentation. This resource is designed to help you easily navigate and understand the various lint rules available for your projects.
 
-Visit the website: [ESLint Config TS Prefixer Lint Rules](https://example.com/lint-rules)
+Visit the website: [ESLint Config TS Prefixer Lint Rules](https://laststance.github.io/eslint-config-ts-prefixer/)
 
 The website features a user-friendly interface, allowing you to explore different categories of lint rules, search for specific rules, and learn more about each rule's purpose and usage. Whether you are a beginner or an experienced developer, this website will serve as a valuable tool for ensuring code quality and consistency in your projects.
 
