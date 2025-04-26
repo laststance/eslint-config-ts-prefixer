@@ -5,12 +5,12 @@
   - [This setup is:](#this-setup-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
-  - [2. Setup config files with `npx eslint-config-ts-prefixer setup`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-setup)
-    - [`npx eslint-config-ts-prefixer setup`](#npx-eslint-config-ts-prefixer-setup)
+  - [2. Setup config files with `npx eslint-config-ts-prefixer install`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-install)
+    - [`npx eslint-config-ts-prefixer install`](#npx-eslint-config-ts-prefixer-install)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
 - [Full Copy Install](#full-copy-install)
   - [1. install necessary packages.](#1-install-necessary-packages-1)
-  - [2. run `npx eslint-config-ts-prefixer full-copy`](#2-run-npx-eslint-config-ts-prefixer-full-copy)
+  - [2. run `npx eslint-config-ts-prefixer gen`](#2-run-npx-eslint-config-ts-prefixer-gen)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use-1)
   - [LICENSE](#license)
   - [Contributors ✨](#contributors-)
@@ -73,18 +73,20 @@ bun add -d eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plu
 
 ---
 
-## 2. Setup config files with `npx eslint-config-ts-prefixer setup`.
+## 2. Setup config files with `npx eslint-config-ts-prefixer install`.
 
-### `npx eslint-config-ts-prefixer setup`
+### `npx eslint-config-ts-prefixer install`
 
 Run this command on a project root directory  
-then create config files `.eslintrc.cjs` `.prettierrc` `.eslintignore`,  
+then create config files (`.eslintrc.cjs` or `eslint.config.mjs` depending on ESLint version), `.prettierrc`, `.eslintignore`,  
 inseart `lint`,`lint:fix` commands to `paclage.json`,  
 include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
 
 ```bash
-npx eslint-config-ts-prefixer setup
+npx eslint-config-ts-prefixer install
 ```
+
+This command supports both ESLint v8 (legacy config) and ESLint v9 (flat config) formats and will prompt you to choose which version you want to use.
 
 ## OK, you are ready to use!
 
@@ -148,17 +150,19 @@ pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser ty
 bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
 ```
 
-### 2. run `npx eslint-config-ts-prefixer full-copy`
+### 2. run `npx eslint-config-ts-prefixer gen`
 
 - **run**
 
 ```bash
-npx eslint-config-ts-prefixer full-copy
+npx eslint-config-ts-prefixer gen
 ```
 
-And then generated `.eslintrc.cjs`(copy of [index.js](./index.cjs)), `.eslintignore`, `.prettierrc`.  
+And then generated configuration files (`.eslintrc.cjs` or `eslint.config.mjs` depending on ESLint version), `.eslintignore`, `.prettierrc`.  
 inseart `lint`,`lint:fix` commands to `paclage.json`,  
 include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
+
+This command supports both ESLint v8 (legacy config) and ESLint v9 (flat config) formats and will prompt you to choose which version you want to use.
 
 ## OK, you are ready to use!
 
