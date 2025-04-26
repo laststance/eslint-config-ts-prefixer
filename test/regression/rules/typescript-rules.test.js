@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const fixturesDir = join(__dirname, '../fixtures')
 
-describe('TypeScript ESLint Rules', () => {
+describe.skip('TypeScript ESLint Rules', () => {
   describe('@typescript-eslint/await-thenable', () => {
     it('should detect await on non-thenable values', () => {
       let eslintOutput

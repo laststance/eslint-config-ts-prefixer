@@ -46,9 +46,9 @@ const destination = {
   prettierrc: join(userCurrentDir, file.prettierrc),
 }
 
-// npx eslint-config-ts-prefixer setup
+// npx eslint-config-ts-prefixer install
 program
-  .command('setup')
+  .command('install')
   .description(
     `create ESLint and Prettier configuration files in your current directory (supports both ESLint v8 and v9).`,
   )
@@ -57,34 +57,21 @@ program
     await createESLintConfig(useESLintV9)
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
-    InseartLintFixCommand2PkgJson()
+    InseartLintFixCommand2PkgJson(useESLintV9)
   })
 
-// npx eslint-config-ts-prefixer standalone
+// npx eslint-config-ts-prefixer gen
 program
-  .command('standalone')
+  .command('gen')
   .description(
-    'standalone install: copies full configuration to your project for customization',
+    'generate full configuration: copies full configuration to your project for customization',
   )
   .action(async () => {
     const useESLintV9 = await promptESLintVersion()
     await createESLintConfig(useESLintV9)
     await createPrettierConfig()
     InsertRootdirFilesPath2TSconfig()
-    InseartLintFixCommand2PkgJson()
-  })
-// npx eslint-config-ts-prefixer full-copy
-program
-  .command('full-copy')
-  .description(
-    'full copy install: copies full configuration to your project for customization',
-  )
-  .action(async () => {
-    const useESLintV9 = await promptESLintVersion()
-    await createESLintConfig(useESLintV9)
-    await createPrettierConfig()
-    InsertRootdirFilesPath2TSconfig()
-    InseartLintFixCommand2PkgJson()
+    InseartLintFixCommand2PkgJson(useESLintV9)
   })
 
 /**
@@ -190,7 +177,7 @@ function InsertRootdirFilesPath2TSconfig() {
   }
 }
 
-function InseartLintFixCommand2PkgJson() {
+function InseartLintFixCommand2PkgJson(useESLintV9 = false) {
   const pkgJsonPath = join(userCurrentDir, 'package.json')
   const pkgJsonFile = readFileSync(pkgJsonPath, 'utf-8')
   const pkgJson = JSON.parse(pkgJsonFile)
@@ -200,7 +187,14 @@ function InseartLintFixCommand2PkgJson() {
     pkgJson.scripts = {}
   }
 
-  pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
-  pkgJson.scripts['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
+  if (useESLintV9) {
+    pkgJson.scripts.lint = 'eslint . -c eslint.config.mjs'
+    pkgJson.scripts['lint:fix'] = 'eslint . -c eslint.config.mjs --fix'
+  } else {
+    pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
+    pkgJson.scripts['lint:fix'] =
+      'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
+  }
+
   writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
 }
