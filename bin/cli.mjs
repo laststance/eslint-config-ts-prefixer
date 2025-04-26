@@ -106,10 +106,11 @@ async function promptESLintVersion() {
 async function createESLintConfig(useESLintV9 = false) {
   if (useESLintV9) {
     await copyConfig('eslintconfig')
+    // Don't copy .eslintignore for ESLint v9 as it uses ignores property in the config
   } else {
     await copyConfig('eslintrc')
+    await copyConfig('eslintignore')
   }
-  await copyConfig('eslintignore')
 }
 
 async function createPrettierConfig() {
@@ -156,6 +157,10 @@ function InsertRootdirFilesPath2TSconfig() {
   if (tsconfigContents) {
     const tsconfig = JSON.parse(stripJsonComments(tsconfigContents))
     // add "include" project root's configs avoid '@typescript-eslint/await-thenable's parse error https://elmah.io/tools/stack-trace-formatter/212c0a4849bc4054826e4055f5d167a7/
+    // Initialize include as an empty array if it doesn't exist
+    if (!tsconfig.include) {
+      tsconfig.include = []
+    }
     tsconfig.include = [
       './**.js',
       './**.ts',
