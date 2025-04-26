@@ -36,6 +36,8 @@ describe('ESLint Regression Tests', () => {
       ruleIds: ruleIds,
     }
 
+    delete summary.filePath
+
     expect(summary).toMatchSnapshot()
   })
 

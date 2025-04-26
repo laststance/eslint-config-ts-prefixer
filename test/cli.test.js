@@ -52,10 +52,10 @@ describe('CLI commands', () => {
     }
   })
 
-  describe('setup command', () => {
+  describe('install command with ESLint v8', () => {
     it('should create all necessary configuration files', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} install`,
         { stdio: 'pipe' },
       )
 
@@ -67,7 +67,7 @@ describe('CLI commands', () => {
 
     it('should update package.json with lint scripts', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} install`,
         { stdio: 'pipe' },
       )
 
@@ -84,7 +84,7 @@ describe('CLI commands', () => {
 
     it('should update tsconfig.json with include paths', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} install`,
         { stdio: 'pipe' },
       )
 
@@ -98,10 +98,56 @@ describe('CLI commands', () => {
     })
   })
 
-  describe('full-copy command', () => {
+  describe('install command with ESLint v9', () => {
     it('should create all necessary configuration files', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} install`,
+        { stdio: 'pipe' },
+      )
+
+      expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
+      expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
+      expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
+      expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)
+    })
+
+    it('should update package.json with lint scripts', () => {
+      execSync(
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} install`,
+        { stdio: 'pipe' },
+      )
+
+      const updatedPackageJson = JSON.parse(
+        readFileSync(join(testDir, 'package.json'), 'utf-8'),
+      )
+      expect(updatedPackageJson.scripts.lint).toBe(
+        'eslint . -c eslint.config.mjs',
+      )
+      expect(updatedPackageJson.scripts['lint:fix']).toBe(
+        'eslint . -c eslint.config.mjs --fix',
+      )
+    })
+
+    it('should update tsconfig.json with include paths', () => {
+      execSync(
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} install`,
+        { stdio: 'pipe' },
+      )
+
+      const updatedTsconfig = JSON.parse(
+        readFileSync(join(testDir, 'tsconfig.json'), 'utf-8'),
+      )
+      expect(updatedTsconfig.include).toContain('./**.js')
+      expect(updatedTsconfig.include).toContain('./**.ts')
+      expect(updatedTsconfig.include).toContain('./**.cjs')
+      expect(updatedTsconfig.include).toContain('./**.mjs')
+    })
+  })
+
+  describe('gen command with ESLint v8', () => {
+    it('should create all necessary configuration files', () => {
+      execSync(
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
         { stdio: 'pipe' },
       )
 
@@ -113,7 +159,7 @@ describe('CLI commands', () => {
 
     it('should update package.json with lint scripts', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
         { stdio: 'pipe' },
       )
 
@@ -130,7 +176,53 @@ describe('CLI commands', () => {
 
     it('should update tsconfig.json with include paths', () => {
       execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
+        `cd ${testDir} && echo "8" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
+        { stdio: 'pipe' },
+      )
+
+      const updatedTsconfig = JSON.parse(
+        readFileSync(join(testDir, 'tsconfig.json'), 'utf-8'),
+      )
+      expect(updatedTsconfig.include).toContain('./**.js')
+      expect(updatedTsconfig.include).toContain('./**.ts')
+      expect(updatedTsconfig.include).toContain('./**.cjs')
+      expect(updatedTsconfig.include).toContain('./**.mjs')
+    })
+  })
+
+  describe('gen command with ESLint v9', () => {
+    it('should create all necessary configuration files', () => {
+      execSync(
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
+        { stdio: 'pipe' },
+      )
+
+      expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
+      expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
+      expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
+      expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)
+    })
+
+    it('should update package.json with lint scripts', () => {
+      execSync(
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
+        { stdio: 'pipe' },
+      )
+
+      const updatedPackageJson = JSON.parse(
+        readFileSync(join(testDir, 'package.json'), 'utf-8'),
+      )
+      expect(updatedPackageJson.scripts.lint).toBe(
+        'eslint . -c eslint.config.mjs',
+      )
+      expect(updatedPackageJson.scripts['lint:fix']).toBe(
+        'eslint . -c eslint.config.mjs --fix',
+      )
+    })
+
+    it('should update tsconfig.json with include paths', () => {
+      execSync(
+        `cd ${testDir} && echo "9" | node ${join(__dirname, '../bin/cli.mjs')} gen`,
         { stdio: 'pipe' },
       )
 

@@ -40,8 +40,8 @@ export default defineConfig([
       },
 
       parser: tsParser,
-      ecmaVersion: 5,
-      sourceType: 'commonjs',
+      ecmaVersion: 2023,
+      sourceType: 'module',
 
       parserOptions: {
         project: ['tsconfig.json'],
