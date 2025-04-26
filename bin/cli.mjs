@@ -155,6 +155,8 @@ async function createPrettierConfig() {
 
 async function copyConfig(filename) {
   if (existsSync(destination[filename])) {
+    const displayName =
+      filename === 'eslintconfig' ? file[filename] : `.${filename}`
     const answer = await input({
       name: 'overwrite',
       choices: [
@@ -169,7 +171,7 @@ async function copyConfig(filename) {
           value: 'abort',
         },
       ],
-      message: `Your .${filename} already exists.`,
+      message: `Your ${displayName} already exists.`,
       type: 'expand',
     })
 
