@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import _import from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier'
 import { fixupPluginRules } from '@eslint/compat'
 import globals from 'globals'
@@ -24,7 +24,7 @@ export default defineConfig([
 
     plugins: {
       '@typescript-eslint': typescriptEslint,
-      import: fixupPluginRules(_import),
+      import: importPlugin,
       prettier,
     },
 
