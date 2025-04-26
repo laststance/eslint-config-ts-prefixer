@@ -48,7 +48,6 @@
     "prettier": "^3.0.3",
     "release-it": "^17.0.0",
     "typescript": "^5.2.2",
-    "gh-pages": "^6.1.1",
     "vitest": "^3.1.2"
   },
   "peerDependencies": {
@@ -68,6 +67,6 @@
     "node_modules"
   ],
   "volta": {
-    "node": "20.16.0"
+    "node": "22.15.0"
   }
 }
