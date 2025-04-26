@@ -43,9 +43,9 @@ const destination = {
   prettierrc: join(userCurrentDir, file.prettierrc),
 }
 
-// npx eslint-config-ts-prefixer config
+// npx eslint-config-ts-prefixer setup
 program
-  .command('config')
+  .command('setup')
   .description(
     `create ${file.prettierrc}/${file.prettierignore}/${file.eslintrc}/${file.eslintignore} files your current directory.`,
   )

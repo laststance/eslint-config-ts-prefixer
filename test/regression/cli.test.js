@@ -54,9 +54,9 @@ describe('CLI Regression Tests', () => {
     }
   })
 
-  describe('config command', () => {
+  describe('setup command', () => {
     it('should create all necessary configuration files', () => {
-      execSync(`cd ${testDir} && node ${cliPath} config`, { stdio: 'pipe' })
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       expect(existsSync(join(testDir, '.eslintrc.cjs'))).toBe(true)
       expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
@@ -65,7 +65,7 @@ describe('CLI Regression Tests', () => {
     })
 
     it('should update package.json with lint scripts', () => {
-      execSync(`cd ${testDir} && node ${cliPath} config`, { stdio: 'pipe' })
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       const updatedPackageJson = JSON.parse(
         readFileSync(join(testDir, 'package.json'), 'utf-8'),
@@ -79,7 +79,7 @@ describe('CLI Regression Tests', () => {
     })
 
     it('should update tsconfig.json with include paths', () => {
-      execSync(`cd ${testDir} && node ${cliPath} config`, { stdio: 'pipe' })
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       const updatedTsconfig = JSON.parse(
         readFileSync(join(testDir, 'tsconfig.json'), 'utf-8'),
