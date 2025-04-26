@@ -105,7 +105,7 @@ describe('CLI commands', () => {
         { stdio: 'pipe' },
       )
 
-      expect(existsSync(join(testDir, 'eslint.config.js'))).toBe(true)
+      expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
       expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)
@@ -197,7 +197,7 @@ describe('CLI commands', () => {
         { stdio: 'pipe' },
       )
 
-      expect(existsSync(join(testDir, 'eslint.config.js'))).toBe(true)
+      expect(existsSync(join(testDir, 'eslint.config.mjs'))).toBe(true)
       expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierrc'))).toBe(true)
       expect(existsSync(join(testDir, '.prettierignore'))).toBe(true)

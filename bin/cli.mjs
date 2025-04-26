@@ -23,7 +23,7 @@ const userCurrentDir = cwd()
 const file = {
   eslintignore: '.eslintignore',
   eslintrc: '.eslintrc.cjs',
-  eslintconfig: 'eslint.config.js',
+  eslintconfig: 'eslint.config.mjs',
   prettierignore: '.prettierignore',
   prettierrc: '.prettierrc',
 }
@@ -83,25 +83,24 @@ program.parse(argv)
  * Functions
  */
 async function promptESLintVersion() {
+  // For testing, check if we're in a non-interactive environment
+  if (process.stdin.isTTY === false) {
+    // Read from stdin for testing
+    const chunks = []
+    for await (const chunk of process.stdin) {
+      chunks.push(chunk)
+    }
+    const input = Buffer.concat(chunks).toString().trim()
+    return input === '9'
+  }
+
+  // Interactive mode
   const answer = await input({
-    name: 'eslintVersion',
-    choices: [
-      {
-        name: 'ESLint v9 (flat config)',
-        key: '9',
-        value: true,
-      },
-      {
-        name: 'ESLint v8 (legacy config)',
-        key: '8',
-        value: false,
-      },
-    ],
-    message: 'Which ESLint version do you want to use?',
-    type: 'expand',
+    message:
+      'Which ESLint version do you want to use? (8 for ESLint v8, 9 for ESLint v9)',
   })
 
-  return answer.eslintVersion
+  return answer === '9'
 }
 
 async function createESLintConfig(useESLintV9 = false) {
