@@ -13,7 +13,7 @@ describe('ESLint Regression Tests', () => {
     let eslintOutput
     try {
       eslintOutput = execSync(
-        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json`,
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json -c eslint.config.mjs`,
         {
           encoding: 'utf-8',
         },
@@ -45,7 +45,7 @@ describe('ESLint Regression Tests', () => {
     let eslintOutput
     try {
       eslintOutput = execSync(
-        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json --rule 'prettier/prettier: error'`,
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json -c eslint.config.mjs --rule 'prettier/prettier: error'`,
         {
           encoding: 'utf-8',
         },
@@ -80,7 +80,7 @@ describe('ESLint Regression Tests', () => {
     let eslintOutput
     try {
       eslintOutput = execSync(
-        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json --rule 'import/order: error'`,
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json -c eslint.config.mjs --rule 'import/order: error'`,
         {
           encoding: 'utf-8',
         },
