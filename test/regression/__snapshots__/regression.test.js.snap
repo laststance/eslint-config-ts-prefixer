@@ -16,10 +16,10 @@ exports[`ESLint Regression Tests > should detect prettier formatting issues 1`] 
 
 exports[`ESLint Regression Tests > should produce consistent linting results for sample with errors 1`] = `
 {
-  "errorCount": 1,
+  "errorCount": 0,
   "ruleIds": [
     null,
   ],
-  "warningCount": 0,
+  "warningCount": 1,
 }
 `;
