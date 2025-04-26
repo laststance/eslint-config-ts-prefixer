@@ -5,8 +5,8 @@
   - [This config is:](#this-config-is)
 - [Installation](#installation)
   - [1. install necessary packages.](#1-install-necessary-packages)
-  - [2. Setup config files with `npx eslint-config-ts-prefixer config`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-config)
-    - [`npx eslint-config-ts-prefixer config`](#npx-eslint-config-ts-prefixer-config)
+  - [2. Setup config files with `npx eslint-config-ts-prefixer setup`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-setup)
+    - [`npx eslint-config-ts-prefixer setup`](#npx-eslint-config-ts-prefixer-setup)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
 - [Full Copy Install](#full-copy-install)
   - [1. install necessary packages.](#1-install-necessary-packages-1)
@@ -73,9 +73,9 @@ bun add -d eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plu
 
 ---
 
-## 2. Setup config files with `npx eslint-config-ts-prefixer config`.
+## 2. Setup config files with `npx eslint-config-ts-prefixer setup`.
 
-### `npx eslint-config-ts-prefixer config`
+### `npx eslint-config-ts-prefixer setup`
 
 Run this command on a project root directory  
 then create config files `.eslintrc.cjs` `.prettierrc` `.eslintignore`,  
@@ -83,7 +83,7 @@ inseart `lint`,`lint:fix` commands to `paclage.json`,
 include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
 
 ```bash
-npx eslint-config-ts-prefixer config
+npx eslint-config-ts-prefixer setup
 ```
 
 ## OK, you are ready to use!

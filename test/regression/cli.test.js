@@ -12,8 +12,10 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const testDir = join(__dirname, 'temp-test-project')
+const cliPath = join(__dirname, '../../bin/cli.mjs')
+const baselineDir = join(__dirname, 'baseline')
 
-describe('CLI commands', () => {
+describe('CLI Regression Tests', () => {
   beforeEach(() => {
     if (existsSync(testDir)) {
       rmSync(testDir, { recursive: true, force: true })
@@ -54,10 +56,7 @@ describe('CLI commands', () => {
 
   describe('setup command', () => {
     it('should create all necessary configuration files', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       expect(existsSync(join(testDir, '.eslintrc.cjs'))).toBe(true)
       expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
@@ -66,10 +65,7 @@ describe('CLI commands', () => {
     })
 
     it('should update package.json with lint scripts', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       const updatedPackageJson = JSON.parse(
         readFileSync(join(testDir, 'package.json'), 'utf-8'),
@@ -83,10 +79,7 @@ describe('CLI commands', () => {
     })
 
     it('should update tsconfig.json with include paths', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} setup`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} setup`, { stdio: 'pipe' })
 
       const updatedTsconfig = JSON.parse(
         readFileSync(join(testDir, 'tsconfig.json'), 'utf-8'),
@@ -100,10 +93,7 @@ describe('CLI commands', () => {
 
   describe('full-copy command', () => {
     it('should create all necessary configuration files', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} full-copy`, { stdio: 'pipe' })
 
       expect(existsSync(join(testDir, '.eslintrc.cjs'))).toBe(true)
       expect(existsSync(join(testDir, '.eslintignore'))).toBe(true)
@@ -112,10 +102,7 @@ describe('CLI commands', () => {
     })
 
     it('should update package.json with lint scripts', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} full-copy`, { stdio: 'pipe' })
 
       const updatedPackageJson = JSON.parse(
         readFileSync(join(testDir, 'package.json'), 'utf-8'),
@@ -129,10 +116,7 @@ describe('CLI commands', () => {
     })
 
     it('should update tsconfig.json with include paths', () => {
-      execSync(
-        `cd ${testDir} && node ${join(__dirname, '../bin/cli.mjs')} full-copy`,
-        { stdio: 'pipe' },
-      )
+      execSync(`cd ${testDir} && node ${cliPath} full-copy`, { stdio: 'pipe' })
 
       const updatedTsconfig = JSON.parse(
         readFileSync(join(testDir, 'tsconfig.json'), 'utf-8'),
