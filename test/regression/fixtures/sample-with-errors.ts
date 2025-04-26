@@ -3,12 +3,12 @@ import { a } from 'a-module'
 import fs from 'fs'
 import path from 'path'
 
-const message = 'Hello, world'
-const unusedVar = 42
+const message = "Hello, world";
+const unusedVar = 42;
 
-const mixedQuotes = 'double' + 'single'
+const mixedQuotes = 'double' + "single";
 
-const trailingSpaces = 'This line has trailing spaces'
+const trailingSpaces = 'This line has trailing spaces'   
 
 let shouldBeConst = 'This should be const'
 
@@ -21,7 +21,7 @@ const obj = {
   quoted: true,
 }
 
-const array = [1, 2, 3]
+const array = [1,2,   3]
 
 function unnecessaryElse(condition: boolean) {
   if (condition) {
