@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 import { input } from '@inquirer/prompts'
 import { Command } from 'commander'
+import stripJsonComments from 'strip-json-comments'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -124,7 +125,7 @@ function InsertRootdirFilesPath2TSconfig() {
     ? readFileSync(userTsconfigPath, 'utf8')
     : null
   if (tsconfigContents) {
-    const tsconfig = JSON.parse(tsconfigContents)
+    const tsconfig = JSON.parse(stripJsonComments(tsconfigContents))
     // add "include" project root's configs avoid '@typescript-eslint/await-thenable's parse error https://elmah.io/tools/stack-trace-formatter/212c0a4849bc4054826e4055f5d167a7/
     tsconfig.include = [
       './**.js',
@@ -137,7 +138,9 @@ function InsertRootdirFilesPath2TSconfig() {
   } else {
     // Create tsconfig.json if not exists
     const packageTsconfig = JSON.parse(
-      readFileSync(join(packageRootDir, 'tsconfig.json'), 'utf8'),
+      stripJsonComments(
+        readFileSync(join(packageRootDir, 'tsconfig.json'), 'utf8'),
+      ),
     )
     packageTsconfig.include = ['./**.js', './**.ts', './**.cjs', './**.mjs']
     writeFileSync(userTsconfigPath, JSON.stringify(packageTsconfig, null, 2))
