@@ -64,7 +64,7 @@ program
 program
   .command('gen')
   .description(
-    'generate full configuration: copies full configuration to your project for customization',
+    'standalone install: copies full configuration to your project for customization',
   )
   .action(async () => {
     const useESLintV9 = await promptESLintVersion()

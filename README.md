@@ -8,7 +8,7 @@
   - [2. Setup config files with `npx eslint-config-ts-prefixer install`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-install)
     - [`npx eslint-config-ts-prefixer install`](#npx-eslint-config-ts-prefixer-install)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use)
-- [Full Copy Install](#full-copy-install)
+- [Standalone Install](#standalone-install)
   - [1. install necessary packages.](#1-install-necessary-packages-1)
   - [2. run `npx eslint-config-ts-prefixer gen`](#2-run-npx-eslint-config-ts-prefixer-gen)
   - [OK, you are ready to use!](#ok-you-are-ready-to-use-1)
@@ -43,7 +43,7 @@
 
 # Installation
 
-If you want to manage `.eslintrc.js` file on your codebase, please choose [Full Copy Install](#full-copy-install).
+If you want to manage `.eslintrc.js` file on your codebase, please choose [Standalone Install](#standalone-install).
 
 ## 1. install necessary packages.
 
@@ -124,9 +124,9 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
 
 ---
 
-# Full Copy Install
+# Standalone Install
 
-Full Copy Install creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
+Standalone Install creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
 You can manage the rules yourself.
 
 ### 1. install necessary packages.
