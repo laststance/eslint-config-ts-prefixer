@@ -13,7 +13,8 @@
     "prettier": "prettier --ignore-unknown --write .",
     "release": "release-it",
     "prepare": "husky",
-    "deploy": "gh-pages -d website"
+    "deploy": "gh-pages -d website",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -46,7 +47,9 @@
     "lint-staged": "^15.0.1",
     "prettier": "^3.0.3",
     "release-it": "^17.0.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "gh-pages": "^6.1.1",
+    "vitest": "^3.1.2"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.0.0 || ^7.0.0 || ^8.0.0",

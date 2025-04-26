@@ -55,10 +55,12 @@ program
     InsertRootdirFilesPath2TSconfig()
     InseartLintFixCommand2PkgJson()
   })
-// npx eslint-config-ts-prefixer barebone
+// npx eslint-config-ts-prefixer full-copy
 program
-  .command('barebone')
-  .description('barebone install')
+  .command('full-copy')
+  .description(
+    'full copy install: copies full configuration to your project for customization',
+  )
   .action(async () => {
     copyFileSync(
       join(packageRootDir, 'index.cjs'),
