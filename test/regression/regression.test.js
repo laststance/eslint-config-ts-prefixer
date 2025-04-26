@@ -1,56 +1,110 @@
-import { describe, it, expect, beforeAll } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { execSync } from 'node:child_process'
-import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const fixturesDir = join(__dirname, 'fixtures')
-const baselineDir = join(__dirname, 'baseline')
 
 describe('ESLint Regression Tests', () => {
-  beforeAll(() => {
-    const baselineFile = join(baselineDir, 'sample-with-errors.json')
-    if (!existsSync(baselineFile)) {
-      console.log('Generating baseline data...')
-      execSync(`node ${join(__dirname, 'baseline-capture.js')}`, {
-        stdio: 'inherit',
-      })
-    }
-  })
-
   it('should produce consistent linting results for sample with errors', () => {
-    let currentResults
+    let eslintOutput
     try {
-      currentResults = JSON.parse(
-        execSync(
-          `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json`,
-          {
-            encoding: 'utf-8',
-          },
-        ),
+      eslintOutput = execSync(
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json`,
+        {
+          encoding: 'utf-8',
+        },
       )
     } catch (error) {
       if (error.status === 1 && error.stdout) {
-        currentResults = JSON.parse(error.stdout)
+        eslintOutput = error.stdout
       } else {
         throw error
       }
     }
 
-    const baselineResults = JSON.parse(
-      readFileSync(join(baselineDir, 'sample-with-errors.json'), 'utf-8'),
+    const results = JSON.parse(eslintOutput)
+
+    const ruleIds = results[0].messages.map((msg) => msg.ruleId).sort()
+
+    const summary = {
+      filePath: results[0].filePath,
+      errorCount: results[0].errorCount,
+      warningCount: results[0].warningCount,
+      ruleIds: ruleIds,
+    }
+
+    expect(summary).toMatchSnapshot()
+  })
+
+  it('should detect prettier formatting issues', () => {
+    let eslintOutput
+    try {
+      eslintOutput = execSync(
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json --rule 'prettier/prettier: error'`,
+        {
+          encoding: 'utf-8',
+        },
+      )
+    } catch (error) {
+      if (error.status === 1 && error.stdout) {
+        eslintOutput = error.stdout
+      } else {
+        throw error
+      }
+    }
+
+    const results = JSON.parse(eslintOutput)
+
+    const prettierIssues = results[0].messages.filter(
+      (msg) => msg.ruleId === 'prettier/prettier',
     )
 
-    expect(currentResults[0].errorCount).toBe(baselineResults[0].errorCount)
-    expect(currentResults[0].warningCount).toBe(baselineResults[0].warningCount)
+    const summary = {
+      prettierIssuesCount: prettierIssues.length,
+      prettierIssues: prettierIssues.map((issue) => ({
+        line: issue.line,
+        column: issue.column,
+        message: issue.message,
+      })),
+    }
 
-    const currentRules = currentResults[0].messages
-      .map((msg) => msg.ruleId)
-      .sort()
-    const baselineRules = baselineResults[0].messages
-      .map((msg) => msg.ruleId)
-      .sort()
-    expect(currentRules).toEqual(baselineRules)
+    expect(summary).toMatchSnapshot()
+  })
+
+  it('should detect import order issues', () => {
+    let eslintOutput
+    try {
+      eslintOutput = execSync(
+        `npx eslint ${join(fixturesDir, 'sample-with-errors.ts')} --format json --rule 'import/order: error'`,
+        {
+          encoding: 'utf-8',
+        },
+      )
+    } catch (error) {
+      if (error.status === 1 && error.stdout) {
+        eslintOutput = error.stdout
+      } else {
+        throw error
+      }
+    }
+
+    const results = JSON.parse(eslintOutput)
+
+    const importOrderIssues = results[0].messages.filter(
+      (msg) => msg.ruleId === 'import/order',
+    )
+
+    const summary = {
+      importOrderIssuesCount: importOrderIssues.length,
+      importOrderIssues: importOrderIssues.map((issue) => ({
+        line: issue.line,
+        column: issue.column,
+        message: issue.message,
+      })),
+    }
+
+    expect(summary).toMatchSnapshot()
   })
 })
