@@ -19,6 +19,7 @@ const packageRootDir = join(__dirname, '..')
 const configDir = join(packageRootDir, 'template', 'config')
 const userCurrentDir = cwd()
 
+// TODO update file name to eslint.config.mjs
 // auto geration files
 const file = {
   eslintignore: '.eslintignore',
@@ -63,8 +64,8 @@ program
   )
   .action(async () => {
     copyFileSync(
-      join(packageRootDir, 'index.cjs'),
-      join(userCurrentDir, '.eslintrc.cjs'),
+      join(packageRootDir, 'index.mjs'),
+      join(userCurrentDir, 'eslint.config.mjs'),
     )
     await copyConfig('eslintignore')
     await createPrettierConfig()
@@ -151,7 +152,13 @@ function InseartLintFixCommand2PkgJson() {
   const pkgJsonPath = join(userCurrentDir, 'package.json')
   const pkgJsonFile = readFileSync(pkgJsonPath, 'utf-8')
   const pkgJson = JSON.parse(pkgJsonFile)
-  pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
-  pkgJson.scripts['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
+
+  // Initialize scripts object if it doesn't exist
+  if (!pkgJson.scripts) {
+    pkgJson.scripts = {}
+  }
+
+  pkgJson.scripts.lint = 'eslint . -c eslint.config.mjs'
+  pkgJson.scripts['lint:fix'] = 'eslint . -c eslint.config.mjs --fix'
   writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
 }
