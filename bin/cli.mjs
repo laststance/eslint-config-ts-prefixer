@@ -151,6 +151,12 @@ function InseartLintFixCommand2PkgJson() {
   const pkgJsonPath = join(userCurrentDir, 'package.json')
   const pkgJsonFile = readFileSync(pkgJsonPath, 'utf-8')
   const pkgJson = JSON.parse(pkgJsonFile)
+
+  // Initialize scripts object if it doesn't exist
+  if (!pkgJson.scripts) {
+    pkgJson.scripts = {}
+  }
+
   pkgJson.scripts.lint = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs'
   pkgJson.scripts['lint:fix'] = 'eslint . --ext .ts,.tsx,.js,jsx,cjs,mjs --fix'
   writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
