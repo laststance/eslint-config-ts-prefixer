@@ -7,5 +7,8 @@ yarn.lock
 yarn-error.log
 assets
 tmp
+.husky
+.corsor
+.vscode
 tests
 .env
