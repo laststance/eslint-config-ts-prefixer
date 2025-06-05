@@ -42,7 +42,7 @@
     "@types/node": "^22.15.29",
     "all-contributors-cli": "^6.26.1",
     "husky": "^9.0.1",
-    "lint-staged": "^15.0.1",
+    "lint-staged": "^16.1.0",
     "ora": "^8.2.0",
     "prettier": "^3.5.3",
     "release-it": "^19.0.3",
