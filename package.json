@@ -24,19 +24,20 @@
     "*": "prettier --ignore-unknown --write"
   },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
+    "eslint-import-resolver-typescript": "^4.4.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.4.1",
+    "globals": "^16.2.0"
+  },
   "devDependencies": {
     "@inquirer/prompts": "^7.5.3",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.15.29",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "@typescript-eslint/parser": "^8.33.1",
     "all-contributors-cli": "^6.26.1",
-    "eslint": "^9.28.0",
-    "eslint-config-ts-prefixer": "^1.14.2",
-    "eslint-import-resolver-typescript": "^4.4.2",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.4.1",
-    "globals": "^16.2.0",
     "husky": "^9.0.1",
     "lint-staged": "^15.0.1",
     "ora": "^8.2.0",
@@ -45,14 +46,7 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
-    "eslint-import-resolver-typescript": "^4.0.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "globals": "^16.0.0",
-    "prettier": "^2.0.0 || ^3.0.3",
     "typescript": "^5.0.2"
   },
   "volta": {
