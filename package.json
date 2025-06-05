@@ -10,7 +10,8 @@
     "lint": "eslint . -c eslint.config.mjs",
     "lint:fix": "eslint . -c eslint.config.mjs --fix",
     "prettier": "prettier --ignore-unknown --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "push-release-commit": "node ./scripts/npm-publish-tool.mjs"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
   "devDependencies": {
+    "@inquirer/prompts": "^7.5.3",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.15.29",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
@@ -37,6 +39,7 @@
     "globals": "^16.2.0",
     "husky": "^9.0.1",
     "lint-staged": "^15.0.1",
+    "ora": "^8.2.0",
     "prettier": "^3.5.3",
     "release-it": "^17.0.0",
     "typescript": "^5.8.3"
