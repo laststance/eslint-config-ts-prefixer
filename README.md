@@ -11,16 +11,23 @@
 
 ### This setup is:
 
-- 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
+- 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs) rules.
 - 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
 - 🏠 Use user's existing `.prettierrc` directly.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
 ---
 
-![carbon](https://github.com/laststance/eslint-config-ts-prefixer/assets/5501268/ecd9b954-adf3-48ab-a406-5506070aafd1)
+// TODO put cover image
 
 ---
+
+# Requirements
+
+- Node.js v20 or higher
+- ESLint v9
+- TypeScript v5 and `tsconfig.json` file
+- Prettier v3 and `.prettierrc` file
 
 # Installation
 
@@ -31,32 +38,32 @@ If you are using ESLint v8, please follow [eslint-config-ts-prefixer@1.14.2](htt
 - **pnpm**
 
 ```bash
-pnpm add -D eslint-config-ts-prefixer@latest eslint@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest typescript@latest eslint-plugin-import@latest eslint-import-resolver-typescript@latest eslint-plugin-prettier@latest prettier@latest
+pnpm add -D eslint-config-ts-prefixer@latest
 ```
 
 - **npm**
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer@latest eslint@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest typescript@latest eslint-plugin-import@latest eslint-import-resolver-typescript@latest eslint-plugin-prettier@latest prettier@latest
+npm install --save-dev eslint-config-ts-prefixer@latest
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+yarn add -D eslint-config-ts-prefixer
 ```
 
-# 2. Add `eslint-config-ts-prefixer` to `eslint.config.mjs` in your project.
+## 2. Add `eslint-config-ts-prefixer` to `eslint.config.mjs` in your project.
 
-Create an `eslint.config.mjs` file in your project root with the following configuration:
+```js
+// eslint.config.mjs or eslint.config.js
+import { defineConfig } from 'eslint/config'
+import tsPrefixer from 'eslint-config-ts-prefixer'
 
-**For ESM projects (with `"type": "module"` in package.json or using .mjs extension):**
+export default defineConfig([...tsPrefixer])
+```
 
----
-
-## OK, you are ready to use!
-
-just run `npm run lint:fix` to apply this package's configurations! 🎉
+## 3. Add lint script to `package.json` in your project.
 
 ```json
 {
@@ -66,6 +73,10 @@ just run `npm run lint:fix` to apply this package's configurations! 🎉
   }
 }
 ```
+
+## That's all, you are ready to use!
+
+just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 If you use VSCode,Cursor and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
 you can get great developer experience with the shortcut.  
@@ -83,13 +94,9 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
     <img src="./assets/autofix.gif" alt="autofix" />
 </div>
 
-## Explore Our Lint Rules Website
+## Explore All Lint Rules
 
-We are excited to announce the launch of our new website, which provides a comprehensive list of all lint rules from the original documentation. This resource is designed to help you easily navigate and understand the various lint rules available for your projects.
-
-Visit the website: [ESLint Config TS Prefixer Lint Rules](https://example.com/lint-rules)
-
-The website features a user-friendly interface, allowing you to explore different categories of lint rules, search for specific rules, and learn more about each rule's purpose and usage. Whether you are a beginner or an experienced developer, this website will serve as a valuable tool for ensuring code quality and consistency in your projects.
+TBD
 
 ## LICENSE
 
