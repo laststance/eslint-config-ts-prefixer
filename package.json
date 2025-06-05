@@ -6,6 +6,9 @@
   "description": "Ruleset of meaningful Lint rules on runtime and beautiful formatters. (prettier & eslint-plugin-import & eslint-plugin-sort-keys-custom-order)",
   "type": "module",
   "main": "eslint.config.mjs",
+  "files": [
+    "eslint.config.mjs"
+  ],
   "scripts": {
     "lint": "eslint . -c eslint.config.mjs",
     "lint:fix": "eslint . -c eslint.config.mjs --fix",
