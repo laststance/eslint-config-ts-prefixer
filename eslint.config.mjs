@@ -1,30 +1,32 @@
-import { defineConfig } from 'eslint/config'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import _import from 'eslint-plugin-import'
-import prettier from 'eslint-plugin-prettier'
-import { fixupPluginRules } from '@eslint/compat'
-import globals from 'globals'
 import tsParser from '@typescript-eslint/parser'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import js from '@eslint/js'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
+import { defineConfig } from 'eslint/config'
+import importPlugin from 'eslint-plugin-import'
+import prettier from 'eslint-plugin-prettier'
+import globals from 'globals'
 
 export default defineConfig([
   {
-    extends: compat.extends(),
-
+    ignores: [
+      '**/node_modules/**',
+      '**/build/**',
+      '**/dist/**',
+      '**/.git/**',
+      '**/.idea/**',
+      '**/.husky/**',
+    ],
+    files: [
+      '**/*.ts',
+      '**/*.tsx',
+      '**/*.js',
+      '**/*.jsx',
+      '**/*.mjs',
+      '**/*.cjs',
+      '**/*.mts',
+    ],
     plugins: {
       '@typescript-eslint': typescriptEslint,
-      import: fixupPluginRules(_import),
+      import: importPlugin,
       prettier,
     },
 
@@ -51,7 +53,7 @@ export default defineConfig([
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.mjs', '.js', 'cjs', '.jsx', '.ts', '.tsx'],
+          extensions: ['.mjs', '.js', '.cjs', '.mts', '.ts', '.jsx', '.tsx'],
         },
 
         typescript: {
@@ -158,6 +160,7 @@ export default defineConfig([
       'valid-typeof': 'warn',
     },
   },
+  // For JavaScript files
   {
     files: [
       './**.js',

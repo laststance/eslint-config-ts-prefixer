@@ -1,22 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [eslint-config-ts-prefixer 🌈](#eslint-config-ts-prefixer-)
-  - [This setup is:](#this-setup-is)
-- [Installation](#installation)
-  - [1. install necessary packages.](#1-install-necessary-packages)
-  - [2. Setup config files with `npx eslint-config-ts-prefixer setup`.](#2-setup-config-files-with-npx-eslint-config-ts-prefixer-setup)
-    - [`npx eslint-config-ts-prefixer setup`](#npx-eslint-config-ts-prefixer-setup)
-  - [OK, you are ready to use!](#ok-you-are-ready-to-use)
-- [Full Copy Install](#full-copy-install)
-  - [1. install necessary packages.](#1-install-necessary-packages-1)
-  - [2. run `npx eslint-config-ts-prefixer full-copy`](#2-run-npx-eslint-config-ts-prefixer-full-copy)
-  - [OK, you are ready to use!](#ok-you-are-ready-to-use-1)
-  - [LICENSE](#license)
-  - [Contributors ✨](#contributors-)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <div align="center">
 <h1>eslint-config-ts-prefixer 🌈</h1>
 
@@ -32,7 +13,7 @@
 
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/index.js) rules.
 - 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
-- 🏠 Use user existing `.prettierrc` directly.
+- 🏠 Use user's existing `.prettierrc` directly.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
 ---
@@ -43,48 +24,35 @@
 
 # Installation
 
-If you want to manage `.eslintrc.js` file on your codebase, please choose [Full Copy Install](#full-copy-install).
+If you are using ESLint v8, please follow [eslint-config-ts-prefixer@1.14.2](https://github.com/laststance/eslint-config-ts-prefixer/tree/1.14.2?tab=readme-ov-file#installation) Installation guide.
 
 ## 1. install necessary packages.
+
+- **pnpm**
+
+```bash
+pnpm add -D eslint-config-ts-prefixer@latest eslint@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest typescript@latest eslint-plugin-import@latest eslint-import-resolver-typescript@latest eslint-plugin-prettier@latest prettier@latest
+```
 
 - **npm**
 
 ```bash
-npm install --save-dev eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+npm install --save-dev eslint-config-ts-prefixer@latest eslint@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest typescript@latest eslint-plugin-import@latest eslint-import-resolver-typescript@latest eslint-plugin-prettier@latest prettier@latest
 ```
 
 - **yarn**
 
 ```bash
-yarn add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
+yarn add -D eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
 ```
 
-- **pnpm**
+# 2. Add `eslint-config-ts-prefixer` to `eslint.config.mjs` in your project.
 
-```bash
-pnpm add -D eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
-```
+Create an `eslint.config.mjs` file in your project root with the following configuration:
 
-- **bun**
-
-```bash
-bun add -d eslint-config-ts-prefixer eslint@8.57.0 @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier prettier
-```
+**For ESM projects (with `"type": "module"` in package.json or using .mjs extension):**
 
 ---
-
-## 2. Setup config files with `npx eslint-config-ts-prefixer setup`.
-
-### `npx eslint-config-ts-prefixer setup`
-
-Run this command on a project root directory  
-then create config files `.eslintrc.cjs` `.prettierrc` `.eslintignore`,  
-inseart `lint`,`lint:fix` commands to `paclage.json`,  
-include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
-
-```bash
-npx eslint-config-ts-prefixer setup
-```
 
 ## OK, you are ready to use!
 
@@ -93,13 +61,13 @@ just run `npm run lint:fix` to apply this package's configurations! 🎉
 ```json
 {
   "scripts": {
-    "lint": "eslint . --ext .ts,.tsx,.js,jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
+    "lint": "eslint . -c eslint.config.mjs",
+    "lint:fix": "eslint . -c eslint.config.mjs --fix"
   }
 }
 ```
 
-If you use VSCode and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
+If you use VSCode,Cursor and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
 you can get great developer experience with the shortcut.  
 And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
 
@@ -111,67 +79,9 @@ And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/esl
 <br>
 
 <div align="leftr">
-  <p>Perform on Webstorm</p>
+  <p>Perform on Webstorm(as same as VSCode, Cursor)</p>
     <img src="./assets/autofix.gif" alt="autofix" />
 </div>
-
----
-
-# Full Copy Install
-
-Full Copy Install creates the eslint-config-ts-prefixer's `.eslintrc.js` file directly in your code base.  
-You can manage the rules yourself.
-
-### 1. install necessary packages.
-
-- **npm**
-
-```bash
-npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
-```
-
-- **yarn**
-
-```bash
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
-```
-
-- **pnpm**
-
-```bash
-pnpm add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
-```
-
-- **bun**
-
-```bash
-bun add -d eslint-config-ts-prefixer eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-prettier eslint-plugin-sort-keys-custom-order prettier
-```
-
-### 2. run `npx eslint-config-ts-prefixer full-copy`
-
-- **run**
-
-```bash
-npx eslint-config-ts-prefixer full-copy
-```
-
-And then generated `.eslintrc.cjs`(copy of [index.js](./index.cjs)), `.eslintignore`, `.prettierrc`.  
-inseart `lint`,`lint:fix` commands to `paclage.json`,  
-include `"./**.js", "./**.ts", "./**.cjs", "./**.mjs"` to `tsconfig.json` that need for typescrit eslint parser.
-
-## OK, you are ready to use!
-
-just run `npm run lint:fix` to apply this package's configurations! 🎉
-
-```json
-{
-  "scripts": {
-    "lint": "eslint . --ext .ts,.tsx,.js,jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,jsx --fix"
-  }
-}
-```
 
 ## Explore Our Lint Rules Website
 

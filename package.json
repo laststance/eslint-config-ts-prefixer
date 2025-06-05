@@ -5,16 +5,12 @@
   "version": "1.14.2",
   "description": "Ruleset of meaningful Lint rules on runtime and beautiful formatters. (prettier & eslint-plugin-import & eslint-plugin-sort-keys-custom-order)",
   "type": "module",
-  "bin": "./bin/cli.mjs",
-  "exports": "./index.cjs",
+  "main": "eslint.config.mjs",
   "scripts": {
-    "lint": "eslint index.cjs bin/cli.mjs",
-    "lint:fix": "eslint index.cjs bin/cli.mjs --fix",
+    "lint": "eslint . -c eslint.config.mjs",
+    "lint:fix": "eslint . -c eslint.config.mjs --fix",
     "prettier": "prettier --ignore-unknown --write .",
-    "release": "release-it",
-    "prepare": "husky",
-    "deploy": "gh-pages -d website",
-    "test": "vitest"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -27,46 +23,36 @@
     "*": "prettier --ignore-unknown --write"
   },
   "homepage": "https://github.com/laststance/eslint-config-ts-prefixer",
-  "dependencies": {
-    "@inquirer/prompts": "^5.0.0",
-    "commander": "^12.0.0",
-    "inquirer": "^10.0.1",
-    "strip-json-comments": "^5.0.1"
-  },
   "devDependencies": {
-    "@types/eslint": "^8.44.6",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.15.29",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
     "all-contributors-cli": "^6.26.1",
-    "eslint": "^8.57.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "gh-pages": "^6.1.1",
+    "eslint": "^9.28.0",
+    "eslint-config-ts-prefixer": "^1.14.2",
+    "eslint-import-resolver-typescript": "^4.4.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.4.1",
+    "globals": "^16.2.0",
     "husky": "^9.0.1",
     "lint-staged": "^15.0.1",
-    "prettier": "^3.0.3",
+    "prettier": "^3.5.3",
     "release-it": "^17.0.0",
-    "typescript": "^5.2.2",
-    "vitest": "^3.1.2"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "@typescript-eslint/parser": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "eslint": "^8.50.0 || ^9.0.0",
-    "eslint-import-resolver-typescript": "^3.6.1 || ^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-prettier": "^4.0.0 || ^5.0.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "globals": "^16.0.0",
     "prettier": "^2.0.0 || ^3.0.3",
     "typescript": "^5.0.2"
   },
-  "eslintConfig": {
-    "extends": "./index.cjs"
-  },
-  "eslintIgnore": [
-    "node_modules"
-  ],
   "volta": {
-    "node": "22.15.0"
+    "node": "22.16.0"
   }
 }

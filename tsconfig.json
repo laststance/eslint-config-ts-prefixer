@@ -18,11 +18,10 @@
     "target": "ES2022"
   },
   "include": [
-    "templete/config/.eslintrc.cjs",
-    "bin",
-    "./**.js",
-    "./**.ts",
-    "./**.cjs",
-    "./**.mjs"
+    "eslint.config.mjs",
+    "./**/*.js",
+    "./**/*.ts",
+    "./**/*.cjs",
+    "./**/*.mjs"
   ]
 }

@@ -11,6 +11,3 @@ build
 .idea
 
 pnpm-lock.yaml
-
-# Exclude test fixtures from prettier formatting
-test/regression/fixtures/
