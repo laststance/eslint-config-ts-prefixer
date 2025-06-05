@@ -18,7 +18,9 @@
 
 ---
 
-// TODO put cover image
+<p align="center">
+  <img src="./assets/eslint.config.js.png" alt="cover_image"/>
+</p>
 
 ---
 
