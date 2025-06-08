@@ -2,7 +2,7 @@
   "name": "eslint-config-ts-prefixer",
   "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
   "license": "MIT",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Ruleset of meaningful Lint rules on runtime and beautiful formatters. (prettier & eslint-plugin-import & eslint-plugin-sort-keys-custom-order)",
   "type": "module",
   "main": "eslint.config.mjs",
