@@ -26,7 +26,7 @@
 
 # Requirements
 
-- Node.js v20 or higher
+- Node.js 20.11.0 or higher
 - ESLint v9
 - TypeScript v5 and `tsconfig.json` file
 - Prettier v3 and `.prettierrc` file
