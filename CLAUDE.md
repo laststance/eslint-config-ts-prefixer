@@ -10,13 +10,13 @@ This is an ESLint configuration package (`eslint-config-ts-prefixer`) that provi
 
 ### Linting
 
-- `npm run lint` - Run ESLint on all files
-- `npm run lint:fix` - Run ESLint with auto-fix enabled
-- `npm run prettier` - Format all files with Prettier
+- `pnpm lint` - Run ESLint on all files
+- `pnpm lint:fix` - Run ESLint with auto-fix enabled
+- `pnpm prettier` - Format all files with Prettier
 
 ### Release Process
 
-- `npm run push-release-commit` - Interactive version bump and release preparation script
+- `pnpm push-release-commit` - Interactive version bump and release preparation script
 
 ## Architecture
 
