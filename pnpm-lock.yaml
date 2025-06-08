@@ -30,9 +30,9 @@ importers:
         specifier: ^8.33.1
         version: 8.33.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
     devDependencies:
-      '@inquirer/prompts':
-        specifier: ^7.5.3
-        version: 7.5.3(@types/node@22.15.30)
+      '@laststance/npm-publish-tool':
+        specifier: ^1.6.6
+        version: 1.6.6(@types/node@22.15.30)
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
@@ -48,9 +48,6 @@ importers:
       lint-staged:
         specifier: ^16.1.0
         version: 16.1.0
-      ora:
-        specifier: ^8.2.0
-        version: 8.2.0
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -255,6 +252,11 @@ packages:
       '@types/node':
         optional: true
 
+  '@laststance/npm-publish-tool@1.6.6':
+    resolution: {integrity: sha512-jzGNHVTunSMFawcj4aNXgb8gkQ4ILkg4c/e1xfGh9YsQyv1hjCn/urc9PQTngF2b04T1QVp9mCe3PqxP7VgzPg==}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
+
   '@napi-rs/wasm-runtime@0.2.10':
     resolution: {integrity: sha512-bCsCyeZEwVErsGmyPNSzwfwFn4OdxBj0mmv6hOFucB/k81Ojdu68RbZdxYsRQUPc9l6SU5F/cG+bXgWs3oUgsQ==}
 
@@ -351,8 +353,8 @@ packages:
   '@types/eslint@9.6.1':
     resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
 
-  '@types/estree@1.0.7':
-    resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
+  '@types/estree@1.0.8':
+    resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -712,6 +714,10 @@ packages:
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
+
+  commander@12.1.0:
+    resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
+    engines: {node: '>=18'}
 
   commander@14.0.0:
     resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
@@ -2379,6 +2385,15 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.15.30
 
+  '@laststance/npm-publish-tool@1.6.6(@types/node@22.15.30)':
+    dependencies:
+      '@inquirer/prompts': 7.5.3(@types/node@22.15.30)
+      chalk: 5.4.1
+      commander: 12.1.0
+      ora: 8.2.0
+    transitivePeerDependencies:
+      - '@types/node'
+
   '@napi-rs/wasm-runtime@0.2.10':
     dependencies:
       '@emnapi/core': 1.4.3
@@ -2485,10 +2500,10 @@ snapshots:
 
   '@types/eslint@9.6.1':
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       '@types/json-schema': 7.0.15
 
-  '@types/estree@1.0.7': {}
+  '@types/estree@1.0.8': {}
 
   '@types/json-schema@7.0.15': {}
 
@@ -2876,6 +2891,8 @@ snapshots:
 
   colorette@2.0.20: {}
 
+  commander@12.1.0: {}
+
   commander@14.0.0: {}
 
   concat-map@0.0.1: {}
@@ -3168,7 +3185,7 @@ snapshots:
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.3
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       '@types/json-schema': 7.0.15
       ajv: 6.12.6
       chalk: 4.1.2
