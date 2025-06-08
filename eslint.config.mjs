@@ -1,11 +1,10 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
-import { defineConfig } from 'eslint/config'
 import importPlugin from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier'
 import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-export default defineConfig([
+export default tseslint.config(
+  // Global ignores
   {
     ignores: [
       '**/node_modules/**',
@@ -15,6 +14,10 @@ export default defineConfig([
       '**/.idea/**',
       '**/.husky/**',
     ],
+  },
+
+  // Main configuration
+  {
     files: [
       '**/*.ts',
       '**/*.tsx',
@@ -24,10 +27,11 @@ export default defineConfig([
       '**/*.cjs',
       '**/*.mts',
     ],
+
     plugins: {
-      '@typescript-eslint': typescriptEslint,
+      '@typescript-eslint': tseslint.plugin,
       import: importPlugin,
-      prettier,
+      prettier: prettier,
     },
 
     linterOptions: {
@@ -35,18 +39,19 @@ export default defineConfig([
     },
 
     languageOptions: {
+      parser: tseslint.parser,
       globals: {
         ...globals.browser,
         ...globals.jest,
         ...globals.node,
       },
 
-      parser: tsParser,
-      ecmaVersion: 5,
-      sourceType: 'commonjs',
+      ecmaVersion: 'latest',
+      sourceType: 'module',
 
       parserOptions: {
-        project: ['tsconfig.json'],
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
 
@@ -172,6 +177,7 @@ export default defineConfig([
       '**/*.jsx',
     ],
 
+    // TODO: add more pragmatic rules for JavaScript files
     rules: {
       'no-undef': [
         'error',
@@ -183,4 +189,4 @@ export default defineConfig([
       'no-redeclare': 'error',
     },
   },
-])
+)
