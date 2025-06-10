@@ -32,7 +32,7 @@ importers:
     devDependencies:
       '@laststance/npm-publish-tool':
         specifier: ^1.6.6
-        version: 1.6.6(@types/node@22.15.30)
+        version: 1.6.9(@types/node@22.15.30)
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
@@ -252,8 +252,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@laststance/npm-publish-tool@1.6.6':
-    resolution: {integrity: sha512-jzGNHVTunSMFawcj4aNXgb8gkQ4ILkg4c/e1xfGh9YsQyv1hjCn/urc9PQTngF2b04T1QVp9mCe3PqxP7VgzPg==}
+  '@laststance/npm-publish-tool@1.6.9':
+    resolution: {integrity: sha512-gBkMYEQgLLVzJ900z7YJ+4wZG+irhCpYLhMWODAx9kpHlMwFCROld5SLiATCBOzDe6t6mVql5LOjyEEs7gkWUQ==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
@@ -2385,7 +2385,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.15.30
 
-  '@laststance/npm-publish-tool@1.6.6(@types/node@22.15.30)':
+  '@laststance/npm-publish-tool@1.6.9(@types/node@22.15.30)':
     dependencies:
       '@inquirer/prompts': 7.5.3(@types/node@22.15.30)
       chalk: 5.4.1
