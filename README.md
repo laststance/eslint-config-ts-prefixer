@@ -16,13 +16,17 @@
 - 🏠 Use user's existing `.prettierrc` directly.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
----
+<br>
 
+<details>
+<summary>Click to expand</summary>
 <p align="center">
+  </br>
   <img src="./assets/eslint.config.js.png" alt="cover_image"/>
 </p>
+</details>
 
----
+<br>
 
 # Requirements
 
@@ -55,10 +59,9 @@ npm install --save-dev eslint-config-ts-prefixer@latest
 yarn add -D eslint-config-ts-prefixer
 ```
 
-## 2. Add `eslint-config-ts-prefixer` to `eslint.config.mjs` in your project.
+## 2. Add `eslint-config-ts-prefixer` to `eslint.config.js` in your project.
 
 ```js
-// eslint.config.mjs or eslint.config.js
 import { defineConfig } from 'eslint/config'
 import tsPrefixer from 'eslint-config-ts-prefixer'
 
@@ -70,8 +73,8 @@ export default defineConfig([...tsPrefixer])
 ```json
 {
   "scripts": {
-    "lint": "eslint . -c eslint.config.mjs",
-    "lint:fix": "eslint . -c eslint.config.mjs --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }
 ```
