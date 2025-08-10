@@ -1,5 +1,4 @@
 import importPlugin from 'eslint-plugin-import'
-import prettier from 'eslint-plugin-prettier'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -31,7 +30,6 @@ export default tseslint.config(
     plugins: {
       '@typescript-eslint': tseslint.plugin,
       import: importPlugin,
-      prettier: prettier,
     },
 
     linterOptions: {
@@ -141,16 +139,6 @@ export default tseslint.config(
         'error',
         {
           allowEmptyReject: true,
-        },
-      ],
-
-      'prettier/prettier': [
-        'warn',
-        {},
-        {
-          properties: {
-            usePrettierrc: true,
-          },
         },
       ],
 
