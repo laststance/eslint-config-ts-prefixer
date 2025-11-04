@@ -12,8 +12,7 @@
 ### This setup is:
 
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs) rules.
-- 💅 [Prettier](https://prettier.io/) integration, specialized fixable `import` rules.
-- 🏠 Use user's existing `.prettierrc` directly.
+- 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
 <br>
@@ -33,7 +32,6 @@
 - Node.js 20.11.0 or higher
 - ESLint v9
 - TypeScript v5 and `tsconfig.json` file
-- Prettier v3 and `.prettierrc` file
 
 # Installation
 
