@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
 [![Lint](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml/badge.svg)](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml)
 
-<p>Ruleset of meaningful Lint rules on runtime and beautiful formatters. (<a href="https://prettier.io/">prettier</a> & <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>)
+<p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>)
 </div>
 
 ---
@@ -81,25 +81,9 @@ export default defineConfig([...tsPrefixer])
 
 just run `npm run lint:fix` to apply this package's configurations! 🎉
 
-If you use VSCode,Cursor and [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),  
-you can get great developer experience with the shortcut.  
-And [Webstorm native support ESLint](https://www.jetbrains.com/help/webstorm/eslint.html#ws_eslint_configure_run_eslint_on_save).
-
-<div align="left">
-  <img src="./assets/extension.png" alt="config"/>
-</div>
-
-<br>
-<br>
-
-<div align="leftr">
-  <p>Perform on Webstorm(as same as VSCode, Cursor)</p>
-    <img src="./assets/autofix.gif" alt="autofix" />
-</div>
-
 ## Explore All Lint Rules
 
-TBD
+https://website-eslint-config-ts-prefixer.vercel.app/
 
 ## LICENSE
 
