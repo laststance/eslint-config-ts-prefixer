@@ -4,8 +4,8 @@
 ![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
 [![Lint](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml/badge.svg)](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml)
 
-<p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>)
-</div>
+<p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>
+</p>
 
 ---
 
@@ -14,18 +14,6 @@
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs) rules.
 - 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
-
-<br>
-
-<details>
-<summary>Click to expand</summary>
-<p align="center">
-  </br>
-  <img src="./assets/eslint.config.js.png" alt="cover_image"/>
-</p>
-</details>
-
-<br>
 
 # Requirements
 
@@ -82,6 +70,12 @@ export default defineConfig([...tsPrefixer])
 just run `npm run lint:fix` to apply this package's configurations! 🎉
 
 ## Explore All Lint Rules
+
+### config
+
+https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs
+
+### Docs
 
 https://website-eslint-config-ts-prefixer.vercel.app/
 
