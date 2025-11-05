@@ -6,6 +6,7 @@
 
 <p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>
 </p>
+</div>
 
 ---
 
