@@ -1,7 +1,7 @@
 <div align="center">
 <h1>eslint-config-ts-prefixer 🌈</h1>
 
-![npm](https://img.shields.io/npm/dm/eslint-config-ts-prefixer)
+[![npm downloads](https://badgen.net/npm/dt/eslint-config-ts-prefixer)](https://www.npmjs.com/package/eslint-config-ts-prefixer)
 [![Lint](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml/badge.svg)](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml)
 
 <p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>
