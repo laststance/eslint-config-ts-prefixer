@@ -49,8 +49,5 @@
   "peerDependencies": {
     "eslint": "^9.0.0",
     "typescript": "^5.0.2"
-  },
-  "volta": {
-    "node": "24.12.0"
   }
 }
