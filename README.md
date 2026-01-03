@@ -52,7 +52,16 @@ yarn add -D eslint-config-ts-prefixer
 import { defineConfig } from 'eslint/config'
 import tsPrefixer from 'eslint-config-ts-prefixer'
 
-export default defineConfig([...tsPrefixer])
+export default defineConfig([
+  ...tsPrefixer,
+  {
+    languageOptions: {
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname, // get user tsconfig.json dirname
+      },
+    },
+  },
+])
 ```
 
 ## 3. Add lint script to `package.json` in your project.
@@ -60,8 +69,8 @@ export default defineConfig([...tsPrefixer])
 ```json
 {
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --concurrency=auto --max-warnings=0",
+    "lint:fix": "eslint . --fix --concurrency=auto --max-warnings=0"
   }
 }
 ```

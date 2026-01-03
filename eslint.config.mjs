@@ -49,7 +49,6 @@ export default tseslint.config(
 
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname, // requires Node.js 20.11.0+
         allowDefaultProject: ['*.js', '*.mjs', '*.cjs'], // allow JS files to be parsed
       },
     },
