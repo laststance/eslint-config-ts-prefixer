@@ -1,10 +1,8 @@
 import importPlugin from 'eslint-plugin-import'
 import globals from 'globals'
-import { defineConfig } from 'eslint'
 import tseslint from 'typescript-eslint'
 
-// tseslint.config is deprecated, see https://typescript-eslint.io/packages/typescript-eslint/#config-deprecated
-export default defineConfig([
+export default [
   // Global ignores
   {
     ignores: [
@@ -240,4 +238,4 @@ export default defineConfig([
       'no-redeclare': 'error',
     },
   },
-])
+]
