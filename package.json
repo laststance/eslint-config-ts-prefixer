@@ -2,7 +2,7 @@
   "name": "eslint-config-ts-prefixer",
   "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
   "license": "MIT",
-  "version": "4.1.3",
+  "version": "4.1.4",
   "description": "Ruleset of meaningful Lint rules on runtime with import organization. (eslint-plugin-import-x)",
   "type": "module",
   "main": "eslint.config.mjs",
