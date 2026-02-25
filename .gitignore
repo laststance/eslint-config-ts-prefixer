@@ -6,3 +6,18 @@ tmp
 .env
 fixtures
 logs
+
+# Next.js (website)
+.next/
+out/
+
+# env files
+.env.local
+.env*.local
+
+# test artifacts
+test-results
+
+# generated
+*.tsbuildinfo
+next-env.d.ts

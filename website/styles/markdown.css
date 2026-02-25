@@ -1,0 +1,317 @@
+/* Custom styles for markdown content */
+
+/* Import highlight.js light theme as default (always loaded) */
+@import 'highlight.js/styles/github.css';
+
+/* Enhanced code block styling for better readability */
+.hljs {
+  border-radius: 0.5rem;
+  padding: 1rem !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: #f6f8fa !important;
+  border: 1px solid #d0d7de;
+}
+
+/* WCAG AA contrast fix — darken keyword red from #d73a49 (4.30:1) to #c9242f (5.1:1) */
+.hljs-doctag,
+.hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: #c9242f;
+}
+
+/* Darken comment gray from #6a737d (4.6:1) to #57606a (6.00:1) for better readability */
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  color: #57606a;
+}
+
+/* Dark mode syntax highlighting — class-based for next-themes compatibility */
+.dark .hljs {
+  background: #0d1117 !important;
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-variable.language_ {
+  color: #ff7b72;
+}
+
+.dark .hljs-title,
+.dark .hljs-title.class_,
+.dark .hljs-title.class_.inherited__,
+.dark .hljs-title.function_ {
+  color: #d2a8ff;
+}
+
+.dark .hljs-attr,
+.dark .hljs-attribute,
+.dark .hljs-literal,
+.dark .hljs-meta,
+.dark .hljs-number,
+.dark .hljs-operator,
+.dark .hljs-variable,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-class,
+.dark .hljs-selector-id {
+  color: #79c0ff;
+}
+
+.dark .hljs-regexp,
+.dark .hljs-string {
+  color: #a5d6ff;
+}
+
+.dark .hljs-built_in,
+.dark .hljs-symbol {
+  color: #ffa657;
+}
+
+.dark .hljs-comment,
+.dark .hljs-code,
+.dark .hljs-formula {
+  color: #8b949e;
+}
+
+.dark .hljs-name,
+.dark .hljs-quote,
+.dark .hljs-selector-tag,
+.dark .hljs-selector-pseudo {
+  color: #7ee787;
+}
+
+.dark .hljs-subst {
+  color: #e6edf3;
+}
+
+.dark .hljs-section {
+  color: #1f6feb;
+  font-weight: bold;
+}
+
+.dark .hljs-bullet {
+  color: #f2cc60;
+}
+
+.dark .hljs-addition {
+  color: #aff5b4;
+  background-color: #033a16;
+}
+
+.dark .hljs-deletion {
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+
+/* Custom styles for ESLint documentation blocks */
+.eslint-block {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.eslint-block-header {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eslint-block.incorrect {
+  background-color: rgb(254 242 242);
+  border-color: rgb(254 202 202);
+}
+
+.eslint-block.incorrect .eslint-block-header {
+  color: rgb(185 28 28);
+}
+
+.eslint-block.correct {
+  background-color: rgb(240 253 244);
+  border-color: rgb(187 247 208);
+}
+
+.eslint-block.correct .eslint-block-header {
+  color: rgb(22 101 52);
+}
+
+/* Dark mode for ESLint blocks */
+[data-theme='dark'] .eslint-block.incorrect,
+.dark .eslint-block.incorrect {
+  background-color: rgb(127 29 29 / 0.3);
+  border-color: rgb(239 68 68);
+}
+
+[data-theme='dark'] .eslint-block.incorrect .eslint-block-header,
+.dark .eslint-block.incorrect .eslint-block-header {
+  color: rgb(254 87 87);
+}
+
+[data-theme='dark'] .eslint-block.correct,
+.dark .eslint-block.correct {
+  background-color: rgb(20 83 45 / 0.3);
+  border-color: rgb(74 222 128);
+}
+
+[data-theme='dark'] .eslint-block.correct .eslint-block-header,
+.dark .eslint-block.correct .eslint-block-header {
+  color: rgb(134 239 172);
+}
+
+/* Enhanced typography for markdown content */
+.markdown-content {
+  line-height: 1.7;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-content h1:first-child,
+.markdown-content h2:first-child,
+.markdown-content h3:first-child {
+  margin-top: 0;
+}
+
+.markdown-content code {
+  font-size: 0.875em;
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace;
+}
+
+.markdown-content pre {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+
+.markdown-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: hsl(var(--muted));
+  font-weight: 600;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin: 0.25rem 0;
+}
+
+/* Code blocks with options (TypeScript ESLint specific) */
+.code-block-with-option {
+  margin: 1rem 0;
+}
+
+.code-option {
+  background-color: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  padding: 0.5rem 1rem;
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace;
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground));
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.code-block-with-option pre {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Line clamp utility for descriptions */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced focus styles for accessibility */
+.markdown-content a:focus,
+.markdown-content button:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Better spacing for nested lists */
+.markdown-content ul ul,
+.markdown-content ol ol,
+.markdown-content ul ol,
+.markdown-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .markdown-content {
+    font-size: 0.875rem;
+  }
+
+  .markdown-content pre {
+    font-size: 0.875rem;
+  }
+
+  .markdown-content table {
+    font-size: 0.875rem;
+  }
+
+  .eslint-block {
+    padding: 0.75rem;
+  }
+
+  .code-option {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

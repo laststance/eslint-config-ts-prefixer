@@ -1,0 +1,577 @@
+@import 'tailwindcss';
+
+/**
+ * Tailwind CSS v4 Theme Configuration
+ * Using @theme directive for CSS-first configuration
+ */
+@theme {
+  /* Colors - Light Mode (default) */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222.2 84% 4.9%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222.2 84% 4.9%);
+  --color-primary: hsl(222.2 47.4% 11.2%);
+  --color-primary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(210 40% 96.1%);
+  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-muted: hsl(210 40% 96.1%);
+  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+  --color-accent: hsl(210 40% 96.1%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-border: hsl(214.3 31.8% 91.4%);
+  --color-input: hsl(214.3 31.8% 91.4%);
+  --color-ring: hsl(222.2 84% 4.9%);
+  --color-chart-1: hsl(12 76% 61%);
+  --color-chart-2: hsl(173 58% 39%);
+  --color-chart-3: hsl(197 37% 24%);
+  --color-chart-4: hsl(43 74% 66%);
+  --color-chart-5: hsl(27 87% 67%);
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
+  --color-sidebar-primary: hsl(240 5.9% 10%);
+  --color-sidebar-primary-foreground: hsl(0 0% 98%);
+  --color-sidebar-accent: hsl(240 4.8% 95.9%);
+  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --color-sidebar-border: hsl(220 13% 91%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* Border Radius - Apple HIG Standards */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-glass: 12px;
+  --radius-glass-lg: 16px;
+  --radius-glass-xl: 20px;
+
+  /* Backdrop Blur - Glass Morphism */
+  --blur-glass: 20px;
+  --blur-glass-sm: 15px;
+  --blur-glass-lg: 25px;
+  --blur-glass-xl: 30px;
+
+  /* Backdrop Saturate */
+  --saturate-glass: 180%;
+}
+
+/**
+ * Dark mode theme using custom variant
+ * Applied via ThemeProvider with class="dark"
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: hsl(222.2 84% 4.9%);
+    --color-foreground: hsl(210 40% 98%);
+    --color-card: hsl(222.2 84% 4.9%);
+    --color-card-foreground: hsl(210 40% 98%);
+    --color-popover: hsl(222.2 84% 4.9%);
+    --color-popover-foreground: hsl(210 40% 98%);
+    --color-primary: hsl(210 40% 98%);
+    --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+    --color-secondary: hsl(217.2 32.6% 17.5%);
+    --color-secondary-foreground: hsl(210 40% 98%);
+    --color-muted: hsl(217.2 32.6% 17.5%);
+    --color-muted-foreground: hsl(215 20.2% 65.1%);
+    --color-accent: hsl(217.2 32.6% 17.5%);
+    --color-accent-foreground: hsl(210 40% 98%);
+    --color-destructive: hsl(0 62.8% 30.6%);
+    --color-destructive-foreground: hsl(210 40% 98%);
+    --color-border: hsl(217.2 32.6% 17.5%);
+    --color-input: hsl(217.2 32.6% 17.5%);
+    --color-ring: hsl(215 20.2% 65.1%);
+    --color-chart-1: hsl(220 70% 50%);
+    --color-chart-2: hsl(160 60% 45%);
+    --color-chart-3: hsl(30 80% 55%);
+    --color-chart-4: hsl(280 65% 60%);
+    --color-chart-5: hsl(340 75% 55%);
+    --color-sidebar-background: hsl(240 5.9% 10%);
+    --color-sidebar-foreground: hsl(240 4.8% 95.9%);
+    --color-sidebar-primary: hsl(224.3 76.3% 48%);
+    --color-sidebar-primary-foreground: hsl(0 0% 100%);
+    --color-sidebar-accent: hsl(240 3.7% 15.9%);
+    --color-sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+    --color-sidebar-border: hsl(240 3.7% 15.9%);
+    --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+  }
+}
+
+/* Base styles */
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family:
+    var(--font-body),
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apply monospace font to code elements and brand title */
+code,
+pre,
+kbd,
+samp,
+.font-mono {
+  font-family:
+    var(--font-mono), ui-monospace, SFMono-Regular, 'SF Mono', Consolas,
+    monospace;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Global focus-visible indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@import '../styles/markdown.css';
+
+/* ============================================
+   Apple Liquid Glass UI System
+   Based on Apple Human Interface Guidelines 2025
+   ============================================ */
+
+@layer utilities {
+  /* Material Thickness Variants - Enhanced for Better Readability */
+  .glass-ultra-thin {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
+  }
+
+  .glass-thin {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+  }
+
+  .glass-medium {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  }
+
+  .glass-thick {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  }
+
+  .glass-ultra-thick {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+  }
+
+  /* Dark Mode Variants - Iteration 3: Further enhanced opacity and blur for better text contrast */
+  .dark .glass-ultra-thin {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+  }
+
+  .dark .glass-thin {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+  }
+
+  .dark .glass-medium {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+  }
+
+  .dark .glass-thick {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(36px) saturate(180%);
+    -webkit-backdrop-filter: blur(36px) saturate(180%);
+  }
+
+  .dark .glass-ultra-thick {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+  }
+
+  /* Vibrancy Levels for Text */
+  .vibrancy-primary {
+    opacity: 1;
+  }
+
+  .dark .vibrancy-primary {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .vibrancy-secondary {
+    opacity: 1;
+  }
+
+  .dark .vibrancy-secondary {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .vibrancy-tertiary {
+    opacity: 1;
+  }
+
+  .dark .vibrancy-tertiary {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .vibrancy-divider {
+    opacity: 0.3;
+  }
+
+  /* Enhanced text readability for white text on dark theme backgrounds */
+  /* Subtle text shadow: lighter halo effect for improved legibility without being too heavy */
+  .dark .text-white {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .text-gray-300 {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .dark .text-gray-200 {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Code blocks and colored text should not have text-shadow */
+  .dark code,
+  .dark pre,
+  .dark .text-red-400,
+  .dark .text-red-500,
+  .dark .text-green-400,
+  .dark .text-green-500,
+  .dark .text-blue-400,
+  .dark .text-blue-500,
+  .dark .text-yellow-400,
+  .dark .text-yellow-500 {
+    text-shadow: none;
+  }
+
+  /* Glass Border Styles */
+  .glass-border {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Three-Layer Glass System */
+  .glass-layered {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-layered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .dark .glass-layered::before {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  /* Tinted Glass for Primary Actions */
+  .glass-tinted-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.2),
+      rgba(96, 165, 250, 0.15)
+    );
+  }
+
+  .dark .glass-tinted-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.25),
+      rgba(96, 165, 250, 0.2)
+    );
+  }
+
+  /* Clear Glass for Content Layers - Enhanced for Maximum Readability */
+  .glass-clear {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(28px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.1);
+  }
+
+  .dark .glass-clear {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(44px) saturate(180%);
+    -webkit-backdrop-filter: blur(44px) saturate(180%);
+  }
+
+  /* Sidebar Glass - High opacity for text readability */
+  .glass-sidebar {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+  }
+
+  .dark .glass-sidebar {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+  }
+
+  /* Dimming Layer for Legibility */
+  .glass-dimmed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .dark .glass-dimmed::after {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Light theme text enhancement for readability on glass backgrounds */
+  .text-gray-900,
+  .text-gray-800,
+  .text-black {
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  .dark .text-gray-900,
+  .dark .text-gray-800 {
+    color: inherit;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .text-black {
+    color: #ffffff;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Dynamic Shadows */
+  .glass-shadow-sm {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass-shadow-sm {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-shadow-md {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .dark .glass-shadow-md {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-shadow-lg {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .dark .glass-shadow-lg {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.7),
+      0 6px 24px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  /* Glass Transitions */
+  .glass-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Rounded Glass Utilities */
+  .rounded-glass {
+    border-radius: var(--radius-glass);
+  }
+
+  .rounded-glass-lg {
+    border-radius: var(--radius-glass-lg);
+  }
+
+  .rounded-glass-xl {
+    border-radius: var(--radius-glass-xl);
+  }
+
+  /* Mobile Optimization - Reduced Blur */
+  @media (max-width: 768px) {
+    .glass-ultra-thin,
+    .glass-thin,
+    .glass-medium,
+    .glass-thick,
+    .glass-ultra-thick,
+    .glass-clear {
+      backdrop-filter: blur(15px) saturate(160%);
+      -webkit-backdrop-filter: blur(15px) saturate(160%);
+    }
+  }
+
+  /* Accessibility: Reduce Transparency Support */
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-ultra-thin,
+    .glass-thin,
+    .glass-medium,
+    .glass-thick,
+    .glass-ultra-thick,
+    .glass-clear {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .dark .glass-ultra-thin,
+    .dark .glass-thin,
+    .dark .glass-medium,
+    .dark .glass-thick,
+    .dark .glass-ultra-thick,
+    .dark .glass-clear {
+      background: rgba(30, 30, 30, 0.95);
+    }
+  }
+
+  /* Accessibility: Reduce Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .glass-transition {
+      transition: none;
+    }
+
+    .glass-layered::before {
+      animation: none;
+    }
+  }
+
+  /* Performance: GPU Acceleration */
+  .glass-ultra-thin,
+  .glass-thin,
+  .glass-medium,
+  .glass-thick,
+  .glass-ultra-thick,
+  .glass-clear {
+    transform: translateZ(0);
+    will-change: backdrop-filter;
+  }
+
+  /* Progressive Enhancement */
+  @supports not (backdrop-filter: blur(20px)) {
+    .glass-ultra-thin,
+    .glass-thin,
+    .glass-medium,
+    .glass-thick,
+    .glass-ultra-thick,
+    .glass-clear {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .dark .glass-ultra-thin,
+    .dark .glass-thin,
+    .dark .glass-medium,
+    .dark .glass-thick,
+    .dark .glass-ultra-thick,
+    .dark .glass-clear {
+      background: rgba(30, 30, 30, 0.9);
+    }
+  }
+}
+
+/* ============================================
+   Animations for Radix UI Components
+   (Previously in tailwind.config.ts)
+   ============================================ */
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
