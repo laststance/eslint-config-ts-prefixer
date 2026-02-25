@@ -1,4 +1,4 @@
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -29,7 +29,7 @@ export default [
 
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      import: importPlugin,
+      'import-x': importPlugin,
     },
 
     linterOptions: {
@@ -55,7 +55,7 @@ export default [
     },
 
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         node: {
           extensions: ['.mjs', '.js', '.cjs', '.mts', '.ts', '.jsx', '.tsx'],
         },
@@ -114,28 +114,28 @@ export default [
       // Warn when a ternary can be simplified (readability).
       'no-unneeded-ternary': 'warn',
       // Ensure default import exists in the target module.
-      'import/default': 'error',
+      'import-x/default': 'error',
 
       // Ensure exports are valid and consistent.
-      'import/export': 'error',
+      'import-x/export': 'error',
 
       // Ensure named imports match exported names.
-      'import/named': 'error',
+      'import-x/named': 'error',
 
       // Prevent circular dependencies which can cause runtime issues.
-      'import/no-cycle': 'error',
+      'import-x/no-cycle': 'error',
 
       // Disallow multiple import statements from the same module.
-      'import/no-duplicates': 'error',
+      'import-x/no-duplicates': 'error',
 
       // Error on unresolved import paths (keeps imports reliable).
-      'import/no-unresolved': 'error',
+      'import-x/no-unresolved': 'error',
 
       // Warn on unnecessary `./` or `../` segments in import paths.
-      'import/no-useless-path-segments': 'warn',
+      'import-x/no-useless-path-segments': 'warn',
 
       // Keep imports grouped and alphabetized for consistent readability.
-      'import/order': [
+      'import-x/order': [
         'warn',
         {
           // Sort imports A→Z, case-insensitive.

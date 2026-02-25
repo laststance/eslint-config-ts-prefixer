@@ -4,7 +4,7 @@
 [![npm downloads](https://badgen.net/npm/dt/eslint-config-ts-prefixer)](https://www.npmjs.com/package/eslint-config-ts-prefixer)
 [![Lint](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml/badge.svg)](https://github.com/laststance/eslint-config-ts-prefixer/actions/workflows/lint.yml)
 
-<p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import">eslint-plugin-import</a>
+<p>Ruleset of meaningful Lint rules on runtime and import formatters. <a href="https://www.npmjs.com/package/eslint-plugin-import-x">eslint-plugin-import-x</a>
 </p>
 </div>
 
