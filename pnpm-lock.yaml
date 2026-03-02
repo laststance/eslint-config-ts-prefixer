@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@eslint/js':
-        specifier: ^9.39.2
-        version: 9.39.2
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
