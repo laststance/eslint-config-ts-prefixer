@@ -35,7 +35,7 @@
     "typescript-eslint": "^8.57.2"
   },
   "devDependencies": {
-    "@laststance/npm-publish-tool": "^1.6.13",
+    "@laststance/npm-publish-tool": "^2.1.0",
     "@types/eslint": "^9.6.1",
     "@types/node": "^25.0.10",
     "all-contributors-cli": "^6.26.1",
