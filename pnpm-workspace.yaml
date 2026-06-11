@@ -28,3 +28,10 @@ minimumReleaseAgeExclude:
   - '@laststance/redux-storage-middleware'
   - '@laststance/react-next-eslint-plugin'
 verifyStoreIntegrity: true
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+peerDependencyRules:
+  allowedVersions:
+    eslint: '^10.0.0'
+    tailwindcss: '^4.0.0'

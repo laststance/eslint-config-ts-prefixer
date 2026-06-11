@@ -1,11 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { NavigationGlass } from '@/components/ui/liquid-glass'
 
+/**
+ * Renders the sticky site header when the app layout loads it.
+ * @returns The repository navigation, external repository link, and theme toggle.
+ * @example
+ * <Header />
+ */
 export function Header() {
   return (
     <NavigationGlass
@@ -34,7 +40,7 @@ export function Header() {
               rel="noopener noreferrer"
               aria-label="View on GitHub"
             >
-              <Github className="h-5 w-5 text-gray-900 dark:text-white" />
+              <ExternalLink className="h-5 w-5 text-gray-900 dark:text-white" />
             </Link>
           </Button>
 
