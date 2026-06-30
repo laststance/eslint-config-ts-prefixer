@@ -37,7 +37,7 @@
   "devDependencies": {
     "@laststance/npm-publish-tool": "^2.1.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.9.2",
+    "@types/node": "^26.0.1",
     "all-contributors-cli": "^6.26.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.7",
