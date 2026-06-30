@@ -5,3 +5,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    # Wait until a new version clears the pnpm `minimumReleaseAge: 1440` (1 day)
+    # age gate before Dependabot opens a PR, so bumps never land in the
+    # "PR open but install blocked because too new" state (aligns the two gates).
+    cooldown:
+      default-days: 1
