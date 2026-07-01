@@ -252,7 +252,7 @@ importers:
         version: 19.2.3(@types/react@19.2.17)
       code-inspector-plugin:
         specifier: ^1.5.3
-        version: 1.6.2
+        version: 1.6.3
       eslint:
         specifier: ^10.4.1
         version: 10.6.0(jiti@2.7.0)
@@ -349,23 +349,23 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@code-inspector/core@1.6.2':
-    resolution: {integrity: sha512-9VmQN16BQWWMNm/QiV9z/deFoWiCsTvPwBfvDHOxU//ew99W1+u9uQIhy7KncNCDlTgem2D/cZTShqPKN4itTw==}
+  '@code-inspector/core@1.6.3':
+    resolution: {integrity: sha512-SIxaYDT0eXwnJxOrJ1O8IWeLi4vdTqM+pG/bVpWlkMYamifx5yS4g2G6Sg3BTFiyp8aXGBdIf9U23z6u8tdd/w==}
 
-  '@code-inspector/esbuild@1.6.2':
-    resolution: {integrity: sha512-YzwIBlNIyOTLS6uI6sYxTDMkbRJ+u2QB25z8luIx7jLiK3TWZu+NA1sd2tB4p/TNy1SKZ2+MsjNanEuXaOinqw==}
+  '@code-inspector/esbuild@1.6.3':
+    resolution: {integrity: sha512-KWE+JOwNSO5pskUn740zncqAUsTvEFv1EAXBAMSvB01jfCqqUwwzjbj9d5JXlLFaDtLykNdP9cLnbiWBnXWS1w==}
 
-  '@code-inspector/mako@1.6.2':
-    resolution: {integrity: sha512-d1Lk6+L0OS0xfyqOSIkF9+z3RfatVQx8zTnVZBgHhpKBzE7p/fROKlGhdGK7uMstHxlAUlsO2+ykNP3jPGmHWw==}
+  '@code-inspector/mako@1.6.3':
+    resolution: {integrity: sha512-uCWQDzOvhZmrWVxbI9C5zhszwmhOe5gqC8LEsaToimeBmk4ENRDG0NA7fcGw3LvieqPfeQkyuHSxPgsQ/vZelg==}
 
-  '@code-inspector/turbopack@1.6.2':
-    resolution: {integrity: sha512-rWeFxJxVH8mhApMCmvpzYLpBOxNTbZkxCTRAm9mKEm/YvMpghg1Y8EBXD9EezyQKia2biBIoLAnlB29TJsXawg==}
+  '@code-inspector/turbopack@1.6.3':
+    resolution: {integrity: sha512-/kXAkBpp6VP7bTZrDmvDJyFyBVeflf/3dpCQAbvGamCRRDIEiDE6Ap8PTQtcKB2uU9C/zBP8bYQLYqffmcEfLg==}
 
-  '@code-inspector/vite@1.6.2':
-    resolution: {integrity: sha512-JRlxN+EKe2k3SMDimvAFkpQumZuhZOX68tiSnyg1wBz1gFNQYNUVlK/BYMkPTeeFu1rJcFGMwQNWw9lBaFsvEg==}
+  '@code-inspector/vite@1.6.3':
+    resolution: {integrity: sha512-UwUXMsPeDhPfBNoXELvW1FIdg/hsmnnSSZt6FNxHuHiE5VR0MRVjsOI2LzbK/T4kV27/fepad2wZ1GXY7N7+Kg==}
 
-  '@code-inspector/webpack@1.6.2':
-    resolution: {integrity: sha512-eFwDZjLH83Pp3tl+tor7Zvc40A54mGB5Ybh/g8/y8s9991Y9eznaBhfM5IHZczXUeeFqkqCi2I8u6TbBTMPUpw==}
+  '@code-inspector/webpack@1.6.3':
+    resolution: {integrity: sha512-q0Jf2wFpQWCzoyHDoNsdawBMad+i2P8GHaCnsiJiVZ/oWWvbPyFFlIdBWzMIxk9zxos3M2v1i/88hufYE4IgSw==}
 
   '@date-fns/tz@1.5.0':
     resolution: {integrity: sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==}
@@ -2429,8 +2429,8 @@ packages:
       react: ^18 || ^19 || ^19.0.0-rc
       react-dom: ^18 || ^19 || ^19.0.0-rc
 
-  code-inspector-plugin@1.6.2:
-    resolution: {integrity: sha512-AuMiD3d+wiICwZ55JOUlotwcCoDLA307ZVWXu3B6X4qS4hNpdDIipNLPsBQxKxBmh71jnddARNeCj8EXrvvZQA==}
+  code-inspector-plugin@1.6.3:
+    resolution: {integrity: sha512-4wLzo9eNcintA8wHhD5jBu7D+NZmvtq9BUKqXY996jGUR+dIj8CGNB65OV73fHc1hxXjNh5cJ0usPfvU3aYZaw==}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -4955,7 +4955,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@code-inspector/core@1.6.2':
+  '@code-inspector/core@1.6.3':
     dependencies:
       '@vue/compiler-dom': 3.5.39
       chalk: 4.1.1
@@ -4965,35 +4965,35 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@code-inspector/esbuild@1.6.2':
+  '@code-inspector/esbuild@1.6.3':
     dependencies:
-      '@code-inspector/core': 1.6.2
+      '@code-inspector/core': 1.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@code-inspector/mako@1.6.2':
+  '@code-inspector/mako@1.6.3':
     dependencies:
-      '@code-inspector/core': 1.6.2
+      '@code-inspector/core': 1.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@code-inspector/turbopack@1.6.2':
+  '@code-inspector/turbopack@1.6.3':
     dependencies:
-      '@code-inspector/core': 1.6.2
-      '@code-inspector/webpack': 1.6.2
+      '@code-inspector/core': 1.6.3
+      '@code-inspector/webpack': 1.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@code-inspector/vite@1.6.2':
+  '@code-inspector/vite@1.6.3':
     dependencies:
-      '@code-inspector/core': 1.6.2
+      '@code-inspector/core': 1.6.3
       chalk: 4.1.1
     transitivePeerDependencies:
       - supports-color
 
-  '@code-inspector/webpack@1.6.2':
+  '@code-inspector/webpack@1.6.3':
     dependencies:
-      '@code-inspector/core': 1.6.2
+      '@code-inspector/core': 1.6.3
     transitivePeerDependencies:
       - supports-color
 
@@ -7010,14 +7010,14 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  code-inspector-plugin@1.6.2:
+  code-inspector-plugin@1.6.3:
     dependencies:
-      '@code-inspector/core': 1.6.2
-      '@code-inspector/esbuild': 1.6.2
-      '@code-inspector/mako': 1.6.2
-      '@code-inspector/turbopack': 1.6.2
-      '@code-inspector/vite': 1.6.2
-      '@code-inspector/webpack': 1.6.2
+      '@code-inspector/core': 1.6.3
+      '@code-inspector/esbuild': 1.6.3
+      '@code-inspector/mako': 1.6.3
+      '@code-inspector/turbopack': 1.6.3
+      '@code-inspector/vite': 1.6.3
+      '@code-inspector/webpack': 1.6.3
       chalk: 4.1.1
     transitivePeerDependencies:
       - supports-color
