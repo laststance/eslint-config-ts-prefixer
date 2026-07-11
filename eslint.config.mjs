@@ -178,9 +178,6 @@ export default [
       // Disallow unnecessary boolean casts (e.g., !! on a boolean).
       'no-extra-boolean-cast': 'error',
 
-      // Disallow `return await` inside async functions (redundant).
-      'no-return-await': 'error',
-
       // Warn on unsafe negation with relational operators (readability/safety).
       'no-unsafe-negation': 'warn',
 
