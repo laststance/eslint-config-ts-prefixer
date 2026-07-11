@@ -63,7 +63,7 @@
     "react-hook-form": "^7.78.0",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^4.11.2",
-    "recharts": "3.9.1",
+    "recharts": "3.9.2",
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
