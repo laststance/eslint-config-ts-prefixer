@@ -1,0 +1,90 @@
+name: Oxlint Config CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/actions/prepare/**'
+      - '.github/workflows/oxlint-config-canary.yml'
+      - '.github/workflows/oxlint-config-ci.yml'
+      - '.github/workflows/release-oxlint-config.yml'
+      - 'package.json'
+      - 'packages/oxlint-config-ts-prefixer/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/actions/prepare/**'
+      - '.github/workflows/oxlint-config-canary.yml'
+      - '.github/workflows/oxlint-config-ci.yml'
+      - '.github/workflows/release-oxlint-config.yml'
+      - 'package.json'
+      - 'packages/oxlint-config-ts-prefixer/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oxlint-config-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  locked:
+    name: Locked / Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - '22.18.0'
+          - '24'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Test Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer test
+
+      - name: Typecheck Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer typecheck
+
+      # Root lint is identical across supported Node versions, so run it once.
+      - name: Lint workspace
+        if: matrix.node-version == '24'
+        run: pnpm lint
+
+  latest-compatible:
+    name: Latest compatible peers / Node.js 24
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare
+        with:
+          node-version: '24'
+
+      # Re-resolve within the supported peer ranges without changing the lockfile.
+      - name: Install latest compatible Oxlint peers
+        run: >-
+          pnpm
+          --config.lockfile=false
+          --config.minimumReleaseAge=0
+          --filter oxlint-config-ts-prefixer
+          add --save-dev
+          oxlint@^1.73.0
+          oxfmt@~0.58.0
+          oxlint-tsgolint@~0.24.0
+
+      - name: Test Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer test
+
+      - name: Typecheck Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer typecheck

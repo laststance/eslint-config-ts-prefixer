@@ -1,0 +1,43 @@
+name: Oxlint Config Canary
+
+on:
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oxlint-config-canary-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  latest-compatible:
+    name: Latest compatible peers / Node.js 24
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare
+        with:
+          node-version: '24'
+
+      # A failed command fails this workflow; GitHub Actions is the only notification channel.
+      - name: Install latest compatible Oxlint peers
+        run: >-
+          pnpm
+          --config.lockfile=false
+          --config.minimumReleaseAge=0
+          --filter oxlint-config-ts-prefixer
+          add --save-dev
+          oxlint@^1.73.0
+          oxfmt@~0.58.0
+          oxlint-tsgolint@~0.24.0
+
+      - name: Test Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer test
+
+      - name: Typecheck Oxlint config
+        run: pnpm --filter oxlint-config-ts-prefixer typecheck

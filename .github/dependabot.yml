@@ -1,7 +1,17 @@
 version: 2
+
 updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+
   - package-ecosystem: 'npm'
-    # Files stored in `app` directory
     directory: '/'
     schedule:
       interval: 'daily'
@@ -10,3 +20,16 @@ updates:
     # "PR open but install blocked because too new" state (aligns the two gates).
     cooldown:
       default-days: 1
+    open-pull-requests-limit: 10
+    groups:
+      eslint-toolchain:
+        patterns:
+          - '@types/eslint'
+          - 'eslint'
+          - 'eslint-*'
+          - 'typescript-eslint'
+      oxlint-toolchain:
+        patterns:
+          - 'oxfmt'
+          - 'oxlint'
+          - 'oxlint-tsgolint'

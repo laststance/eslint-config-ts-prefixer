@@ -16,6 +16,16 @@
 - 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 
+## Oxlint package
+
+This repository also publishes [`oxlint-config-ts-prefixer`](./packages/oxlint-config-ts-prefixer), a native-first Oxlint package with optional type-aware rules and Oxfmt import sorting.
+
+The package is currently available from npm under the `beta` dist-tag:
+
+```bash
+pnpm add -D oxlint-config-ts-prefixer@beta oxlint
+```
+
 # Requirements
 
 - Node.js 20.11.0 or higher

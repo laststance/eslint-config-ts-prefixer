@@ -1,0 +1,68 @@
+{
+  "name": "oxlint-config-ts-prefixer",
+  "version": "0.1.0",
+  "description": "Native-first Oxlint rules for meaningful runtime behavior and import organization.",
+  "license": "MIT",
+  "author": "Ryota Murakami <dojce1048@gmail.com> (https://ryota-murakami.github.io/)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.mts",
+      "default": "./index.mjs"
+    },
+    "./type-aware": {
+      "types": "./types/type-aware.d.mts",
+      "default": "./type-aware.mjs"
+    },
+    "./oxfmt": {
+      "types": "./types/oxfmt.d.mts",
+      "default": "./oxfmt.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.mjs",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "types/*.d.mts"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": "^22.18.0 || >=24.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "typecheck": "tsc --noEmit --ignoreConfig --allowJs --checkJs --module NodeNext --moduleResolution NodeNext --target ES2022 index.mjs type-aware.mjs oxfmt.mjs test/type-fixture/consumer.ts"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.58.0 <0.59.0",
+    "oxlint": ">=1.73.0 <2.0.0",
+    "oxlint-tsgolint": ">=0.24.0 <0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "oxfmt": {
+      "optional": true
+    },
+    "oxlint-tsgolint": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "oxfmt": "0.58.0",
+    "oxlint": "1.73.0",
+    "oxlint-tsgolint": "0.24.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laststance/eslint-config-ts-prefixer.git",
+    "directory": "packages/oxlint-config-ts-prefixer"
+  },
+  "bugs": {
+    "url": "https://github.com/laststance/eslint-config-ts-prefixer/issues"
+  },
+  "homepage": "https://github.com/laststance/eslint-config-ts-prefixer/tree/main/packages/oxlint-config-ts-prefixer#readme"
+}
