@@ -45,7 +45,7 @@ const config = {
     // Prefer immutable bindings whenever reassignment never occurs.
     'prefer-const': 'warn',
 
-    // Preserve useful stack traces by rejecting promises with Error objects.
+    // Preserve useful stack traces by rejecting promises with non-Error reasons.
     'prefer-promise-reject-errors': [
       'error',
       {

@@ -1,14 +1,14 @@
 import assert from 'node:assert/strict'
 import { spawnSync } from 'node:child_process'
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { runOxlintFixture } from './helpers/run-oxlint.mjs'
 
 const PACKAGE_DIRECTORY_PATH = fileURLToPath(new URL('..', import.meta.url))
-const TEST_DIRECTORY_PATH = fileURLToPath(new URL('.', import.meta.url))
 const OXFMT_BINARY_PATH = join(
   PACKAGE_DIRECTORY_PATH,
   'node_modules/oxfmt/bin/oxfmt',
@@ -141,7 +141,7 @@ test('duplicate module imports fail and a consolidated import passes', () => {
 test('Oxfmt writes grouped case-insensitive imports while preserving side-effect positions', () => {
   // Arrange
   const fixtureDirectoryPath = mkdtempSync(
-    join(TEST_DIRECTORY_PATH, 'tmp-import-format-'),
+    join(tmpdir(), 'oxlint-config-ts-prefixer-oxfmt-'),
   )
   const sourceFilePath = join(fixtureDirectoryPath, 'input.ts')
   const unformattedSource =
@@ -180,7 +180,7 @@ test('Oxfmt writes grouped case-insensitive imports while preserving side-effect
   try {
     writeFileSync(
       join(fixtureDirectoryPath, 'oxfmt.config.ts'),
-      "import preset from '../../oxfmt.mjs'\n\nexport default preset\n",
+      `import preset from '${pathToFileURL(join(PACKAGE_DIRECTORY_PATH, 'oxfmt.mjs')).href}'\n\nexport default preset\n`,
     )
     writeFileSync(sourceFilePath, unformattedSource)
 

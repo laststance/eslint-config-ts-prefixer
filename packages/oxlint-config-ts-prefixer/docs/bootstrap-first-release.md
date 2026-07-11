@@ -92,9 +92,9 @@ If npm publication succeeds but tag or release creation fails, do not republish 
 
 In GitHub, open **Settings → Environments**, create `npm-release`, and configure:
 
-- Required reviewers: at least one repository owner or release maintainer.
+- Required reviewer: `ryota-murakami`.
 - Deployment branches and tags: selected branch `main` only.
-- Prevent self-review when the repository's plan supports it.
+- Leave prevent self-review disabled while `ryota-murakami` is the only reviewer; enable it only after adding a second eligible reviewer.
 
 The workflow pauses at this environment between validation and publication. Do not add npm credentials as environment secrets.
 
@@ -109,9 +109,18 @@ npm trust github oxlint-config-ts-prefixer \
   --env npm-release \
   --allow-publish \
   --yes
+
+npm trust list oxlint-config-ts-prefixer
 ```
 
 Confirm the trusted publisher on the package's npm settings page. The allowed action must be `npm publish`, and the repository, workflow, and environment must exactly match the command above.
+
+On the same package settings page, set **Publishing access** to **Require two-factor authentication and disallow tokens**. Review `npm token list`, revoke any obsolete automation token, then remove the temporary local login:
+
+```sh
+npm token list
+npm logout
+```
 
 ## Future token-free releases
 
@@ -123,3 +132,53 @@ For each later version:
 4. Have the configured reviewer approve the `npm-release` environment.
 
 The workflow validates that the npm version and package-specific git tag are both absent, runs package tests, typechecking, and root lint, publishes with OIDC provenance, then creates the annotated tag and GitHub Release. Keep this path token-free: do not add `NPM_TOKEN`, `NODE_AUTH_TOKEN`, automation tokens, or npm passwords to the repository or environment.
+
+## Recover a partially finalized future release
+
+If npm publication succeeds but the workflow fails while creating the tag or GitHub Release, do not rerun the publish workflow and do not republish the immutable version. From a clean `main` that exactly matches `origin/main`, verify the published version first:
+
+```sh
+VERSION=0.2.0 # Replace with the version that the workflow published.
+TAG="oxlint-config-ts-prefixer@$VERSION"
+
+git fetch origin main --tags
+test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+test "$(node -p "require('./packages/oxlint-config-ts-prefixer/package.json').version")" = "$VERSION"
+test "$(npm view "oxlint-config-ts-prefixer@$VERSION" version)" = "$VERSION"
+```
+
+Extract the matching changelog section, then complete only the missing state:
+
+```sh
+NOTES_FILE="$(mktemp)"
+
+awk -v version="$VERSION" '
+  BEGIN { heading = "## [" version "]" }
+  !capturing {
+    if (index($0, heading) == 1 && (length($0) == length(heading) || substr($0, length(heading) + 1, 1) == " ")) {
+      capturing = 1
+    }
+    next
+  }
+  /^## \[/ || /^\[[^]]+\]:[[:space:]]/ { exit }
+  { print }
+  END { if (!capturing) exit 1 }
+' packages/oxlint-config-ts-prefixer/CHANGELOG.md > "$NOTES_FILE"
+
+grep -q '[^[:space:]]' "$NOTES_FILE"
+
+# Existing tags must already point at the verified release commit.
+if git show-ref --verify --quiet "refs/tags/$TAG"; then
+  test "$(git rev-list -n 1 "$TAG")" = "$(git rev-parse HEAD)"
+else
+  git tag --annotate "$TAG" --message "Release $TAG"
+  git push origin "refs/tags/$TAG:refs/tags/$TAG"
+fi
+
+# Existing releases are left intact; only an absent release is created.
+if ! gh release view "$TAG" >/dev/null 2>&1; then
+  gh release create "$TAG" --verify-tag --title "$TAG" --notes-file "$NOTES_FILE"
+fi
+
+rm "$NOTES_FILE"
+```
