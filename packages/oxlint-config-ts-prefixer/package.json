@@ -33,7 +33,7 @@
   },
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "typecheck": "tsc --noEmit --ignoreConfig --allowJs --checkJs --module NodeNext --moduleResolution NodeNext --target ES2022 index.mjs type-aware.mjs oxfmt.mjs test/fixtures/types/consumer.ts"
+    "typecheck": "tsc --noEmit --ignoreConfig --allowJs --checkJs --module NodeNext --moduleResolution NodeNext --target ES2022 index.mjs type-aware.mjs oxfmt.mjs test/type-fixture/consumer.ts"
   },
   "peerDependencies": {
     "oxfmt": ">=0.58.0 <0.59.0",

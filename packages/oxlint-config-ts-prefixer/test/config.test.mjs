@@ -87,7 +87,7 @@ test('TypeScript consumers receive valid types for every public subpath', () => 
       'NodeNext',
       '--target',
       'ES2022',
-      'test/fixtures/types/consumer.ts',
+      'test/type-fixture/consumer.ts',
     ],
     {
       cwd: packageDirectoryPath,
