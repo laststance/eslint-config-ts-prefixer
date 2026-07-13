@@ -107,20 +107,19 @@ Only import sorting is configured. Quote style, semicolons, line width, package.
 
 ## Compatibility with eslint-config-ts-prefixer
 
-The ESLint package currently configures 35 rules. This native-first package handles them as follows:
+The ESLint package currently configures 34 rules. This native-first package handles them as follows:
 
 | Status                           | Count | Notes                                                                                                         |
 | -------------------------------- | ----: | ------------------------------------------------------------------------------------------------------------- |
 | Default native rules             |    26 | Includes `import/export`, `import/named`, and `no-undef`, which Oxlint currently classifies as nursery rules. |
 | Optional type-aware native rules |     3 | Available from `oxlint-config-ts-prefixer/type-aware`.                                                        |
-| Intentionally omitted            |     6 | No stable native equivalent with matching behavior.                                                           |
+| Intentionally omitted            |     5 | No stable native equivalent with matching behavior.                                                           |
 
 ### Intentional differences
 
 | ESLint rule                         | Native-first policy                                                                          |
 | ----------------------------------- | -------------------------------------------------------------------------------------------- |
 | `no-dupe-args`                      | Omitted because strict modules already reject duplicate parameters.                          |
-| `no-return-await`                   | Omitted because ESLint deprecated the rule.                                                  |
 | `require-atomic-updates`            | Omitted until Oxlint provides a native equivalent.                                           |
 | `import-x/no-unresolved`            | Omitted because Oxlint does not expose a native rule with reliable cross-project resolution. |
 | `import-x/no-useless-path-segments` | Omitted until Oxlint provides a native equivalent.                                           |

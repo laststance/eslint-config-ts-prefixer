@@ -26,7 +26,6 @@ Built-in,no-dupe-args,https://eslint.org/docs/rules/no-dupe-args
 Built-in,no-dupe-keys,https://eslint.org/docs/rules/no-dupe-keys
 Built-in,no-empty-pattern,https://eslint.org/docs/rules/no-empty-pattern
 Built-in,no-extra-boolean-cast,https://eslint.org/docs/rules/no-extra-boolean-cast
-Built-in,no-return-await,https://eslint.org/docs/rules/no-return-await
 Built-in,no-unsafe-negation,https://eslint.org/docs/rules/no-unsafe-negation
 Built-in,no-unused-private-class-members,https://eslint.org/docs/rules/no-unused-private-class-members
 Built-in,prefer-const,https://eslint.org/docs/rules/prefer-const
