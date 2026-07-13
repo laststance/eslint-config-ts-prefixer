@@ -14,22 +14,14 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
     # Wait until a new version clears the pnpm `minimumReleaseAge: 1440` (1 day)
     # age gate before Dependabot opens a PR, so bumps never land in the
     # "PR open but install blocked because too new" state (aligns the two gates).
     cooldown:
       default-days: 1
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     groups:
-      eslint-toolchain:
+      npm:
         patterns:
-          - '@types/eslint'
-          - 'eslint'
-          - 'eslint-*'
-          - 'typescript-eslint'
-      oxlint-toolchain:
-        patterns:
-          - 'oxfmt'
-          - 'oxlint'
-          - 'oxlint-tsgolint'
+          - '*'
