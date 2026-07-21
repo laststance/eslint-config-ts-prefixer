@@ -44,7 +44,7 @@
     "lint-staged": "^17.0.7",
     "prettier": "^3.8.4",
     "release-it": "^20.2.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "eslint": "^9.0.0 || ^10.0.0",
