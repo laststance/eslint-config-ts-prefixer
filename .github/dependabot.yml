@@ -20,6 +20,11 @@ updates:
     # "PR open but install blocked because too new" state (aligns the two gates).
     cooldown:
       default-days: 1
+    ignore:
+      # typescript-eslint supports TypeScript below 6.1, so prevent grouped updates from breaking root lint.
+      - dependency-name: 'typescript'
+        update-types:
+          - 'version-update:semver-major'
     open-pull-requests-limit: 5
     groups:
       npm:
