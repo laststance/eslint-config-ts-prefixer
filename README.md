@@ -15,6 +15,7 @@
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs) rules.
 - 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
+- 🧹 redundant TypeScript assertions fail with [`@typescript-eslint/no-unnecessary-type-assertion`](https://typescript-eslint.io/rules/no-unnecessary-type-assertion/).
 
 ## Oxlint package
 
@@ -30,7 +31,7 @@ pnpm add -D oxlint-config-ts-prefixer@beta oxlint
 
 - Node.js 20.11.0 or higher
 - ESLint v9
-- TypeScript v5 and `tsconfig.json` file
+- TypeScript v5 or v6.0 and a `tsconfig.json` file
 
 # Installation
 
