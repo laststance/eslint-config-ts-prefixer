@@ -20,11 +20,12 @@ test('default entry exposes the explicit native Oxlint preset', async () => {
   assert.equal(Object.keys(config.rules).length, 24)
 })
 
-test('type-aware entry includes the default preset and three promise safety rules', async () => {
+test('type-aware entry includes the default preset and four typed safety rules', async () => {
   // Arrange
   const expectedTypeAwareRules = [
     'typescript/await-thenable',
     'typescript/no-misused-promises',
+    'typescript/no-unnecessary-type-assertion',
     'typescript/promise-function-async',
   ]
 
@@ -35,7 +36,11 @@ test('type-aware entry includes the default preset and three promise safety rule
   // Assert
   assert.deepEqual(typeAwareConfig.plugins, defaultConfig.plugins)
   assert.deepEqual(typeAwareConfig.overrides, defaultConfig.overrides)
-  assert.equal(Object.keys(typeAwareConfig.rules).length, 27)
+  assert.equal(Object.keys(typeAwareConfig.rules).length, 28)
+  assert.equal(
+    typeAwareConfig.rules['typescript/no-unnecessary-type-assertion'],
+    'error',
+  )
   for (const ruleName of expectedTypeAwareRules) {
     assert.equal(Object.hasOwn(typeAwareConfig.rules, ruleName), true)
   }

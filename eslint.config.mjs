@@ -90,6 +90,9 @@ export default [
       // Forbid patterns like `x! ?? y` which are unsafe and confusing.
       '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
 
+      // Reject type assertions that do not change the inferred type and only add noise.
+      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+
       // Disallow expression statements that do nothing (e.g. accidental short-circuiting).
       '@typescript-eslint/no-unused-expressions': 'error',
 

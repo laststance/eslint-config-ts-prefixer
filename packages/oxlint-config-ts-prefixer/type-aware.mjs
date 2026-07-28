@@ -18,6 +18,9 @@ const typeAwareConfig = {
       },
     ],
 
+    // Reject type assertions that do not change the inferred type and only add noise.
+    'typescript/no-unnecessary-type-assertion': 'error',
+
     // Warn when a promise-returning function omits async and obscures its asynchronous contract.
     'typescript/promise-function-async': 'warn',
   },

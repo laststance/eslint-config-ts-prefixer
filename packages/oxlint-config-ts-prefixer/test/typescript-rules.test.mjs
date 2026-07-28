@@ -235,6 +235,48 @@ test('type-aware preset rejects Promise spreads while allowing configured condit
   )
 })
 
+test('type-aware preset rejects assertions that keep the same type and accepts assertions that narrow unknown values', () => {
+  // Arrange
+  const invalidFiles = {
+    'invalid.ts': `const message: string = 'hello'
+
+export const redundantMessage = message as string
+`,
+  }
+  const validFiles = {
+    'valid.ts': `const message: unknown = 'hello'
+
+export const narrowedMessage = message as string
+`,
+  }
+
+  // Act
+  const invalidResult = runOxlintFixture({
+    files: invalidFiles,
+    typeAware: true,
+  })
+  const validResult = runOxlintFixture({
+    files: validFiles,
+    typeAware: true,
+  })
+
+  // Assert
+  assert.deepEqual(invalidResult.diagnosticCodes, [
+    'typescript(no-unnecessary-type-assertion)',
+  ])
+  assert.equal(
+    invalidResult.status,
+    1,
+    `${invalidResult.stdout}\n${invalidResult.stderr}`,
+  )
+  assert.deepEqual(validResult.diagnosticCodes, [])
+  assert.equal(
+    validResult.status,
+    0,
+    `${validResult.stdout}\n${validResult.stderr}`,
+  )
+})
+
 test('type-aware preset warns for Promise-returning functions without async and accepts explicit async functions', () => {
   // Arrange
   const invalidFiles = {

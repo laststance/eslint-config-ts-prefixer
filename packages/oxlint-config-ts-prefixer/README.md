@@ -8,9 +8,9 @@ Native-first [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) rules for mea
 ## Requirements
 
 - Node.js 22.18+ or 24+
-- `oxlint >=1.73.0 <2`
-- TypeScript 7+ and `oxlint-tsgolint >=0.24.0 <0.25.0` only when using the type-aware preset
-- `oxfmt >=0.58.0 <0.59.0` only when using the import-sorting preset
+- `oxlint >=1.74.0 <2`
+- TypeScript 7+ and `oxlint-tsgolint >=0.25.0 <0.26.0` only when using the type-aware preset
+- `oxfmt >=0.59.0 <0.60.0` only when using the import-sorting preset
 
 ## Default preset
 
@@ -77,6 +77,7 @@ This entry adds:
 
 - `typescript/await-thenable`
 - `typescript/no-misused-promises`
+- `typescript/no-unnecessary-type-assertion`
 - `typescript/promise-function-async`
 
 Oxlint type-aware linting uses TypeScript 7 semantics. Migrate deprecated compiler options such as `baseUrl` before adopting this preset.
@@ -107,12 +108,12 @@ Only import sorting is configured. Quote style, semicolons, line width, package.
 
 ## Compatibility with eslint-config-ts-prefixer
 
-The ESLint package currently configures 34 rules. This native-first package handles them as follows:
+The ESLint package currently configures 35 rules. This native-first package handles them as follows:
 
 | Status                           | Count | Notes                                                                                                         |
 | -------------------------------- | ----: | ------------------------------------------------------------------------------------------------------------- |
 | Default native rules             |    26 | Includes `import/export`, `import/named`, and `no-undef`, which Oxlint currently classifies as nursery rules. |
-| Optional type-aware native rules |     3 | Available from `oxlint-config-ts-prefixer/type-aware`.                                                        |
+| Optional type-aware native rules |     4 | Available from `oxlint-config-ts-prefixer/type-aware`.                                                        |
 | Intentionally omitted            |     5 | No stable native equivalent with matching behavior.                                                           |
 
 ### Intentional differences
@@ -132,7 +133,7 @@ The package does not load `eslint-plugin-import-x` through Oxlint's alpha JavaSc
 | Import                                 | Purpose                                | Additional peer   |
 | -------------------------------------- | -------------------------------------- | ----------------- |
 | `oxlint-config-ts-prefixer`            | 26 native rules                        | None              |
-| `oxlint-config-ts-prefixer/type-aware` | Default preset plus 3 type-aware rules | `oxlint-tsgolint` |
+| `oxlint-config-ts-prefixer/type-aware` | Default preset plus 4 type-aware rules | `oxlint-tsgolint` |
 | `oxlint-config-ts-prefixer/oxfmt`      | Import sorting only                    | `oxfmt`           |
 
 ## Configuration ownership

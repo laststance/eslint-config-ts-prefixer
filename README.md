@@ -15,6 +15,7 @@
 - 📦 **Zero** extend for [**explicit**](https://github.com/laststance/eslint-config-ts-prefixer/blob/main/eslint.config.mjs) rules.
 - 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
+- 🧹 redundant TypeScript assertions fail with [`@typescript-eslint/no-unnecessary-type-assertion`](https://typescript-eslint.io/rules/no-unnecessary-type-assertion/).
 
 ## Oxlint package
 
