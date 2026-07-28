@@ -31,7 +31,7 @@ pnpm add -D oxlint-config-ts-prefixer@beta oxlint
 
 - Node.js 20.11.0 or higher
 - ESLint v9
-- TypeScript v5 and `tsconfig.json` file
+- TypeScript v5 or v6.0 and a `tsconfig.json` file
 
 # Installation
 

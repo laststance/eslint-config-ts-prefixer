@@ -24,6 +24,7 @@ updates:
       # typescript-eslint supports TypeScript below 6.1, so prevent grouped updates from breaking root lint.
       - dependency-name: 'typescript'
         update-types:
+          - 'version-update:semver-minor'
           - 'version-update:semver-major'
     open-pull-requests-limit: 5
     groups:
