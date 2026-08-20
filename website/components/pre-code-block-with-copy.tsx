@@ -28,14 +28,14 @@ export function PreCodeBlockWithCopy({
 
   return (
     <div className={`relative group ${className}`}>
-      <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded overflow-x-auto">
+      <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded-xl overflow-x-auto">
         <pre className="text-gray-200">{code}</pre>
       </div>
       <Button
         variant="ghost"
         size="icon"
         onClick={handleCopy}
-        className="absolute right-1 top-1 h-11 w-11 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-slate-800 dark:hover:bg-slate-900"
+        className="absolute right-1 top-1 h-11 w-11 rounded-lg opacity-0 group-hover:opacity-100 transition-[opacity,scale,background-color] duration-200 ease-out hover:bg-slate-800 dark:hover:bg-slate-900 active:scale-[0.96]"
         aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
       >
         {copied ? (

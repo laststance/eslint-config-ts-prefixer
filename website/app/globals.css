@@ -64,46 +64,54 @@
  */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@media (prefers-color-scheme: dark) {
-  @theme {
-    --color-background: hsl(222.2 84% 4.9%);
-    --color-foreground: hsl(210 40% 98%);
-    --color-card: hsl(222.2 84% 4.9%);
-    --color-card-foreground: hsl(210 40% 98%);
-    --color-popover: hsl(222.2 84% 4.9%);
-    --color-popover-foreground: hsl(210 40% 98%);
-    --color-primary: hsl(210 40% 98%);
-    --color-primary-foreground: hsl(222.2 47.4% 11.2%);
-    --color-secondary: hsl(217.2 32.6% 17.5%);
-    --color-secondary-foreground: hsl(210 40% 98%);
-    --color-muted: hsl(217.2 32.6% 17.5%);
-    --color-muted-foreground: hsl(215 20.2% 65.1%);
-    --color-accent: hsl(217.2 32.6% 17.5%);
-    --color-accent-foreground: hsl(210 40% 98%);
-    --color-destructive: hsl(0 62.8% 30.6%);
-    --color-destructive-foreground: hsl(210 40% 98%);
-    --color-border: hsl(217.2 32.6% 17.5%);
-    --color-input: hsl(217.2 32.6% 17.5%);
-    --color-ring: hsl(215 20.2% 65.1%);
-    --color-chart-1: hsl(220 70% 50%);
-    --color-chart-2: hsl(160 60% 45%);
-    --color-chart-3: hsl(30 80% 55%);
-    --color-chart-4: hsl(280 65% 60%);
-    --color-chart-5: hsl(340 75% 55%);
-    --color-sidebar-background: hsl(240 5.9% 10%);
-    --color-sidebar-foreground: hsl(240 4.8% 95.9%);
-    --color-sidebar-primary: hsl(224.3 76.3% 48%);
-    --color-sidebar-primary-foreground: hsl(0 0% 100%);
-    --color-sidebar-accent: hsl(240 3.7% 15.9%);
-    --color-sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-    --color-sidebar-border: hsl(240 3.7% 15.9%);
-    --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
-  }
+/**
+ * Dark palette overrides.
+ * Keyed on the `.dark` class next-themes writes, NOT prefers-color-scheme —
+ * otherwise a dark-OS visitor gets dark variables while the site renders light.
+ * Every name here already exists in @theme above, so utilities are generated
+ * regardless; this block only swaps values at runtime.
+ */
+.dark {
+  --color-background: hsl(222.2 84% 4.9%);
+  --color-foreground: hsl(210 40% 98%);
+  --color-card: hsl(222.2 84% 4.9%);
+  --color-card-foreground: hsl(210 40% 98%);
+  --color-popover: hsl(222.2 84% 4.9%);
+  --color-popover-foreground: hsl(210 40% 98%);
+  --color-primary: hsl(210 40% 98%);
+  --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-secondary: hsl(217.2 32.6% 17.5%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+  --color-muted: hsl(217.2 32.6% 17.5%);
+  --color-muted-foreground: hsl(215 20.2% 65.1%);
+  --color-accent: hsl(217.2 32.6% 17.5%);
+  --color-accent-foreground: hsl(210 40% 98%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-border: hsl(217.2 32.6% 17.5%);
+  --color-input: hsl(217.2 32.6% 17.5%);
+  --color-ring: hsl(215 20.2% 65.1%);
+  --color-chart-1: hsl(220 70% 50%);
+  --color-chart-2: hsl(160 60% 45%);
+  --color-chart-3: hsl(30 80% 55%);
+  --color-chart-4: hsl(280 65% 60%);
+  --color-chart-5: hsl(340 75% 55%);
+  --color-sidebar-background: hsl(240 5.9% 10%);
+  --color-sidebar-foreground: hsl(240 4.8% 95.9%);
+  --color-sidebar-primary: hsl(224.3 76.3% 48%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(240 3.7% 15.9%);
+  --color-sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --color-sidebar-border: hsl(240 3.7% 15.9%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 /* Base styles */
-* {
-  border-color: var(--color-border);
+@layer base {
+  /* Fallback only. Layered so any `border-*` utility (glass-border included) wins. */
+  * {
+    border-color: var(--color-border);
+  }
 }
 
 body {
@@ -123,6 +131,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Balance short headings, keep orphans out of body copy */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
+}
+
 /* Apply monospace font to code elements and brand title */
 code,
 pre,
@@ -132,6 +155,12 @@ samp,
   font-family:
     var(--font-mono), ui-monospace, SFMono-Regular, 'SF Mono', Consolas,
     monospace;
+  /* JetBrains Mono ligates `==` into one glyph and draws `!=` as `≠`. On a page
+     that documents eqeqeq, the operator has to read literally. */
+  font-variant-ligatures: none;
+  font-feature-settings:
+    'liga' 0,
+    'calt' 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -147,7 +176,7 @@ samp,
   border-radius: 4px;
 }
 
-@import '../styles/markdown.css';
+@import '../styles/markdown.css' layer(components);
 
 /* ============================================
    Apple Liquid Glass UI System
@@ -159,66 +188,57 @@ samp,
   .glass-ultra-thin {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
   }
 
   .glass-thin {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
   }
 
   .glass-medium {
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
   }
 
   .glass-thick {
     background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
   }
 
   .glass-ultra-thick {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
   }
 
   /* Dark Mode Variants - Iteration 3: Further enhanced opacity and blur for better text contrast */
   .dark .glass-ultra-thin {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
 
   .dark .glass-thin {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
   }
 
   .dark .glass-medium {
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(32px) saturate(180%);
-    -webkit-backdrop-filter: blur(32px) saturate(180%);
   }
 
   .dark .glass-thick {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(36px) saturate(180%);
-    -webkit-backdrop-filter: blur(36px) saturate(180%);
   }
 
   .dark .glass-ultra-thick {
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
   }
 
   /* Vibrancy Levels for Text */
-  .vibrancy-primary {
+  /* :where() again — these must not outrank Tailwind's opacity utilities */
+  :where(.vibrancy-primary) {
     opacity: 1;
   }
 
@@ -228,7 +248,7 @@ samp,
       0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
-  .vibrancy-secondary {
+  :where(.vibrancy-secondary) {
     opacity: 1;
   }
 
@@ -238,7 +258,7 @@ samp,
       0 2px 6px rgba(0, 0, 0, 0.35);
   }
 
-  .vibrancy-tertiary {
+  :where(.vibrancy-tertiary) {
     opacity: 1;
   }
 
@@ -246,10 +266,6 @@ samp,
     text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.4),
       0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .vibrancy-divider {
-    opacity: 0.3;
   }
 
   /* Enhanced text readability for white text on dark theme backgrounds */
@@ -296,7 +312,9 @@ samp,
   }
 
   /* Three-Layer Glass System */
-  .glass-layered {
+  /* :where() keeps specificity at 0 so Tailwind position/overflow utilities
+     (lg:sticky on the sidebar, sticky on the header) still win over this base. */
+  :where(.glass-layered) {
     position: relative;
     overflow: hidden;
   }
@@ -348,26 +366,24 @@ samp,
   .glass-clear {
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(28px) saturate(180%) brightness(1.1);
-    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.1);
   }
 
+  /* 0.75 let the sky photo's cloud texture read straight through code blocks;
+     0.88 keeps the material glassy but gives text a calm bed (light side is 0.97) */
   .dark .glass-clear {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(44px) saturate(180%);
-    -webkit-backdrop-filter: blur(44px) saturate(180%);
   }
 
   /* Sidebar Glass - High opacity for text readability */
   .glass-sidebar {
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
-    -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
   }
 
   .dark .glass-sidebar {
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
   }
 
   /* Dimming Layer for Legibility */
@@ -449,7 +465,19 @@ samp,
 
   /* Glass Transitions */
   .glass-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Exactly the properties glass hover states touch: material (background +
+       backdrop-filter), depth (box-shadow/border), and scale. Never `all`. */
+    transition-property:
+      background,
+      backdrop-filter,
+      -webkit-backdrop-filter,
+      box-shadow,
+      border-color,
+      color,
+      scale,
+      opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Rounded Glass Utilities */
@@ -474,7 +502,6 @@ samp,
     .glass-ultra-thick,
     .glass-clear {
       backdrop-filter: blur(15px) saturate(160%);
-      -webkit-backdrop-filter: blur(15px) saturate(160%);
     }
   }
 
@@ -487,7 +514,6 @@ samp,
     .glass-ultra-thick,
     .glass-clear {
       backdrop-filter: none;
-      -webkit-backdrop-filter: none;
       background: rgba(255, 255, 255, 0.95);
     }
 
@@ -520,7 +546,6 @@ samp,
   .glass-ultra-thick,
   .glass-clear {
     transform: translateZ(0);
-    will-change: backdrop-filter;
   }
 
   /* Progressive Enhancement */

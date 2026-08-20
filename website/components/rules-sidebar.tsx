@@ -101,7 +101,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <h3 className="text-sm font-semibold px-2 mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">
           <FileText className="h-4 w-4" />
           Configured Rules
-          <span className="ml-auto text-xs font-normal text-gray-500 dark:text-gray-400">
+          <span className="ml-auto text-xs font-normal tabular-nums text-gray-500 dark:text-gray-400">
             {filteredRules.length}/{rules.length}
           </span>
         </h3>
@@ -112,7 +112,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
             placeholder="Filter rules..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 pr-8 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-colors"
+            className="w-full pl-8 pr-8 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-[box-shadow,border-color] duration-200"
           />
           {searchQuery && (
             <button
@@ -189,7 +189,9 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
       </div>
 
       {/* Desktop Sidebar - lg以上でのみ表示 */}
-      <aside className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
+      {/* sticky (not fixed) keeps the aside a flex item, so <main> keeps its
+          own column width without a matching margin hack */}
+      <aside className="hidden lg:block lg:sticky lg:top-16 lg:self-start lg:shrink-0 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
         {sidebarContent}
       </aside>
     </>

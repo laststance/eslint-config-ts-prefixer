@@ -3,14 +3,14 @@
 /* Import highlight.js light theme as default (always loaded) */
 @import 'highlight.js/styles/github.css';
 
-/* Enhanced code block styling for better readability */
+/* <pre> owns the code surface (background, padding, border, radius); .hljs only
+   colours tokens. Otherwise every highlighted block renders a box inside a box. */
 .hljs {
-  border-radius: 0.5rem;
-  padding: 1rem !important;
   font-size: 0.95rem;
   line-height: 1.6;
-  background: #f6f8fa !important;
-  border: 1px solid #d0d7de;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0;
 }
 
 /* WCAG AA contrast fix — darken keyword red from #d73a49 (4.30:1) to #c9242f (5.1:1) */
@@ -32,9 +32,7 @@
 
 /* Dark mode syntax highlighting — class-based for next-themes compatibility */
 .dark .hljs {
-  background: #0d1117 !important;
   color: #e6edf3;
-  border-color: #30363d;
 }
 
 .dark .hljs-doctag,
@@ -208,11 +206,11 @@
 }
 
 .markdown-content blockquote {
-  border-left: 4px solid hsl(var(--primary));
+  border-left: 4px solid var(--color-primary);
   padding-left: 1rem;
   margin: 1.5rem 0;
   font-style: italic;
-  color: hsl(var(--muted-foreground));
+  color: var(--color-muted-foreground);
 }
 
 .markdown-content table {
@@ -223,13 +221,13 @@
 
 .markdown-content th,
 .markdown-content td {
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--color-border);
   padding: 0.75rem;
   text-align: left;
 }
 
 .markdown-content th {
-  background-color: hsl(var(--muted));
+  background-color: var(--color-muted);
   font-weight: 600;
 }
 
@@ -249,15 +247,15 @@
 }
 
 .code-option {
-  background-color: hsl(var(--muted));
-  border: 1px solid hsl(var(--border));
+  background-color: var(--color-muted);
+  border: 1px solid var(--color-border);
   border-bottom: none;
   padding: 0.5rem 1rem;
   font-family:
     ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
     monospace;
   font-size: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--color-muted-foreground);
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
 }
@@ -279,7 +277,7 @@
 /* Enhanced focus styles for accessibility */
 .markdown-content a:focus,
 .markdown-content button:focus {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--color-ring);
   outline-offset: 2px;
 }
 

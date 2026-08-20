@@ -6,41 +6,57 @@ test.describe('Header functionality', () => {
     await page.goto('http://localhost:3007')
   })
 
-  test('should display fixed header with logo, GitHub link, and theme toggle', async ({
+  test('header keeps logo, GitHub link and theme toggle pinned to the top while scrolling', async ({
     page,
   }) => {
-    // Check if header is visible and fixed
+    // Arrange
     const header = page.locator('header')
-    await expect(header).toBeVisible()
-    await expect(header).toHaveClass(/fixed/)
-
-    // Check logo/title link
     const logoLink = page.locator('header a[href="/"]')
-    await expect(logoLink).toBeVisible()
-    await expect(logoLink).toContainText('eslint-config-ts-prefixer')
-
-    // Check GitHub link
     const githubLink = page.locator(
       'header a[href="https://github.com/laststance/eslint-config-ts-prefixer"]',
     )
-    await expect(githubLink).toBeVisible()
-    await expect(githubLink).toHaveAttribute('target', '_blank')
-
-    // Check theme toggle button
     const themeToggle = page.locator('header button:has(svg)')
+
+    // Assert - everything is present before scrolling
+    await expect(header).toBeVisible()
+    await expect(logoLink).toContainText('eslint-config-ts-prefixer')
+    await expect(githubLink).toHaveAttribute('target', '_blank')
+    await expect(themeToggle).toBeVisible()
+
+    // Act - scroll well past the hero
+    await page.mouse.wheel(0, 2000)
+    await page.waitForTimeout(300)
+
+    // Assert - the bar is still flush against the top edge, contents intact
+    const box = await header.boundingBox()
+    expect(box.y).toBe(0)
+    await expect(logoLink).toBeVisible()
+    await expect(githubLink).toBeVisible()
     await expect(themeToggle).toBeVisible()
   })
 
-  test('should have glass effect styling on header', async ({ page }) => {
+  test('header renders as translucent glass with rounded bottom corners', async ({
+    page,
+  }) => {
+    // Arrange
     const header = page.locator('header')
 
-    // Check for backdrop blur and opacity classes
-    await expect(header).toHaveClass(/backdrop-blur/)
-    await expect(header).toHaveClass(/bg-background\/80/)
+    // Act
+    const style = await header.evaluate((el) => {
+      const computed = getComputedStyle(el)
+      return {
+        backdropFilter: computed.backdropFilter,
+        backgroundColor: computed.backgroundColor,
+        bottomLeftRadius: computed.borderBottomLeftRadius,
+        bottomRightRadius: computed.borderBottomRightRadius,
+      }
+    })
 
-    // Check for border radius on bottom corners
-    await expect(header).toHaveClass(/rounded-bl-lg/)
-    await expect(header).toHaveClass(/rounded-br-lg/)
+    // Assert - the sky photo has to show through, and the corners are not square
+    expect(style.backdropFilter).toContain('blur')
+    expect(style.backgroundColor).toMatch(/^rgba\(/)
+    expect(style.bottomLeftRadius).not.toBe('0px')
+    expect(style.bottomRightRadius).not.toBe('0px')
   })
 
   test('should toggle theme when clicking theme toggle button', async ({
@@ -67,17 +83,26 @@ test.describe('Header functionality', () => {
     expect(hasThemeClass).toBeTruthy()
   })
 
-  test('should have proper spacing and layout with header', async ({
+  test('sidebar sits below the header and stays put while the page scrolls', async ({
     page,
   }) => {
-    // Check that main content has proper top padding to account for fixed header
-    const mainLayout = page.locator('div:has(> header) > div')
-    await expect(mainLayout).toHaveClass(/pt-16/)
-
-    // Check that sidebar is positioned correctly below header
+    // Arrange
+    await page.setViewportSize({ width: 1440, height: 900 })
+    const header = page.locator('header')
     const sidebar = page.locator('aside')
-    await expect(sidebar).toHaveClass(/md:top-16/)
-    await expect(sidebar).toHaveClass(/md:h-\[calc\(100vh-4rem\)\]/)
+    const headerBox = await header.boundingBox()
+
+    // Assert - sidebar starts under the header, never behind it
+    const restingBox = await sidebar.boundingBox()
+    expect(restingBox.y).toBeGreaterThanOrEqual(headerBox.height - 1)
+
+    // Act - scroll deep into the rule list
+    await page.mouse.wheel(0, 4000)
+    await page.waitForTimeout(300)
+
+    // Assert - the sidebar is still on screen at the same offset
+    const scrolledBox = await sidebar.boundingBox()
+    expect(Math.round(scrolledBox.y)).toBe(Math.round(restingBox.y))
   })
 
   test('GitHub link should open in new tab', async ({ page, context }) => {
@@ -127,13 +152,13 @@ test.describe('Suggestion badge removal', () => {
 
     // Check that no "suggestion" badges are visible
     const suggestionBadges = page.locator(
-      '.badge:has-text("suggestion"), [class*="badge"]:has-text("suggestion")',
+      '[data-slot="badge"]:has-text("suggestion")',
     )
     await expect(suggestionBadges).toHaveCount(0)
 
     // Verify that other badges are still visible (like "Built-in")
     const builtInBadges = page.locator(
-      '.badge:has-text("Built-in"), [class*="badge"]:has-text("Built-in")',
+      '[data-slot="badge"]:has-text("Built-in")',
     )
     await expect(builtInBadges.first()).toBeVisible()
   })
@@ -145,7 +170,7 @@ test.describe('Suggestion badge removal', () => {
     await page.waitForLoadState('networkidle')
 
     // Get all badge elements
-    const badges = page.locator('[class*="badge"]')
+    const badges = page.locator('[data-slot="badge"]')
     const badgeCount = await badges.count()
 
     // Check each badge to ensure none contain "suggestion"

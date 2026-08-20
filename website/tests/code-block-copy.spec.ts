@@ -11,7 +11,9 @@ test.describe('Code Block Copy Feature', () => {
     await expect(installationSection).toBeVisible()
 
     // Get all code blocks with copy functionality in installation section
-    const codeBlocks = page.locator('#installation .group')
+    const codeBlocks = page.locator(
+      'section:has(#installation) .group:has(code)',
+    )
     await expect(codeBlocks).toHaveCount(3)
 
     // Hover over the first code block
@@ -40,7 +42,9 @@ test.describe('Code Block Copy Feature', () => {
     await expect(installationSection).toBeVisible()
 
     // Find the first code block (pnpm)
-    const firstCodeBlock = page.locator('#installation .group').first()
+    const firstCodeBlock = page
+      .locator('section:has(#installation) .group:has(code)')
+      .first()
     await firstCodeBlock.hover()
 
     // Click the copy button
@@ -79,7 +83,9 @@ test.describe('Code Block Copy Feature', () => {
     await expect(installationSection).toBeVisible()
 
     // Find the second code block (npm)
-    const secondCodeBlock = page.locator('#installation .group').nth(1)
+    const secondCodeBlock = page
+      .locator('section:has(#installation) .group:has(code)')
+      .nth(1)
     await secondCodeBlock.hover()
 
     const copyButton = secondCodeBlock.locator('button[aria-label*="Copy"]')
@@ -113,7 +119,9 @@ test.describe('Code Block Copy Feature', () => {
     await expect(installationSection).toBeVisible()
 
     // Find the third code block (yarn)
-    const thirdCodeBlock = page.locator('#installation .group').nth(2)
+    const thirdCodeBlock = page
+      .locator('section:has(#installation) .group:has(code)')
+      .nth(2)
     await thirdCodeBlock.hover()
 
     const copyButton = thirdCodeBlock.locator('button[aria-label*="Copy"]')
@@ -141,7 +149,9 @@ test.describe('Code Block Copy Feature', () => {
 
     await context.grantPermissions(['clipboard-read', 'clipboard-write'])
 
-    const firstCodeBlock = page.locator('#installation .group').first()
+    const firstCodeBlock = page
+      .locator('section:has(#installation) .group:has(code)')
+      .first()
     await firstCodeBlock.hover()
 
     const copyButton = firstCodeBlock.locator('button[aria-label*="Copy"]')

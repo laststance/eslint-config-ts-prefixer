@@ -29,7 +29,13 @@ test.describe('Heading Anchor Functionality', () => {
   test('should copy link to clipboard when anchor icon is clicked', async ({
     page,
     context,
+    browserName,
   }) => {
+    test.skip(
+      browserName !== 'chromium',
+      'Clipboard API not fully supported in Firefox and WebKit',
+    )
+
     // Grant clipboard permissions
     await context.grantPermissions(['clipboard-write', 'clipboard-read'])
 
@@ -81,11 +87,17 @@ test.describe('Heading Anchor Functionality', () => {
     // Verify the element is in view
     await expect(firstCard).toBeInViewport()
 
-    // Verify the URL contains the hash
-    expect(page.url()).toContain(`#${cardId}`)
+    // Verify the document is parked on the anchor
+    const hash = await page.evaluate(() => window.location.hash)
+    expect(hash).toBe(`#${cardId}`)
   })
 
-  test('should be keyboard accessible', async ({ page }) => {
+  test('should be keyboard accessible', async ({ page, browserName }) => {
+    test.skip(
+      browserName !== 'chromium',
+      'Clipboard API not fully supported in Firefox and WebKit',
+    )
+
     // Wait for the page to load
     await page.waitForLoadState('networkidle')
 
@@ -138,24 +150,29 @@ test.describe('Heading Anchor Functionality', () => {
     )
   })
 
-  test('should apply glass design system styles', async ({ page }) => {
-    // Wait for the page to load
+  test('anchor button stays invisible until its heading is hovered', async ({
+    page,
+  }) => {
+    // Arrange
     await page.waitForLoadState('networkidle')
-
-    // Find the first anchor button
     const firstRuleTitle = page.locator('.group').first()
-    await firstRuleTitle.hover()
-
     const anchorButton = firstRuleTitle.locator(
       'button[aria-label*="Copy link"]',
     )
 
-    // Verify glass classes are applied
-    const className = await anchorButton.getAttribute('class')
-    expect(className).toContain('glass-thin')
-    expect(className).toContain('glass-border')
-    expect(className).toContain('glass-tinted-blue')
-    expect(className).toContain('glass-transition')
+    // Assert - fully transparent at rest, so it never clutters the heading
+    await expect(anchorButton).toHaveCSS('opacity', '0')
+
+    // Act
+    await firstRuleTitle.hover()
+
+    // Assert - revealed, and it fades rather than snapping
+    await expect(anchorButton).toHaveCSS('opacity', '1')
+    const transitionProperty = await anchorButton.evaluate(
+      (el) => getComputedStyle(el).transitionProperty,
+    )
+    expect(transitionProperty).toContain('opacity')
+    expect(transitionProperty).not.toBe('all')
   })
 
   test('should hide anchor icons on mobile viewport', async ({ page }) => {
@@ -173,12 +190,7 @@ test.describe('Heading Anchor Functionality', () => {
       'button[aria-label*="Copy link"]',
     )
 
-    // On mobile, the button should have 'hidden' or 'md:flex' classes
-    const className = await anchorButton.getAttribute('class')
-    expect(className).toContain('hidden')
-    expect(className).toContain('md:flex')
-
-    // The button should not be visible on mobile
+    // The button is a pointer affordance, so it must not take up space on touch
     await expect(anchorButton).not.toBeVisible()
   })
 
@@ -208,25 +220,34 @@ test.describe('Heading Anchor Functionality', () => {
     // Wait for the page to load
     await page.waitForLoadState('networkidle')
 
-    // Find a markdown heading (h2, h3) inside a rule card
-    const markdownHeading = page
-      .locator('.markdown-content h2, .markdown-content h3')
+    // Find a markdown heading (h2, h3) rendered inside a rule card
+    const headingWrapper = page
+      .locator(
+        '.markdown-content div.group:has(h2), .markdown-content div.group:has(h3)',
+      )
       .first()
-
-    // Verify it has the group class for hover
-    await expect(markdownHeading).toHaveClass(/group/)
+    await expect(headingWrapper.locator('h2, h3').first()).toBeVisible()
 
     // Hover over the markdown heading
-    await markdownHeading.hover()
+    await headingWrapper.hover()
 
     // The anchor button should appear
-    const anchorButton = markdownHeading.locator(
+    const anchorButton = headingWrapper.locator(
       'button[aria-label*="Copy link"]',
     )
     await expect(anchorButton).toBeVisible()
   })
 
-  test('should reset copied state after timeout', async ({ page, context }) => {
+  test('should reset copied state after timeout', async ({
+    page,
+    context,
+    browserName,
+  }) => {
+    test.skip(
+      browserName !== 'chromium',
+      'Clipboard API not fully supported in Firefox and WebKit',
+    )
+
     // Grant clipboard permissions
     await context.grantPermissions(['clipboard-write'])
 

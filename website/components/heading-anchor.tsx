@@ -88,7 +88,7 @@ export function HeadingAnchor({
 
           // Visibility and interaction
           'opacity-0 group-hover:opacity-100 focus:opacity-100',
-          'transition-all duration-200 ease-in-out',
+          'transition-[opacity,background-color,color] duration-200 ease-in-out',
 
           // Accessibility
           'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-1',

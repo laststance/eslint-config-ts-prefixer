@@ -43,7 +43,7 @@ export default function RootLayout({
             <img
               src="/images/background.jpg"
               alt="Scenic background of green grass and blue sky"
-              className="object-cover w-full h-full filter blur-[2px] brightness-75"
+              className="object-cover w-full h-full filter blur-[2px] brightness-75 dark:brightness-[0.45] dark:saturate-[0.7]"
             />
           </div>
           <Header />
