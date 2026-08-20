@@ -17,6 +17,9 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
+        // Buttons that supply their own material via the glass-* utilities.
+        // Any variant here would paint an opaque hover fill over the blur.
+        glass: '',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {

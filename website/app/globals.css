@@ -183,56 +183,135 @@ samp,
    Based on Apple Human Interface Guidelines 2025
    ============================================ */
 
+/* These four are `@utility`, not plain classes in `@layer utilities`, because
+   they are used with a variant (`hover:glass-medium` etc). Tailwind only
+   generates variants for utilities it knows about — a hand-written class in
+   `@layer utilities` silently produces nothing for `hover:`. Add new glass
+   classes here the moment they need a variant. */
+@utility glass-medium {
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  transform: translateZ(0);
+
+  @variant dark {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(32px) saturate(180%);
+  }
+
+  @media (max-width: 768px) {
+    backdrop-filter: blur(15px) saturate(160%);
+  }
+
+  @supports not (backdrop-filter: blur(20px)) {
+    background: rgba(255, 255, 255, 0.9);
+
+    @variant dark {
+      background: rgba(30, 30, 30, 0.9);
+    }
+  }
+
+  /* Last on purpose: it has to outrank the mobile blur above, which is the
+     same specificity and would otherwise hand transparency back on a phone. */
+  @media (prefers-reduced-transparency: reduce) {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.95);
+
+    @variant dark {
+      background: rgba(30, 30, 30, 0.95);
+    }
+  }
+}
+
+@utility glass-thick {
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  transform: translateZ(0);
+
+  @variant dark {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(36px) saturate(180%);
+  }
+
+  @media (max-width: 768px) {
+    backdrop-filter: blur(15px) saturate(160%);
+  }
+
+  @supports not (backdrop-filter: blur(20px)) {
+    background: rgba(255, 255, 255, 0.9);
+
+    @variant dark {
+      background: rgba(30, 30, 30, 0.9);
+    }
+  }
+
+  /* Last on purpose: it has to outrank the mobile blur above, which is the
+     same specificity and would otherwise hand transparency back on a phone. */
+  @media (prefers-reduced-transparency: reduce) {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.95);
+
+    @variant dark {
+      background: rgba(30, 30, 30, 0.95);
+    }
+  }
+}
+
+@utility glass-shadow-md {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  @variant dark {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@utility glass-shadow-lg {
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  @variant dark {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.7),
+      0 6px 24px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+}
+
 @layer utilities {
   /* Material Thickness Variants - Enhanced for Better Readability */
   .glass-ultra-thin {
-    background: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
   }
 
   .glass-thin {
-    background: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
   }
 
-  .glass-medium {
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
-  }
-
-  .glass-thick {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
-  }
-
   .glass-ultra-thick {
-    background: rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
   }
 
   /* Dark Mode Variants - Iteration 3: Further enhanced opacity and blur for better text contrast */
-  .dark .glass-ultra-thin {
-    background: rgba(0, 0, 0, 0.5);
+  .glass-ultra-thin:where(.dark, .dark *) {
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(24px) saturate(180%);
   }
 
-  .dark .glass-thin {
-    background: rgba(0, 0, 0, 0.6);
+  .glass-thin:where(.dark, .dark *) {
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(28px) saturate(180%);
   }
 
-  .dark .glass-medium {
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(32px) saturate(180%);
-  }
-
-  .dark .glass-thick {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(36px) saturate(180%);
-  }
-
-  .dark .glass-ultra-thick {
-    background: rgba(0, 0, 0, 0.75);
+  .glass-ultra-thick:where(.dark, .dark *) {
+    background-color: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(40px) saturate(180%);
   }
 
@@ -307,7 +386,7 @@ samp,
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .dark .glass-border {
+  .glass-border:where(.dark, .dark *) {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -336,7 +415,7 @@ samp,
     pointer-events: none;
   }
 
-  .dark .glass-layered::before {
+  .glass-layered:where(.dark, .dark *)::before {
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.1) 0%,
@@ -354,7 +433,7 @@ samp,
     );
   }
 
-  .dark .glass-tinted-blue {
+  .glass-tinted-blue:where(.dark, .dark *) {
     background: linear-gradient(
       135deg,
       rgba(59, 130, 246, 0.25),
@@ -364,25 +443,25 @@ samp,
 
   /* Clear Glass for Content Layers - Enhanced for Maximum Readability */
   .glass-clear {
-    background: rgba(255, 255, 255, 0.97);
+    background-color: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(28px) saturate(180%) brightness(1.1);
   }
 
   /* 0.75 let the sky photo's cloud texture read straight through code blocks;
      0.88 keeps the material glassy but gives text a calm bed (light side is 0.97) */
-  .dark .glass-clear {
-    background: rgba(0, 0, 0, 0.88);
+  .glass-clear:where(.dark, .dark *) {
+    background-color: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(44px) saturate(180%);
   }
 
   /* Sidebar Glass - High opacity for text readability */
   .glass-sidebar {
-    background: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
   }
 
-  .dark .glass-sidebar {
-    background: rgba(0, 0, 0, 0.85);
+  .glass-sidebar:where(.dark, .dark *) {
+    background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(40px) saturate(180%);
   }
 
@@ -396,7 +475,7 @@ samp,
     pointer-events: none;
   }
 
-  .dark .glass-dimmed::after {
+  .glass-dimmed:where(.dark, .dark *)::after {
     background: rgba(0, 0, 0, 0.4);
   }
 
@@ -430,37 +509,11 @@ samp,
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
-  .dark .glass-shadow-sm {
+  .glass-shadow-sm:where(.dark, .dark *) {
     box-shadow:
       0 4px 16px rgba(0, 0, 0, 0.5),
       0 2px 8px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-
-  .glass-shadow-md {
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  }
-
-  .dark .glass-shadow-md {
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.6),
-      0 4px 16px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-
-  .glass-shadow-lg {
-    box-shadow:
-      0 12px 48px rgba(0, 0, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  }
-
-  .dark .glass-shadow-lg {
-    box-shadow:
-      0 12px 48px rgba(0, 0, 0, 0.7),
-      0 6px 24px rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
 
   /* Glass Transitions */
@@ -497,8 +550,6 @@ samp,
   @media (max-width: 768px) {
     .glass-ultra-thin,
     .glass-thin,
-    .glass-medium,
-    .glass-thick,
     .glass-ultra-thick,
     .glass-clear {
       backdrop-filter: blur(15px) saturate(160%);
@@ -509,20 +560,16 @@ samp,
   @media (prefers-reduced-transparency: reduce) {
     .glass-ultra-thin,
     .glass-thin,
-    .glass-medium,
-    .glass-thick,
     .glass-ultra-thick,
     .glass-clear {
       backdrop-filter: none;
       background: rgba(255, 255, 255, 0.95);
     }
 
-    .dark .glass-ultra-thin,
-    .dark .glass-thin,
-    .dark .glass-medium,
-    .dark .glass-thick,
-    .dark .glass-ultra-thick,
-    .dark .glass-clear {
+    .glass-ultra-thin:where(.dark, .dark *),
+    .glass-thin:where(.dark, .dark *),
+    .glass-ultra-thick:where(.dark, .dark *),
+    .glass-clear:where(.dark, .dark *) {
       background: rgba(30, 30, 30, 0.95);
     }
   }
@@ -541,8 +588,6 @@ samp,
   /* Performance: GPU Acceleration */
   .glass-ultra-thin,
   .glass-thin,
-  .glass-medium,
-  .glass-thick,
   .glass-ultra-thick,
   .glass-clear {
     transform: translateZ(0);
@@ -552,19 +597,15 @@ samp,
   @supports not (backdrop-filter: blur(20px)) {
     .glass-ultra-thin,
     .glass-thin,
-    .glass-medium,
-    .glass-thick,
     .glass-ultra-thick,
     .glass-clear {
       background: rgba(255, 255, 255, 0.9);
     }
 
-    .dark .glass-ultra-thin,
-    .dark .glass-thin,
-    .dark .glass-medium,
-    .dark .glass-thick,
-    .dark .glass-ultra-thick,
-    .dark .glass-clear {
+    .glass-ultra-thin:where(.dark, .dark *),
+    .glass-thin:where(.dark, .dark *),
+    .glass-ultra-thick:where(.dark, .dark *),
+    .glass-clear:where(.dark, .dark *) {
       background: rgba(30, 30, 30, 0.9);
     }
   }

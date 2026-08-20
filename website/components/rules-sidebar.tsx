@@ -171,7 +171,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button
-              variant="outline"
+              variant="glass"
               size="icon"
               className="fixed left-4 bottom-6 z-60 glass-medium glass-border glass-shadow-lg hover:glass-thick min-h-[44px] min-w-[44px]"
             >

@@ -12,7 +12,7 @@ export function ThemeToggle() {
   return (
     <Button
       type="button"
-      variant="outline"
+      variant="glass"
       size="icon"
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="glass-thin glass-tinted-blue glass-border rounded-glass glass-transition hover:glass-medium hover:scale-105 active:scale-[0.96] min-h-[44px] min-w-[44px]"

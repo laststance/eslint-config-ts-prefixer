@@ -29,7 +29,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Button
-            variant="ghost"
+            variant="glass"
             size="icon"
             asChild
             className="glass-thin glass-border rounded-glass glass-transition hover:glass-medium active:scale-[0.96] min-h-[44px] min-w-[44px]"
