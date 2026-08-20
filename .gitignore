@@ -21,3 +21,5 @@ test-results
 # generated
 *.tsbuildinfo
 next-env.d.ts
+.gstack/
+.serena
