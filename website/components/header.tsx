@@ -22,7 +22,7 @@ export function Header() {
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         <Link
           href="/"
-          className="font-mono text-lg font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors"
+          className="font-mono text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
         >
           eslint-config-ts-prefixer
         </Link>

@@ -487,15 +487,18 @@ samp,
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
   }
 
-  .dark .text-gray-900,
-  .dark .text-gray-800 {
+  /* :where() keeps these at zero added specificity. As `.dark .text-x` they
+     scored (0,2,0) and silently outranked every `dark:hover:text-*` utility,
+     so the header brand and the sidebar links had no dark hover colour at all. */
+  .text-gray-900:where(.dark *),
+  .text-gray-800:where(.dark *) {
     color: inherit;
     text-shadow:
       0 1px 3px rgba(0, 0, 0, 0.5),
       0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
-  .dark .text-black {
+  .text-black:where(.dark *) {
     color: #ffffff;
     text-shadow:
       0 1px 3px rgba(0, 0, 0, 0.5),

@@ -77,7 +77,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-muted/50 font-medium"
         >
           <Link href="#installation" className="flex items-center gap-2">
             <Download className="h-4 w-4" />
@@ -87,7 +87,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-muted/50 font-medium"
         >
           <Link href="#configuration" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
