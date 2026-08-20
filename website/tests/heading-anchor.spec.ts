@@ -238,6 +238,43 @@ test.describe('Heading Anchor Functionality', () => {
     await expect(anchorButton).toBeVisible()
   })
 
+  test('anchor icons stay inside the card instead of spilling onto the sky photo', async ({
+    page,
+  }) => {
+    // Arrange
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.waitForLoadState('networkidle')
+
+    // Act - reveal every anchor at once and compare it to its own surface
+    const escaping = await page.evaluate(() => {
+      const offenders: string[] = []
+      const buttons = document.querySelectorAll<HTMLElement>(
+        'button[aria-label*="opy link"]',
+      )
+      for (const button of buttons) {
+        button.style.opacity = '1'
+        const surface = button.closest('.glass-clear, section')
+        if (!surface) continue
+        const buttonBox = button.getBoundingClientRect()
+        const surfaceBox = surface.getBoundingClientRect()
+        // A rule card clips its overflow, so escaping reads as a half-cut icon
+        // there and as a smudge on the background photo everywhere else
+        if (
+          buttonBox.left < surfaceBox.left ||
+          buttonBox.right > surfaceBox.right
+        ) {
+          offenders.push(button.getAttribute('aria-label') ?? 'unknown')
+        }
+        button.style.removeProperty('opacity')
+      }
+      return { total: buttons.length, offenders }
+    })
+
+    // Assert
+    expect(escaping.total).toBe(211)
+    expect(escaping.offenders).toEqual([])
+  })
+
   test('should reset copied state after timeout', async ({
     page,
     context,

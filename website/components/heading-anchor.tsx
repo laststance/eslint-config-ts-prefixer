@@ -50,7 +50,7 @@ export function HeadingAnchor({
   }
 
   return (
-    <div className="group relative">
+    <div className="group">
       <Component id={id} className={cn('scroll-mt-24', className)}>
         <a
           href={`#${id}`}
@@ -71,44 +71,48 @@ export function HeadingAnchor({
         >
           {children}
         </a>
+        <button
+          type="button"
+          onClick={handleCopyLink}
+          aria-label={copied ? 'Link copied!' : 'Copy link to this section'}
+          className={cn(
+            // Trails the heading text rather than sitting in a left gutter: the
+            // gutter is 24px inside a rule card that also clips its overflow, so
+            // a -40px offset was half-clipped there and spilled onto the sky
+            // photo everywhere else. 24px keeps it inside every heading's line
+            // box, down to h4.
+            'relative ml-3 h-6 w-6 shrink-0 align-middle',
+
+            // The visible square stays 24px so it never grows a heading's line
+            // height; the pointer target is widened to 44px with a pseudo.
+            'after:absolute after:-inset-2.5 after:content-[""]',
+
+            // Visibility and interaction
+            'opacity-0 group-hover:opacity-100 focus-visible:opacity-100',
+            'transition-[opacity,color,scale] duration-200 ease-in-out',
+            'active:scale-[0.96]',
+
+            // Accessibility
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
+            'rounded-md',
+
+            // Content centering
+            'items-center justify-center',
+
+            // Text color - subtle gray that becomes more visible on hover
+            'text-muted-foreground hover:text-foreground',
+
+            // Responsive: hide on mobile
+            'hidden md:inline-flex',
+          )}
+        >
+          {copied ? (
+            <Check className="h-4 w-4" aria-hidden="true" />
+          ) : (
+            <Link2 className="h-4 w-4" aria-hidden="true" />
+          )}
+        </button>
       </Component>
-
-      <button
-        type="button"
-        onClick={handleCopyLink}
-        aria-label={copied ? 'Link copied!' : 'Copy link to this section'}
-        className={cn(
-          // Base positioning and size - GitHub style positioning with 44px touch target
-          'absolute -left-10 top-1/2 -translate-y-1/2',
-          'w-8 h-8 min-h-[44px] min-w-[44px] rounded-md',
-
-          // Minimal background with subtle hover effect (GitHub style)
-          'bg-transparent',
-          'hover:bg-muted/50',
-
-          // Visibility and interaction
-          'opacity-0 group-hover:opacity-100 focus:opacity-100',
-          'transition-[opacity,background-color,color] duration-200 ease-in-out',
-
-          // Accessibility
-          'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-1',
-
-          // Content centering
-          'flex items-center justify-center',
-
-          // Text color - subtle gray that becomes more visible on hover
-          'text-muted-foreground hover:text-foreground',
-
-          // Responsive: hide on mobile
-          'hidden md:flex',
-        )}
-      >
-        {copied ? (
-          <Check className="h-4 w-4" aria-hidden="true" />
-        ) : (
-          <Link2 className="h-4 w-4" aria-hidden="true" />
-        )}
-      </button>
     </div>
   )
 }
