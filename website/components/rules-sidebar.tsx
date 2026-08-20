@@ -181,7 +181,21 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
           </SheetTrigger>
           <SheetContent side="left" className="w-72 p-0">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="glass-sidebar glass-layered p-4 h-full">
+            {/* Every nav link is an <a> inside this panel, and a hash link does
+                not unmount the sheet on its own — without this the panel stays
+                open on top of the section the reader just jumped to. Delegated
+                here rather than per-link so the filter input and the group
+                headings don't close it. */}
+            <div
+              className="glass-sidebar glass-layered p-4 h-full"
+              onClick={(event) => {
+                if (
+                  event.target instanceof Element &&
+                  event.target.closest('a')
+                )
+                  setOpen(false)
+              }}
+            >
               {sidebarContent}
             </div>
           </SheetContent>
