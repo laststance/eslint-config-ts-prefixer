@@ -81,7 +81,7 @@ export function HeadingAnchor({
             // a -40px offset was half-clipped there and spilled onto the sky
             // photo everywhere else. 24px keeps it inside every heading's line
             // box, down to h4.
-            'relative ml-3 h-6 w-6 shrink-0 align-middle',
+            'relative ml-3 h-6 w-6 shrink-0 cursor-pointer align-middle',
 
             // The visible square stays 24px so it never grows a heading's line
             // height; the pointer target is widened to 44px with a pseudo.

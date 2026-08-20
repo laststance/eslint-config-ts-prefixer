@@ -35,7 +35,7 @@ export function PreCodeBlockWithCopy({
         variant="ghost"
         size="icon"
         onClick={handleCopy}
-        className="absolute right-1 top-1 h-11 w-11 rounded-lg opacity-0 group-hover:opacity-100 transition-[opacity,scale,background-color] duration-200 ease-out hover:bg-slate-800 dark:hover:bg-slate-900 active:scale-[0.96]"
+        className="absolute right-1 top-1 h-11 w-11 rounded-lg opacity-0 group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100 transition-[opacity,scale,background-color] duration-200 ease-out hover:bg-slate-800 dark:hover:bg-slate-900 active:scale-[0.96]"
         aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
       >
         {copied ? (
