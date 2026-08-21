@@ -55,6 +55,6 @@ This interactive CLI tool will:
 - Focuses on runtime behavior over syntax preferences
 - Enforces import organization and TypeScript best practices
 - Integrates with user's existing Prettier configuration
-- Errors on unused variables (with underscore prefix exception)
+- Errors on unused variables, `_`-prefixed ones included — the underscore escape (`argsIgnorePattern`) covers arguments only, alongside `after-used` positioning and ignored rest siblings
 - Every rule is `error`, never `warn` — warnings are unenforceable editor noise
 - Strict equality checks and promise handling
