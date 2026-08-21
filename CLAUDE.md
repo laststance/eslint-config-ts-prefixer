@@ -8,12 +8,6 @@ This is an ESLint configuration package (`eslint-config-ts-prefixer`) that provi
 
 ## Essential Commands
 
-### Linting
-
-- `pnpm lint` - Run ESLint on all files
-- `pnpm lint:fix` - Run ESLint with auto-fix enabled
-- `pnpm prettier` - Format all files with Prettier
-
 ### Release Process
 
 #### Quick Release
@@ -48,24 +42,11 @@ This interactive CLI tool will:
 
 ## Architecture
 
-### Core Configuration File
-
-- `eslint.config.mjs` - Main ESLint configuration that gets exported as the package entry point
-- Uses ESLint's flat config format (v9+)
-- Includes TypeScript, import, and Prettier plugins with carefully selected rules
-- Supports both TypeScript and JavaScript files
-
 ### Release Automation
 
 - Uses `@laststance/npm-publish-tool` for interactive version management
 - `.release-it.json` configures GitHub release creation and npm publish with provenance
 - GitHub Actions CI/CD triggered on push for automated publishing
-
-### Package Structure
-
-- Single-file distribution (`eslint.config.mjs` only)
-- ESM-only package with Node.js 22+ requirement
-- Peer dependencies: ESLint v9+ and TypeScript v5+
 
 ## Development Notes
 
@@ -74,11 +55,6 @@ This interactive CLI tool will:
 - Focuses on runtime behavior over syntax preferences
 - Enforces import organization and TypeScript best practices
 - Integrates with user's existing Prettier configuration
-- Warns on unused variables (with underscore prefix exception)
+- Errors on unused variables (with underscore prefix exception)
+- Every rule is `error`, never `warn` — warnings are unenforceable editor noise
 - Strict equality checks and promise handling
-
-### Monorepo Setup
-
-- Uses pnpm workspaces (`pnpm-workspace.yaml`)
-- Husky pre-commit hooks with lint-staged for Prettier formatting
-- Volta for Node.js version management (v22.16.0)
