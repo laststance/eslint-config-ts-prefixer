@@ -68,11 +68,11 @@ export default [
     },
 
     rules: {
-      // Warn when awaiting a non-Promise value (usually a mistake in async code).
-      '@typescript-eslint/await-thenable': 'warn',
+      // Disallow awaiting a non-Promise value (usually a mistake in async code).
+      '@typescript-eslint/await-thenable': 'error',
 
       // Prefer `import type` for type-only imports to avoid emitting runtime code.
-      '@typescript-eslint/consistent-type-imports': 'warn',
+      '@typescript-eslint/consistent-type-imports': 'error',
 
       // Disallow using `new` with interfaces/types or misusing constructors in TS.
       '@typescript-eslint/no-misused-new': 'error',
@@ -107,16 +107,16 @@ export default [
       ],
 
       // Suggest `as const` to narrow literal types and prevent accidental mutation.
-      '@typescript-eslint/prefer-as-const': 'warn',
+      '@typescript-eslint/prefer-as-const': 'error',
 
-      // Warn when a function returns a Promise but isn't declared `async`.
-      '@typescript-eslint/promise-function-async': 'warn',
+      // Require `async` on any function that returns a Promise.
+      '@typescript-eslint/promise-function-async': 'error',
 
       // Enforce strict equality to avoid coercion bugs.
       eqeqeq: ['error', 'always'],
 
-      // Warn when a ternary can be simplified (readability).
-      'no-unneeded-ternary': 'warn',
+      // Disallow ternaries that can be simplified (readability).
+      'no-unneeded-ternary': 'error',
       // Ensure default import exists in the target module.
       'import-x/default': 'error',
 
@@ -135,12 +135,12 @@ export default [
       // Error on unresolved import paths (keeps imports reliable).
       'import-x/no-unresolved': 'error',
 
-      // Warn on unnecessary `./` or `../` segments in import paths.
-      'import-x/no-useless-path-segments': 'warn',
+      // Disallow unnecessary `./` or `../` segments in import paths.
+      'import-x/no-useless-path-segments': 'error',
 
       // Keep imports grouped and alphabetized for consistent readability.
       'import-x/order': [
-        'warn',
+        'error',
         {
           // Sort imports A→Z, case-insensitive.
           alphabetize: {
@@ -181,14 +181,14 @@ export default [
       // Disallow unnecessary boolean casts (e.g., !! on a boolean).
       'no-extra-boolean-cast': 'error',
 
-      // Warn on unsafe negation with relational operators (readability/safety).
-      'no-unsafe-negation': 'warn',
+      // Disallow unsafe negation with relational operators (readability/safety).
+      'no-unsafe-negation': 'error',
 
       // Disallow unused private class members (dead code).
       'no-unused-private-class-members': 'error',
 
       // Prefer `const` for variables that are never reassigned.
-      'prefer-const': 'warn',
+      'prefer-const': 'error',
 
       // Prefer rejecting Promises with `Error` objects for better stack traces.
       'prefer-promise-reject-errors': [
@@ -210,7 +210,7 @@ export default [
       ],
 
       // Ensure correct `typeof` comparisons (e.g., 'undefined', 'object').
-      'valid-typeof': 'warn',
+      'valid-typeof': 'error',
     },
   },
   // For JavaScript files
