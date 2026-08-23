@@ -77,7 +77,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-muted/50 font-medium"
         >
           <Link href="#installation" className="flex items-center gap-2">
             <Download className="h-4 w-4" />
@@ -87,7 +87,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-muted/50 font-medium"
         >
           <Link href="#configuration" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
@@ -101,7 +101,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <h3 className="text-sm font-semibold px-2 mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">
           <FileText className="h-4 w-4" />
           Configured Rules
-          <span className="ml-auto text-xs font-normal text-gray-500 dark:text-gray-400">
+          <span className="ml-auto text-xs font-normal tabular-nums text-gray-500 dark:text-gray-400">
             {filteredRules.length}/{rules.length}
           </span>
         </h3>
@@ -112,7 +112,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
             placeholder="Filter rules..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 pr-8 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-colors"
+            className="w-full pl-8 pr-8 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-[box-shadow,border-color] duration-200"
           />
           {searchQuery && (
             <button
@@ -171,7 +171,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button
-              variant="outline"
+              variant="glass"
               size="icon"
               className="fixed left-4 bottom-6 z-60 glass-medium glass-border glass-shadow-lg hover:glass-thick min-h-[44px] min-w-[44px]"
             >
@@ -181,7 +181,21 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
           </SheetTrigger>
           <SheetContent side="left" className="w-72 p-0">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="glass-sidebar glass-layered p-4 h-full">
+            {/* Every nav link is an <a> inside this panel, and a hash link does
+                not unmount the sheet on its own — without this the panel stays
+                open on top of the section the reader just jumped to. Delegated
+                here rather than per-link so the filter input and the group
+                headings don't close it. */}
+            <div
+              className="glass-sidebar glass-layered p-4 h-full"
+              onClick={(event) => {
+                if (
+                  event.target instanceof Element &&
+                  event.target.closest('a')
+                )
+                  setOpen(false)
+              }}
+            >
               {sidebarContent}
             </div>
           </SheetContent>
@@ -189,7 +203,9 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
       </div>
 
       {/* Desktop Sidebar - lg以上でのみ表示 */}
-      <aside className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
+      {/* sticky (not fixed) keeps the aside a flex item, so <main> keeps its
+          own column width without a matching margin hack */}
+      <aside className="hidden lg:block lg:sticky lg:top-16 lg:self-start lg:shrink-0 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
         {sidebarContent}
       </aside>
     </>

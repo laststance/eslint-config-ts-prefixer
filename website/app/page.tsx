@@ -135,16 +135,16 @@ export default async function EslintDocsPage() {
     <div className="relative">
       <div className="lg:flex">
         <RulesSidebar rules={rules} />
-        <main className="flex-1 p-4 sm:p-6 lg:p-10 space-y-8 lg:ml-auto min-h-screen">
+        <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-10 space-y-8 min-h-screen">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <section className="mb-16 glass-clear glass-border glass-shadow-md p-8 md:p-12 rounded-glass-xl">
               {/* Stats badges */}
               <div className="flex flex-wrap gap-3 mb-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tabular-nums bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">
                   {rules.length} rules configured
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tabular-nums bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300">
                   {
                     Object.keys(
                       rules.reduce(
@@ -163,7 +163,7 @@ export default async function EslintDocsPage() {
               <h1 className="font-mono text-gray-950 dark:text-white text-3xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
                 eslint-config-ts-prefixer
               </h1>
-              <p className="text-gray-800 dark:text-gray-200 text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed font-medium max-w-3xl">
+              <p className="text-gray-800 dark:text-gray-200 text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed font-medium max-w-3xl text-balance">
                 A zero-config TypeScript ESLint configuration with Prettier
                 integration
               </p>
@@ -173,14 +173,14 @@ export default async function EslintDocsPage() {
                 <img
                   src="https://img.shields.io/npm/dm/eslint-config-ts-prefixer?style=flat-square&color=2563eb&label=npm%20downloads"
                   alt="npm monthly downloads"
-                  className="h-5"
+                  className="h-5 rounded-[3px] outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
                 />
               </div>
 
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#installation"
-                  className="group inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] hover:shadow-lg text-base"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] active:scale-[0.96] hover:shadow-lg text-base"
                 >
                   <span className="relative z-10">Get Started</span>
                 </a>
@@ -188,7 +188,7 @@ export default async function EslintDocsPage() {
                   href="https://github.com/laststance/eslint-config-ts-prefixer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-700 dark:hover:bg-gray-600 rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] hover:shadow-lg text-base"
+                  className="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-700 dark:hover:bg-gray-600 rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] active:scale-[0.96] hover:shadow-lg text-base"
                 >
                   <span className="relative z-10">View on GitHub</span>
                 </a>
@@ -196,7 +196,7 @@ export default async function EslintDocsPage() {
             </section>
 
             {/* Installation Section */}
-            <section className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-all duration-300 hover:glass-shadow-md">
+            <section className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-shadow duration-300 hover:glass-shadow-md">
               <HeadingAnchor
                 id="installation"
                 as="h2"
@@ -219,7 +219,7 @@ export default async function EslintDocsPage() {
             </section>
 
             {/* Configuration Section */}
-            <section className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-all duration-300 hover:glass-shadow-md">
+            <section className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-shadow duration-300 hover:glass-shadow-md">
               <HeadingAnchor
                 id="configuration"
                 as="h2"
@@ -281,8 +281,8 @@ export default defineConfig([...tsPrefixer])`}
       </div>
 
       {/* Footer */}
-      <footer className="glass-clear glass-border border-t py-8 px-4 sm:px-6 lg:px-10">
-        <div className="max-w-4xl mx-auto lg:ml-72 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <footer className="glass-clear glass-border border-t py-8 px-4 sm:px-6 lg:px-10 lg:ml-72">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-700 dark:text-gray-300">
           <p>&copy; {new Date().getFullYear()} Laststance.io</p>
           <div className="flex items-center gap-4">
             <a

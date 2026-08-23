@@ -43,7 +43,11 @@ test('published tarball installs every public config entry in a clean consumer',
       0,
       `${packResult.stdout}\n${packResult.stderr}`,
     )
-    const [packReport] = JSON.parse(packResult.stdout)
+    // npm >=12 keys the report by package name; older npm returns a one-element array.
+    const packReports = JSON.parse(packResult.stdout)
+    const [packReport] = Array.isArray(packReports)
+      ? packReports
+      : Object.values(packReports)
     assert.deepEqual(
       packReport.files.map(({ path }) => path).sort(),
       expectedTarballFiles,
@@ -66,9 +70,9 @@ test('published tarball installs every public config entry in a clean consumer',
         '--no-fund',
         '--no-package-lock',
         tarballPath,
-        'oxfmt@0.58.0',
+        'oxfmt@0.64.0',
         'oxlint@1.73.0',
-        'oxlint-tsgolint@0.24.0',
+        'oxlint-tsgolint@7.0.2001',
       ],
       {
         cwd: temporaryDirectoryPath,

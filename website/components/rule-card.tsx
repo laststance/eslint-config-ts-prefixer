@@ -45,10 +45,10 @@ export function RuleCard({ rule }: RuleCardProps) {
   return (
     <Card
       id={rule.id}
-      className="scroll-mt-24 glass-clear glass-border glass-shadow-sm rounded-glass-lg transition-all duration-300 ease-out hover:glass-shadow-lg hover:-translate-y-1 isolate overflow-hidden relative"
+      className="scroll-mt-24 glass-clear glass-border glass-shadow-sm rounded-glass-lg transition-[box-shadow,translate] duration-300 ease-out hover:glass-shadow-lg hover:-translate-y-1 isolate overflow-hidden relative"
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-black dark:text-white">
+        <CardTitle className="text-2xl font-semibold text-balance text-black dark:text-white">
           {title}
         </CardTitle>
         <div className="flex flex-wrap gap-2 pt-1">
@@ -61,7 +61,7 @@ export function RuleCard({ rule }: RuleCardProps) {
             )}
         </div>
         {description && (
-          <CardDescription className="text-gray-800 dark:text-gray-300 text-lg pt-2 line-clamp-3">
+          <CardDescription className="text-gray-800 dark:text-gray-300 text-lg text-pretty pt-2 line-clamp-3">
             {description}
           </CardDescription>
         )}
@@ -179,9 +179,15 @@ export function RuleCard({ rule }: RuleCardProps) {
             ),
             // Handle custom ESLint syntax like ::: incorrect and ::: correct
             div: ({ children, className }) => {
+              // The tinted callout is itself the code surface — flatten the
+              // nested <pre> box so it doesn't stack a third border/radius
+              const flushCodeBlock =
+                '[&>pre]:m-0 [&>pre]:border-0 [&>pre]:bg-transparent [&>pre]:p-0'
               if (className?.includes('incorrect')) {
                 return (
-                  <div className="border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20 rounded-lg p-4 mb-4">
+                  <div
+                    className={`border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20 rounded-xl p-4 mb-4 ${flushCodeBlock}`}
+                  >
                     <div className="text-red-700 dark:text-red-300 font-medium mb-2">
                       ❌ Incorrect
                     </div>
@@ -191,7 +197,9 @@ export function RuleCard({ rule }: RuleCardProps) {
               }
               if (className?.includes('correct')) {
                 return (
-                  <div className="border border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20 rounded-lg p-4 mb-4">
+                  <div
+                    className={`border border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20 rounded-xl p-4 mb-4 ${flushCodeBlock}`}
+                  >
                     <div className="text-green-700 dark:text-green-300 font-medium mb-2">
                       ✅ Correct
                     </div>

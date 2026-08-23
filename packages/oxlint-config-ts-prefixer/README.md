@@ -8,9 +8,9 @@ Native-first [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) rules for mea
 ## Requirements
 
 - Node.js 22.18+ or 24+
-- `oxlint >=1.74.0 <2`
-- TypeScript 7+ and `oxlint-tsgolint >=0.25.0 <0.26.0` only when using the type-aware preset
-- `oxfmt >=0.59.0 <0.60.0` only when using the import-sorting preset
+- `oxlint >=1.73.0 <2`
+- TypeScript 7+ and `oxlint-tsgolint >=7.0.2001 <8` only when using the type-aware preset
+- `oxfmt >=0.64.0 <0.65.0` only when using the import-sorting preset
 
 ## Default preset
 
