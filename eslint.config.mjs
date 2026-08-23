@@ -88,7 +88,9 @@ export default [
       // Referer headers, and server access logs.
       'browser-security/no-credentials-in-query-params': 'error',
 
-      // Require Secure/HttpOnly/SameSite when setting cookies from JS.
+      // Require Secure and SameSite when setting cookies from JS. (HttpOnly is
+      // deliberately absent — a cookie set through document.cookie cannot be
+      // HttpOnly, by definition.)
       'browser-security/require-cookie-secure-attrs': 'error',
 
       // Disallow postMessage(..., '*') — an origin wildcard leaks the payload
