@@ -117,6 +117,14 @@ async function getEslintRules(): Promise<EslintRule[]> {
 export default async function EslintDocsPage() {
   const rules = await getEslintRules()
 
+  // The sidebar is a client component, so its props ship inside the HTML.
+  // Hand it only what it renders instead of every rule's markdown body.
+  const sidebarRules = rules.map(({ id, ruleName, pluginName }) => ({
+    id,
+    ruleName,
+    pluginName,
+  }))
+
   if (!rules.length) {
     return (
       <div className="flex items-center justify-center min-h-screen p-4">
@@ -138,7 +146,7 @@ export default async function EslintDocsPage() {
   return (
     <div className="relative">
       <div className="lg:flex">
-        <RulesSidebar rules={rules} />
+        <RulesSidebar rules={sidebarRules} />
         <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-10 space-y-8 min-h-screen">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
