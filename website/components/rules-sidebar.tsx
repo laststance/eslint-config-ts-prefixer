@@ -13,8 +13,15 @@ import {
 } from '@/components/ui/sheet'
 import { Download, Settings, FileText, Menu, Search, X } from 'lucide-react'
 
+/**
+ * The three fields the sidebar reads. Everything passed here is serialised into
+ * the HTML for hydration, so the full {@link EslintRule} (with its markdown
+ * body) must never cross this boundary.
+ */
+export type SidebarRule = Pick<EslintRule, 'id' | 'ruleName' | 'pluginName'>
+
 interface RulesSidebarProps {
-  rules: EslintRule[]
+  rules: SidebarRule[]
 }
 
 export function RulesSidebar({ rules }: RulesSidebarProps) {
@@ -64,7 +71,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
       acc[group].push(rule)
       return acc
     },
-    {} as Record<string, EslintRule[]>,
+    {} as Record<string, SidebarRule[]>,
   )
 
   const sidebarContent = (
