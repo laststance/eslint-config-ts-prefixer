@@ -38,6 +38,7 @@ async function getEslintRules(): Promise<EslintRule[]> {
       const pluginDisplayNames: { [key: string]: string } = {
         'typescript-eslint': '@typescript-eslint',
         'import-x': 'eslint-plugin-import-x',
+        'browser-security': 'eslint-plugin-browser-security',
       }
 
       const displayPluginName = pluginDisplayNames[pluginName] || pluginName
@@ -50,6 +51,8 @@ async function getEslintRules(): Promise<EslintRule[]> {
         documentationUrl = `https://typescript-eslint.io/rules/${ruleName}`
       } else if (pluginName === 'import-x') {
         documentationUrl = `https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/${ruleName}.md`
+      } else if (pluginName === 'browser-security') {
+        documentationUrl = `https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/${ruleName}`
       }
 
       return {
@@ -62,11 +65,12 @@ async function getEslintRules(): Promise<EslintRule[]> {
       }
     })
 
-    // Sort rules by custom plugin order: Built-in < eslint-plugin-import-x < @typescript-eslint
+    // Sort rules by custom plugin order: Built-in < eslint-plugin-import-x < @typescript-eslint < eslint-plugin-browser-security
     const pluginOrder = [
       'Built-in',
       'eslint-plugin-import-x',
       '@typescript-eslint',
+      'eslint-plugin-browser-security',
     ]
 
     const sortedRules = rules.sort((a, b) => {

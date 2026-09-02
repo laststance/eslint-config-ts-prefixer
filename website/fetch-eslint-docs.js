@@ -31,6 +31,12 @@ const REPO_MAP = {
     path: '',
     extension: '.md',
   },
+  'browser-security': {
+    owner: 'ofri-peretz',
+    repo: 'eslint',
+    path: 'packages/eslint-plugin-browser-security/docs/rules',
+    extension: '.md',
+  },
 }
 
 // Create output directory if it doesn't exist

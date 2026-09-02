@@ -10,6 +10,14 @@ export function processEslintMarkdown(content: string): string {
     '',
   )
 
+  // Drop eslint-plugin-browser-security doc artifacts the site cannot use:
+  // the SEO keyword line, the summary block (already shown as the card
+  // description), and mermaid flowcharts (no renderer, would print as source)
+  processedContent = processedContent
+    .replace(/^> \*\*Keywords:\*\*[^\n]*\n/gm, '')
+    .replace(/<!-- @rule-summary -->[\s\S]*?<!-- @\/rule-summary -->\n?/g, '')
+    .replace(/```mermaid\n[\s\S]*?\n```\n?/g, '')
+
   // Process ::: incorrect blocks (with optional metadata on same line)
   // Use [^\S\n] instead of \s to match only horizontal whitespace,
   // preventing newlines from being consumed (which would eat the code fence)

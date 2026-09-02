@@ -35,3 +35,11 @@ prettier,prettier,https://github.com/prettier/eslint-plugin-prettier#options
 Built-in,radix,https://eslint.org/docs/rules/radix
 Built-in,require-atomic-updates,https://eslint.org/docs/rules/require-atomic-updates
 Built-in,valid-typeof,https://eslint.org/docs/rules/valid-typeof
+browser-security,no-innerhtml,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-innerhtml
+browser-security,no-eval,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-eval
+browser-security,no-jwt-in-storage,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-jwt-in-storage
+browser-security,no-sensitive-localstorage,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-sensitive-localstorage
+browser-security,no-credentials-in-query-params,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-credentials-in-query-params
+browser-security,require-cookie-secure-attrs,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/require-cookie-secure-attrs
+browser-security,no-postmessage-wildcard-origin,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-postmessage-wildcard-origin
+browser-security,no-insecure-redirects,https://eslint.interlace.tools/docs/security/plugin-browser-security/rules/no-insecure-redirects
