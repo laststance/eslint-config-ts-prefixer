@@ -271,7 +271,7 @@ test.describe('Heading Anchor Functionality', () => {
     })
 
     // Assert
-    expect(escaping.total).toBe(211)
+    expect(escaping.total).toBe(347)
     expect(escaping.offenders).toEqual([])
   })
 
