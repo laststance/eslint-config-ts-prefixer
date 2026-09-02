@@ -1,3 +1,4 @@
+import browserSecurity from 'eslint-plugin-browser-security'
 import importPlugin from 'eslint-plugin-import-x'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
@@ -30,6 +31,7 @@ export default [
 
     plugins: {
       '@typescript-eslint': tseslint.plugin,
+      'browser-security': browserSecurity,
       'import-x': importPlugin,
     },
 
@@ -68,6 +70,36 @@ export default [
     },
 
     rules: {
+      // Disallow assigning to innerHTML/outerHTML — the most common XSS sink in
+      // browser code, and not something a type checker can catch.
+      'browser-security/no-innerhtml': 'error',
+
+      // Disallow eval() and its string-compiling relatives.
+      'browser-security/no-eval': 'error',
+
+      // Disallow storing a JWT in localStorage/sessionStorage: any XSS on the
+      // page can read it, unlike an HttpOnly cookie.
+      'browser-security/no-jwt-in-storage': 'error',
+
+      // Same reasoning for other secrets kept in Web Storage.
+      'browser-security/no-sensitive-localstorage': 'error',
+
+      // Disallow credentials in query strings — they land in browser history,
+      // Referer headers, and server access logs.
+      'browser-security/no-credentials-in-query-params': 'error',
+
+      // Require Secure and SameSite when setting cookies from JS. (HttpOnly is
+      // deliberately absent — a cookie set through document.cookie cannot be
+      // HttpOnly, by definition.)
+      'browser-security/require-cookie-secure-attrs': 'error',
+
+      // Disallow postMessage(..., '*') — an origin wildcard leaks the payload
+      // to whatever happens to be framed.
+      'browser-security/no-postmessage-wildcard-origin': 'error',
+
+      // Disallow redirects built from unvalidated input (open redirect).
+      'browser-security/no-insecure-redirects': 'error',
+
       // Disallow awaiting a non-Promise value (usually a mistake in async code).
       '@typescript-eslint/await-thenable': 'error',
 
