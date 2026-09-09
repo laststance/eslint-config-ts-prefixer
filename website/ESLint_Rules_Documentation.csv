@@ -1,4 +1,5 @@
 ﻿Plugin Name,Rule Name,Documentation URL
+ts-prefixer,explicit-void-return-type,https://github.com/laststance/eslint-config-ts-prefixer/blob/main/explicit-void-return-type.mjs
 Built-in,no-undef,https://eslint.org/docs/rules/no-undef
 Built-in,no-redeclare,https://eslint.org/docs/rules/no-redeclare
 @typescript-eslint,await-thenable,https://typescript-eslint.io/rules/await-thenable

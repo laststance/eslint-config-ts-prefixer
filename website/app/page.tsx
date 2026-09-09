@@ -36,6 +36,7 @@ async function getEslintRules(): Promise<EslintRule[]> {
 
       // Map plugin names to display names
       const pluginDisplayNames: { [key: string]: string } = {
+        'ts-prefixer': 'ts-prefixer',
         'typescript-eslint': '@typescript-eslint',
         'import-x': 'eslint-plugin-import-x',
         'browser-security': 'eslint-plugin-browser-security',
@@ -47,6 +48,9 @@ async function getEslintRules(): Promise<EslintRule[]> {
       let documentationUrl = '#'
       if (pluginName === 'Built-in') {
         documentationUrl = `https://eslint.org/docs/latest/rules/${ruleName}`
+      } else if (pluginName === 'ts-prefixer') {
+        documentationUrl =
+          'https://github.com/laststance/eslint-config-ts-prefixer/blob/main/explicit-void-return-type.mjs'
       } else if (pluginName === 'typescript-eslint') {
         documentationUrl = `https://typescript-eslint.io/rules/${ruleName}`
       } else if (pluginName === 'import-x') {
@@ -65,8 +69,9 @@ async function getEslintRules(): Promise<EslintRule[]> {
       }
     })
 
-    // Sort rules by custom plugin order: Built-in < eslint-plugin-import-x < @typescript-eslint < eslint-plugin-browser-security
+    // Sort rules by custom plugin order: ts-prefixer < Built-in < eslint-plugin-import-x < @typescript-eslint < eslint-plugin-browser-security
     const pluginOrder = [
+      'ts-prefixer',
       'Built-in',
       'eslint-plugin-import-x',
       '@typescript-eslint',

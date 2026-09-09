@@ -8,12 +8,14 @@
   "type": "module",
   "main": "eslint.config.mjs",
   "files": [
-    "eslint.config.mjs"
+    "eslint.config.mjs",
+    "explicit-void-return-type.mjs"
   ],
   "scripts": {
     "lint": "eslint . -c eslint.config.mjs",
     "lint:fix": "eslint . -c eslint.config.mjs --fix",
     "prettier": "prettier --ignore-unknown --write .",
+    "test": "node --test test/*.test.mjs",
     "prepare": "husky",
     "push-release-commit": "push-release-commit"
   },
