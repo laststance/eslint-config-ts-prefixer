@@ -16,6 +16,7 @@
 - 💅 specialized fixable `import` rules.
 - ✅ Meamingful rules code behavior than which syntax sugar is good.
 - 🧹 redundant TypeScript assertions fail with [`@typescript-eslint/no-unnecessary-type-assertion`](https://typescript-eslint.io/rules/no-unnecessary-type-assertion/).
+- 📝 inferred value returns stay free; inferred `void` / `Promise<void>` must be written ([`ts-prefixer/explicit-void-return-type`](./explicit-void-return-type.mjs)).
 
 ## Oxlint package
 

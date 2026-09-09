@@ -3,6 +3,8 @@ import importPlugin from 'eslint-plugin-import-x'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
+import { tsPrefixerPlugin } from './explicit-void-return-type.mjs'
+
 export default [
   // Global ignores
   {
@@ -33,6 +35,7 @@ export default [
       '@typescript-eslint': tseslint.plugin,
       'browser-security': browserSecurity,
       'import-x': importPlugin,
+      'ts-prefixer': tsPrefixerPlugin,
     },
 
     linterOptions: {
@@ -99,6 +102,9 @@ export default [
 
       // Disallow redirects built from unvalidated input (open redirect).
       'browser-security/no-insecure-redirects': 'error',
+
+      // Require `: void` / `: Promise<void>` only when inference is void — value returns stay inferred.
+      'ts-prefixer/explicit-void-return-type': 'error',
 
       // Disallow awaiting a non-Promise value (usually a mistake in async code).
       '@typescript-eslint/await-thenable': 'error',
