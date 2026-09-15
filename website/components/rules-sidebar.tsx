@@ -212,7 +212,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
       {/* Desktop Sidebar - lg以上でのみ表示 */}
       {/* sticky (not fixed) keeps the aside a flex item, so <main> keeps its
           own column width without a matching margin hack */}
-      <aside className="hidden lg:block lg:sticky lg:top-16 lg:self-start lg:shrink-0 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
+      <aside className="hidden lg:block lg:sticky lg:top-16 lg:self-start lg:shrink-0 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r">
         {sidebarContent}
       </aside>
     </>

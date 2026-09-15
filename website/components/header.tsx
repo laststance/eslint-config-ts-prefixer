@@ -17,7 +17,7 @@ export function Header() {
     <NavigationGlass
       as="header"
       config={{ thickness: 'ultra-thick', shadow: 'md' }}
-      className="sticky! top-0 z-50 h-16 border-b rounded-bl-glass-lg rounded-br-glass-lg"
+      className="sticky! top-0 z-50 h-16 border-b rounded-none!"
     >
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         <Link
@@ -32,7 +32,7 @@ export function Header() {
             variant="glass"
             size="icon"
             asChild
-            className="glass-thin glass-border rounded-glass glass-transition hover:glass-medium active:scale-[0.96] min-h-[44px] min-w-[44px]"
+            className="glass-thin glass-border rounded-glass glass-transition hover:glass-medium active:scale-[0.96] size-9"
           >
             <Link
               href="https://github.com/laststance/eslint-config-ts-prefixer"

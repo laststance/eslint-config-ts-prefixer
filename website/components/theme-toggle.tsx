@@ -15,7 +15,7 @@ export function ThemeToggle() {
       variant="glass"
       size="icon"
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="glass-thin glass-tinted-blue glass-border rounded-glass glass-transition hover:glass-medium hover:scale-105 active:scale-[0.96] min-h-[44px] min-w-[44px]"
+      className="glass-thin glass-tinted-blue glass-border rounded-glass glass-transition hover:glass-medium hover:scale-105 active:scale-[0.96] size-9"
     >
       {/* Both icons stay mounted and cross-fade with scale + blur — no library,
           and the exit animation survives an interrupted click */}
