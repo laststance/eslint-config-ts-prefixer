@@ -39,8 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - '22.18.0'
-          - '24'
+          - '26.12.1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -57,11 +56,11 @@ jobs:
 
       # Root lint is identical across supported Node versions, so run it once.
       - name: Lint workspace
-        if: matrix.node-version == '24'
+        if: matrix.node-version == '26.12.1'
         run: pnpm lint
 
   latest-compatible:
-    name: Latest compatible peers / Node.js 24
+    name: Latest compatible peers / Node.js 26.12.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -69,7 +68,7 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare
         with:
-          node-version: '24'
+          node-version: '26.12.1'
 
       # Re-resolve within the supported peer ranges without changing the lockfile.
       - name: Install latest compatible Oxlint peers
